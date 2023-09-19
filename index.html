@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+    content="This is Key gives school pupils the chance to learn and revise key words for subjects they are studying at school in a fun and engaging way" />
+    <meta name="keywords"
+    content="BBC Bitesize, GCSE, revision, biology, learn, keywords, definitions, guessing game, spelling practice" />
+    <meta name="author" content="Sian Carrel" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>This is Key!</title>
+</head>
+<body>
+    <header>
+
+    </header>
+    <main>
+    <!-- Home Section  -->
+        <div id="home-display">
+            <!-- Logo and Welcome Message-->
+            <div class="logo-container">
+                <h1>This is Key!</h1>
+            </div>
+            <div>
+                <p>Welcome Message</p>
+            </div>
+            <!-- 'How to play' modal -->
+            <div class="button-container">
+                <button rules-open-modal>How to Play</button>
+                <dialog rules-modal>
+                    <div>The rules will go here</div>
+                    <button rules-close-modal>close</button>
+                </dialog>
+                <!-- Navigate to topic selection-->
+                <button type="button" onclick="showTopics()">Get Started</button>
+            </div>
+        </div>
+    <!-- Topics Section -->
+        <div id="topics-display">
+            <p>These are the topic options</p>
+            <!--Topics listed as buttons-->
+            <div class="button-container">
+                <button type="button" onclick="selectTopic()">topic 1</button>
+            </div>
+            <!--Navigation buttons-->
+            <div class="button-container">
+                <button type="button" onclick="returnToHome()">Back</button>
+                <button type="button" onclick="startGame()">Play!</button>
+            </div>
+        </div>
+    <!-- Game Play Section -->
+        <div id="game-play-display">
+            <p>This is where the game will be!</p>
+        </div>
+
+    </main>
+    <footer>
+
+    </footer>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

@@ -79,9 +79,13 @@ nav {
 
 #picture-container {
     background-color: azure;
-    height: 52vh;
+    height: 40vh;
     max-width: 100vw;
     margin: auto;
+}
+
+#word-display {
+    height: 12vh;
 }
 
 #guessed-box {

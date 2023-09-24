@@ -60,7 +60,7 @@
             <!--Navigation buttons-->
             <div class="button-container">
                 <button type="button" onclick="returnToHome()">Back</button>
-                <button type="button" onclick="showGamePlay()">Play!</button>
+                <button type="button" onclick="showGamePlay();newWord()">Play!</button>
             </div>
         </div>
     <!-- Game Play Section -->
@@ -70,6 +70,7 @@
                 <div id="picture-container">
                     <div id="picture">Changing picture</div>
                 </div>
+                <div id="word-display">This is Where the word will be</div>
                 <div id="guess-input-container">
                     <input id="letter-input" type="text" placeholder="Guess a letter">
                     <button id="letter-submit">Submit!</button>
@@ -95,6 +96,8 @@
     <footer>
 
     </footer>
-    <script src="assets\js\scripts\script.js"></script>
+    <script src="assets/js/scripts/script.js"></script>
+    <script src="assets/js/scripts/game.js"></script>
+
 </body>
 </html>

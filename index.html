@@ -65,14 +65,36 @@
         </div>
     <!-- Game Play Section -->
         <div id="game-play-display">
-            <div>Current score = 0</div>
-
+            <div id="game-play-container">
+                <div id="current-score">Current score = 0</div>
+                <div id="picture-container">
+                    <div id="picture">Changing picture</div>
+                </div>
+                <div id="guess-input-container">
+                    <input id="letter-input" type="text" placeholder="Guess a letter">
+                    <button id="letter-submit">Submit!</button>
+                </div>
+                <div id="guessed-box">   
+                    <div id="incorrect-guesses-count">Letters guessed = 0 of 8</div>
+                    <div id="incorrect-letters-guessed">Incorrectly guessed letters</div>
+                    <div id="guessed-letter-container">
+                        <div class="letter">1</div>
+                        <div class="letter">2</div>
+                        <div class="letter">3</div>
+                        <div class="letter">4</div>
+                        <div class="letter">5</div>
+                        <div class="letter">6</div>
+                        <div class="letter">7</div>
+                        <div class="letter">8</div>
+                      </div>
+                </div>
+            </div>  
         </div>
 
     </main>
     <footer>
 
     </footer>
-    <script src="assets/js/script.js"></script>
+    <script src="assets\js\scripts\script.js"></script>
 </body>
 </html>

@@ -14,17 +14,15 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     text-align: center;
-    padding: 15px 15px;
-    /* Change height to 100vh if nav isn't displayed */
-    height: 90vh;
+    padding: 0 15px;
+    height: 100vh;
 }
 
 /* Navbar */
 nav {
     background-color: aquamarine;
-    height: 100px;
+    height: 8vh;
     position: fixed;
 }
 
@@ -36,11 +34,9 @@ nav {
 
 #nav-display {
     width: 100vw;
-    height: 50px;
     display: none;
     flex-direction: row;
 }
-
 
 .show {
     display: block;
@@ -49,12 +45,75 @@ nav {
 /* home screen */
 #home-display {
     display: block;
+    height: 100vh;
+    padding-top: 40vh;
 }
 
 #topics-display {
     display: none;
+    height: 100vh;
+    padding-top: 40vh;
 }
 
 #game-play-display {
     display: none;
+    padding-top: 8vh;
+    height: 100vh;
+}
+
+/* Game Play Screen */
+#game-play-container {
+    background-color: rgb(151, 173, 173);
+    height: 92vh;
+    width: 100vw;
+}
+
+#current-score {
+    position: fixed;
+    float: left;
+}
+
+#guess-input-container {
+    padding: 10px;
+}
+
+#picture-container {
+    background-color: azure;
+    height: 52vh;
+    max-width: 100vw;
+    margin: auto;
+}
+
+#guessed-box {
+    width: 90vw;
+    height: 30vh;
+    margin: auto;
+    border: solid black 1px;
+}
+
+#incorrect-guesses-count {
+    text-align: left;
+    width: 100%;
+    height: 15%;
+
+}
+
+#incorrect-letters-guessed {
+    position: ab;
+    width: 90vw;
+    height: 15%;
+}
+
+#guessed-letter-container {
+    padding: 10px;
+    column-count: 4;
+    width: 60%;
+    height: 70%;
+    margin: auto;
+}
+.letter {
+    width: 33%;
+    height: 50%;
+    margin: auto;
+    padding-top: 10%
 }

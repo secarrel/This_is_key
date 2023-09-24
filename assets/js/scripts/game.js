@@ -1,5 +1,5 @@
 // temporary word array to test other functions
-var keywordOptions = [
+let keywordOptions = [
     "cat",
     "dog",
     "badger",
@@ -10,8 +10,8 @@ var keywordOptions = [
 
 
 // let chosenTopicData = [];
-let keywordOptions = [];
 let keyword = '';
+let tempWordArray = []
 // let maxIncorrect = 8;
 // let incorrectGuesses = 0;
 // let guessedLetters = [];
@@ -21,6 +21,6 @@ let keyword = '';
  */
 function newWord() {
     keyword = keywordOptions[Math.floor(Math.random() * keywordOptions.length)];
+    tempWordArray.push(keyword);
 }
 
-newWord()

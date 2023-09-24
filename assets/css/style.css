@@ -63,7 +63,6 @@ nav {
 
 /* Game Play Screen */
 #game-play-container {
-    background-color: rgb(151, 173, 173);
     height: 92vh;
     width: 100vw;
 }
@@ -71,6 +70,7 @@ nav {
 #current-score {
     position: fixed;
     float: left;
+    z-index: 100;
 }
 
 #guess-input-container {
@@ -78,14 +78,18 @@ nav {
 }
 
 #picture-container {
-    background-color: azure;
     height: 40vh;
     max-width: 100vw;
     margin: auto;
 }
 
+#changing-picture {
+    position: relative;
+    height: 100%;
+}
 #word-display {
-    height: 12vh;
+    height: 8vh;
+    padding-top: 8%;
 }
 
 #guessed-box {
@@ -97,6 +101,7 @@ nav {
 
 #incorrect-guesses-count {
     text-align: left;
+    padding-left: 5px;
     width: 100%;
     height: 15%;
 

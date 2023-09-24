@@ -6,6 +6,7 @@
 
 body {
     margin: 0;
+    height: 100vh;
 }
 
 main {
@@ -15,10 +16,37 @@ main {
     align-items: center;
     justify-content: center;
     text-align: center;
-    height: 100vh;
     padding: 15px 15px;
+    /* Change height to 100vh if nav isn't displayed */
+    height: 90vh;
 }
 
+/* Navbar */
+nav {
+    background-color: aquamarine;
+    height: 100px;
+    position: fixed;
+}
+
+.nav-element {
+    width: 33.3vw;
+    text-align: center;
+    padding: 15px;
+}
+
+#nav-display {
+    width: 100vw;
+    height: 50px;
+    display: none;
+    flex-direction: row;
+}
+
+
+.show {
+    display: block;
+}
+
+/* home screen */
 #home-display {
     display: block;
 }

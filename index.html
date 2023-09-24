@@ -14,7 +14,20 @@
 </head>
 <body>
     <header>
-
+        <nav id="nav-display">
+            <div class="nav-element" id="logo" type="button" onclick="returnToHome()">Logo</div>
+            <div class="nav-element" id="title" type="button" onclick="returnToHome()">This is Key!</div>
+            <div class="nav-element" menu-open-modal>Menu</div>
+            <dialog menu-modal>
+                <ul>
+                    <li type="button" onclick="showTopics();menuModal.close()">Change Topic</li>
+                    <li type="button" onclick="newGame();menuModal.close()">New Game</li>
+                    <li type="button" onclick="newWord();menuModal.close()">New Word</li>
+                </ul>
+                <p menu-close-modal>X</p>
+            </dialog>
+            </div>
+        </nav>
     </header>
     <main>
     <!-- Home Section  -->
@@ -47,12 +60,13 @@
             <!--Navigation buttons-->
             <div class="button-container">
                 <button type="button" onclick="returnToHome()">Back</button>
-                <button type="button" onclick="startGame()">Play!</button>
+                <button type="button" onclick="showGamePlay()">Play!</button>
             </div>
         </div>
     <!-- Game Play Section -->
         <div id="game-play-display">
-            <p>This is where the game will be!</p>
+            <div>Current score = 0</div>
+
         </div>
 
     </main>

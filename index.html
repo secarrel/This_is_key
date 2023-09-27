@@ -72,22 +72,16 @@
                 </div>
                 <p id="word-display">This is Where the word will be</p>
                 <div id="guess-input-container">
-                    <input id="letter-input" type="text" placeholder="Guess a letter">
-                    <button id="letter-submit">Submit!</button>
+                    <input id="letter-input" type="text" placeholder="Guess a letter" onkeydown="checkIfLetter(event)" >
                 </div>
                 <div id="guessed-box">   
                     <div id="incorrect-letters-guessed">Incorrectly guessed letters</div>
                     <div id="guessed-letter-container">
-                        <div class="letter">1</div>
-                        <div class="letter">2</div>
-                        <div class="letter">3</div>
-                        <div class="letter">4</div>
-                        <div class="letter">5</div>
-                        <div class="letter">6</div>
-                        <div class="letter">7</div>
-                        <div class="letter">8</div>
+                        <div class="incorrect-letter" id="1"></div>
                       </div>
-                      <div id="incorrect-guesses-count">Letters guessed = 0 of 8</div>
+                      <p id="incorrect-guesses-count">Remaining guesses</p>
+                      <p id="incorrect-guesses-count">8</p>
+
                 </div>
             </div>  
         </div>

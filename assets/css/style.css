@@ -87,6 +87,7 @@ nav {
     position: relative;
     height: 100%;
 }
+
 #word-display {
     height: 8vh;
     padding-top: 8%;
@@ -107,15 +108,12 @@ nav {
 
 }
 
-#incorrect-letters-guessed {
-    position: ab;
-    width: 90vw;
-    height: 15%;
+.incorrect-letter {
+    letter-spacing: 15px;
 }
 
 #guessed-letter-container {
     padding: 10px;
-    column-count: 4;
     width: 60%;
     height: 70%;
     margin: auto;

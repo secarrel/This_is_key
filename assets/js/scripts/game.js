@@ -1,31 +1,35 @@
 // temporary word array to test other functions
-let keywordOptions = [
+const keywordOptions = [
     "cat",
     "dog",
     "badger",
     "rabbit",
 ]
 
-
-
-
 // let chosenTopicData = [];
 let keyword = '';
+let keywordUpper = '';
+let keywordLetters = [];
 let tempWordArray = [];
-let incorrectGuesses = 0;
+let remainingGuesses = 8;
+let currentScore = 0;
 let lettersInWord = [];
-let wordProgress = '';
-let possibleLetters = '[ABCDEFGHIJKLMNOPQRSTUVWXYZ]';
+let wordProgress = null;
+const possibleLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+let guess = '';
 let guessedLetters = [];
+let upperGuess = '';
 
 /**
  * Generates a new random word from the 'keywordOptions' array.
  */
 function newWord() {
     keyword = keywordOptions[Math.floor(Math.random() * keywordOptions.length)];
-    tempWordArray.push(keyword);
+    keywordUpper = keyword.toUpperCase();
+    keywordLetters = keywordUpper.split("");
     underscoreWord();
-    console.log(tempWordArray);
+    console.log(keywordLetters);
+    console.log(keywordUpper);
     console.log(keywordOptions);
 }
 
@@ -38,44 +42,66 @@ function underscoreWord() {
     document.getElementById('word-display').innerHTML = wordProgress;
 }
 
-underscoreWord()
-
+// Detect guessed letter and submit on 'enter'.
 document.getElementById("letter-input").addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
+
+        checkIfLetter()
+
+        // checkGuess()
+
+        // checkForWin()
+
+        // checkForLoss()
+
+        // Clear input box and refocus for the next input on 'enter'
         document.getElementById("letter-input").value = "";
         document.getElementById("letter-input").focus();    
+        
     }
 })
 
-function checkIfLetter(event) {
-    let guess = event.key;
-    let upperGuess = guess.toUpperCase();
+/**
+ * Checks that the key pressed by the user is a letter and converts it to upper case.
+ * Pushes this confirmed letter to the array 'guessedLetters'.
+ */
+function checkIfLetter() {
+    guess = document.getElementById('letter-input').value;
+    upperGuess = guess.toUpperCase();
     let validGuess = possibleLetters.indexOf(upperGuess) !== -1;
     
     if (validGuess == true) {
-        guessedLetters.push(upperGuess);
+        let duplicateLetter = guessedLetters.indexOf(upperGuess) >= 0;
+        if (duplicateLetter == true) {
+            alert("You have already guessed this letter, try another")
+        } else {
+            guessedLetters.push(upperGuess);
+        }
     }
-    
-    console.log(upperGuess);
-    console.log(validGuess);
-    console.log(guessedLetters)
 
-    // checkIfDuplicate();
+    console.log(validGuess);
+    console.log(upperGuess);
+    console.log(guessedLetters);
+
 }
 
-// function checkIfDuplicate(upperGuess, guessedLetters){
-//     for (let i = 0; i < guessedLetters.length; i++) {
-//         if (guessedLetters[i] === upperGuess) {
-//             guessedLetters.pop(upperGuess);
-//             alert("You have already guessed this letter")
-//         } 
+// function checkGuess(upperGuess) {
+//     for (let i = 0; i < keyword.length; i++){
+//         if ()
 //     }
 // }
 
-// function submitLetter(event) {
-//     checkIfDuplicate()
-// }
+// function checkForWin()
 
-function check() {
-    
+// function checkForLoss()
+
+function checkForDuplicateLetter() {
+    console.log(duplicateLetter);
 }
+
+document.getElementById('remaining-guesses-count').innerHTML = remainingGuesses;
+
+
+// let replaceWordCaseInsensitive = text.replace(/NOT Case sensitiVE/i, "for this")
+
+// replace all matches: let newText = text.replace(/Case sensitive but all matches/g, "for this")

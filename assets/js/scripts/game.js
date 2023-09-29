@@ -13,12 +13,18 @@ let keywordLetters = [];
 let tempWordArray = [];
 let remainingGuesses = 8;
 let currentScore = 0;
-let lettersInWord = [];
-let wordProgress = null;
+let wordProgress = '';
 const possibleLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 let guess = '';
 let guessedLetters = [];
 let upperGuess = '';
+let correctLetterIndex = [];
+let incorrectLetters = [];
+let correctLetters = [];
+let win = false;
+
+document.getElementById('remaining-guesses-count').innerHTML = remainingGuesses;
+document.getElementById('score-count').innerHTML = currentScore;
 
 /**
  * Generates a new random word from the 'keywordOptions' array.
@@ -30,25 +36,15 @@ function newWord() {
     underscoreWord();
     console.log(keywordLetters);
     console.log(keywordUpper);
-    console.log(keywordOptions);
 }
 
-/**
- * Replaces all letters in the keyword with underscores.
- */
-function underscoreWord() {
-    wordProgress = keyword.split('').map(letter => (lettersInWord.indexOf(letter) >= 0 ? letter : " _ ")).join('');
-
-    document.getElementById('word-display').innerHTML = wordProgress;
-}
-
-// Detect guessed letter and submit on 'enter'.
+// Detect guessed letter and checks if correct on 'enter'.
 document.getElementById("letter-input").addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
 
         checkIfLetter()
 
-        // checkGuess()
+        checkGuess()
 
         // checkForWin()
 
@@ -57,9 +53,21 @@ document.getElementById("letter-input").addEventListener("keydown", function(eve
         // Clear input box and refocus for the next input on 'enter'
         document.getElementById("letter-input").value = "";
         document.getElementById("letter-input").focus();    
-        
+
+        console.log(upperGuess);
+        console.log(correctLetters);
+        console.log(incorrectLetters);
     }
 })
+
+/**
+ * Replaces all letters in the keyword with underscores.
+ */
+function underscoreWord() {
+    wordProgress = keyword.split('').map(letter => (keywordLetters.indexOf(letter) >= 0 ? letter : " _ ")).join('');
+
+    document.getElementById('word-display').innerHTML = wordProgress;
+}
 
 /**
  * Checks that the key pressed by the user is a letter and converts it to upper case.
@@ -70,38 +78,39 @@ function checkIfLetter() {
     upperGuess = guess.toUpperCase();
     let validGuess = possibleLetters.indexOf(upperGuess) !== -1;
     
-    if (validGuess == true) {
+    if (validGuess === true) {
         let duplicateLetter = guessedLetters.indexOf(upperGuess) >= 0;
-        if (duplicateLetter == true) {
-            alert("You have already guessed this letter, try another")
+        if (duplicateLetter === true) {
+            alert("You have already guessed this letter, try another");
         } else {
             guessedLetters.push(upperGuess);
         }
     }
 
-    console.log(validGuess);
-    console.log(upperGuess);
-    console.log(guessedLetters);
 
 }
 
-// function checkGuess(upperGuess) {
-//     for (let i = 0; i < keyword.length; i++){
-//         if ()
+function checkGuess() {
+    if ( keywordLetters.indexOf(upperGuess) >= 0) {
+        // revealLetter();
+        console.log(keywordLetters.indexOf(upperGuess));
+        correctLetters.push(upperGuess);
+    } else {
+        incorrectLetters.push(upperGuess);
+    }
+
+}
+
+// function revealLetter() {
+//     for (let i = 0; i < keywordLetters.length; i++){
 //     }
 // }
 
-// function checkForWin()
+// function checkForWin() {
+//     if (keywordLetters.length == correctLetters.length) {
+//         alert("You have won!")
+//     }
+// };
 
-// function checkForLoss()
-
-function checkForDuplicateLetter() {
-    console.log(duplicateLetter);
-}
-
-document.getElementById('remaining-guesses-count').innerHTML = remainingGuesses;
-
-
-// let replaceWordCaseInsensitive = text.replace(/NOT Case sensitiVE/i, "for this")
-
-// replace all matches: let newText = text.replace(/Case sensitive but all matches/g, "for this")
+// function checkForLoss() {
+// )

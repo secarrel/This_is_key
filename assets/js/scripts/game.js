@@ -18,7 +18,6 @@ const possibleLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 let guess = '';
 let guessedLetters = [];
 let upperGuess = '';
-let correctLetterIndex = [];
 let incorrectLetters = [];
 let correctLetters = [];
 let win = false;
@@ -38,7 +37,6 @@ function newWord() {
     //Reset temporary arrays from previous word
     guessedLetters = [];
     correctLetters = [];
-    correctLetterIndex = [];
     incorrectLetters = [];
     updatedWordProgress = '';
     upperGuess = '';
@@ -78,15 +76,26 @@ document.getElementById("letter-input").addEventListener("keydown", function(eve
  * Pushes this confirmed letter to the array 'guessedLetters'.
  */
 function checkIfLetter() {
+    // Set the value of 'guess' to the submitted letter.
     guess = document.getElementById('letter-input').value;
+    // Convert the letter to upper case.
     upperGuess = guess.toUpperCase();
-    let validGuess = possibleLetters.indexOf(upperGuess) !== -1;
     
+    // Identify if the letter is in the 'possibleLetters' array and therefore determine if the submitted content is valid.
+    let validGuess = possibleLetters.indexOf(upperGuess) !== -1;
     if (validGuess === true) {
+        // Check if the letter has been guessed already.
         let duplicateLetter = guessedLetters.indexOf(upperGuess) >= 0;
+        // Identify the number of letters in the input field.
+        let numberOfCharacters = guess.length;
         if (duplicateLetter === true) {
+            // Do not allow duplicate guesses.
             alert("You have already guessed this letter, try another");
+        } else if (numberOfCharacters > 1) {
+            // Do not allow more than one letter to be guessed at one time.
+            alert("Guess one letter at a time.")
         } else {
+            // If the guess is a letter and not a duplicate, add it to the 'guessedLetters' array.
             guessedLetters.push(upperGuess);
         }
     }
@@ -94,11 +103,12 @@ function checkIfLetter() {
 
 function checkGuess() {
     if ( keywordLetters.indexOf(upperGuess) >= 0) {
+        // If the letter is in the keyword, add the letter to 'correctLetters' array.
         correctLetters.push(upperGuess);
     } else {
+        // If the letter is not in the keyword, add the letter to 'incorrectLetters' array.
         incorrectLetters.push(upperGuess);
     }
-
 }
 
 function updateWordProgress(upperGuess) {
@@ -121,7 +131,7 @@ function updateWordProgress(upperGuess) {
   
     console.log('wordProgress', wordProgress);
     document.getElementById('word-display').innerHTML = wordProgress;
-  }
+}
 
 // function checkForWin() {
 //     if (keywordLetters.length == correctLetters.length) {

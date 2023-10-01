@@ -42,6 +42,8 @@ function reset(){
     incorrectLetters = [];
     incorrectLettersCount = [];
     correctLetters = [];    
+    remainingGuesses = 8;
+
 };
 
 
@@ -220,7 +222,10 @@ function checkForWin() {
 function checkForLoss() {
     if (remainingGuesses == 1) {
         alert("Unlucky, you didn't guess the word correctly this time.");
-        removePoint()
+        removePoint();
+        $("input").hide();
+        $("#next").removeClass("hide");
+
     };
 };
 

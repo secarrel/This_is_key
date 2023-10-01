@@ -21,7 +21,7 @@
             <dialog menu-modal>
                 <ul>
                     <li type="button" onclick="showTopics();menuModal.close()">Change Topic</li>
-                    <li type="button" onclick="reset();menuModal.close()">New Game</li>
+                    <li type="button" onclick="menuModal.close(); gameEndModal.showModal()">New Game</li>
                     <li type="button" onclick="newWord();menuModal.close()">New Word</li>
                 </ul>
                 <p menu-close-modal>X</p>
@@ -91,14 +91,15 @@
                 <div>audio pronunciation</div>
                 <button onclick="newWord();wordEndModal.close()">Next word</button>
                 <button onclick="showTopics();wordEndModal.close()">Change Topic</button>
-                <button onclick="reset();wordEndModal.close();endGameModal.open()">End Game</button>
+                <button onclick="wordEndModal.close(); returnToHome(); gameEndModal.showModal()">End Game</button>
             </dialog>
         </div>
     <!-- Game end Modal-->
-        <div end-game-open-modal id="end-game">
+        <div id="end-game">
             <dialog end-game-modal>
-                <div id="game-end-message">Bye. Thanks for playing!</div>
-                <button onclick="endGameModal.close(); returnToHome()"> x </button>
+                <div id="game-end-message">Are you sure you want to end the game? <br> All data from this game will be cleared.</div>
+                <button onclick="reset(); returnToHome(); gameEndModal.close()">Yes, I'm done.</button>
+                <button onclick="showTopics(); gameEndModal.close()">No, I'll just change topic</button>
             </dialog>
         </div>  
     </main>

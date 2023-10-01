@@ -45,18 +45,14 @@ openWordEndModal.addEventListener("click", () => {
 // ---------- Game end modal --------------
 
 // Get modal and modal buttons
-// const openGameEnd = document.querySelector("[-open-modal]")
-// const closeGameEnd = document.querySelector("[-close-modal]")
-// const gameEndModal = document.querySelector("[-modal]")
+const openGameEnd = document.querySelector("[end-game-open-modal]")
+const gameEndModal = document.querySelector("[end-game-modal]")
 
 // // Event listeners to open and close the modal 
-// openWordInfo.addEventListener("click", () => {
-//     wordInfoModal.showModal()
-// })
+openGameEnd.addEventListener("click", () => {
+    gameEndModal.showModal()
+})
 
-// closeWordInfo.addEventListener("click", () => {
-//     wordInfoModal.close()
-// })
 
 // ---------- Show Topics Function --------------
 /**

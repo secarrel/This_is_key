@@ -41,8 +41,7 @@ function reset(){
     guessedLetters = [];
     incorrectLetters = [];
     incorrectLettersCount = [];
-    correctLetters = [];
-    
+    correctLetters = [];    
 };
 
 
@@ -70,6 +69,9 @@ function newWord() {
     updatedWordProgress = '';
     upperGuess = '';
     remainingGuesses = 8;
+
+    document.getElementById('letter-array').innerHTML = incorrectLetters;
+    document.getElementById('remaining-guesses-count').innerHTML = remainingGuesses;
 
     checkWordArray();
 
@@ -216,7 +218,16 @@ function checkForWin() {
  * Checks if user has made too many incorrect guesses.
  */
 function checkForLoss() {
-    if (remainingGuesses == 0) {
+    if (remainingGuesses == 1) {
         alert("Unlucky, you didn't guess the word correctly this time.");
+        removePoint()
     };
 };
+
+
+function removePoint() {
+    let oldScore = currentScore;
+    currentScore = oldScore - 1;
+
+        document.getElementById("score-count").innerHTML = currentScore;
+}

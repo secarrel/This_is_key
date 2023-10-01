@@ -2,8 +2,8 @@
 
 // Get modal and modal buttons
 const openMenu = document.querySelector("[menu-open-modal]")
-const closeMenu = document.querySelector("[menu-close-modal")
-const menuModal = document.querySelector("[menu-modal")
+const closeMenu = document.querySelector("[menu-close-modal]")
+const menuModal = document.querySelector("[menu-modal]")
 
 // Event listeners 
 openMenu.addEventListener("click", () => {
@@ -17,18 +17,46 @@ closeMenu.addEventListener("click", () => {
 // ---------- How to play modal --------------
 
 // Get modal and modal buttons
-const openButton = document.querySelector("[rules-open-modal]")
-const closeButton = document.querySelector("[rules-close-modal")
-const rulesModal = document.querySelector("[rules-modal")
+const openRules = document.querySelector("[rules-open-modal]")
+const closeRules = document.querySelector("[rules-close-modal]")
+const rulesModal = document.querySelector("[rules-modal]")
 
 // Event listeners to open and close the modal 
-openButton.addEventListener("click", () => {
+openRules.addEventListener("click", () => {
     rulesModal.showModal()
 })
 
-closeButton.addEventListener("click", () => {
+closeRules.addEventListener("click", () => {
     rulesModal.close()
 })
+
+// ---------- Word end modal --------------
+
+// Get modal and modal buttons
+const openWordEndModal = document.getElementById("next")
+const wordEndModal = document.querySelector("[word-end-modal]")
+
+// Event listeners to open the modal 
+openWordEndModal.addEventListener("click", () => {
+    wordEndModal.showModal()
+})
+
+
+// ---------- Game end modal --------------
+
+// Get modal and modal buttons
+// const openGameEnd = document.querySelector("[-open-modal]")
+// const closeGameEnd = document.querySelector("[-close-modal]")
+// const gameEndModal = document.querySelector("[-modal]")
+
+// // Event listeners to open and close the modal 
+// openWordInfo.addEventListener("click", () => {
+//     wordInfoModal.showModal()
+// })
+
+// closeWordInfo.addEventListener("click", () => {
+//     wordInfoModal.close()
+// })
 
 // ---------- Show Topics Function --------------
 /**
@@ -77,19 +105,3 @@ function selectTopic() {
 }
 
 
-// ---------- New Game Function --------------
-/**
- * Sets 'current score' to '0', clears temp word array.
- */
-function newGame() {
-
-}
-
-// ---------- New Word Function --------------
-/**
- * A new word which doesn't appear in the temp word array is 
- * selected by its index using Math.random() and Math.floor() methods.
- * The index is added to a temp word array.
- */
-function newWord() {
-}

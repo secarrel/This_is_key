@@ -7,7 +7,7 @@ let keywordOptions = [
     "hamster",
     "bird",
     "fish"
-]
+];
 
 let keyword = '';
 let keywordUpper = '';
@@ -31,6 +31,32 @@ document.getElementById('remaining-guesses-count').innerHTML = remainingGuesses;
 document.getElementById('score-count').innerHTML = currentScore;
 
 
+/**
+ * Empties all temporary arrays.
+ */
+function reset(){
+    keywordOptions = [];
+    currentScore = 0;
+    keywordLetters = [];
+    guessedLetters = [];
+    incorrectLetters = [];
+    incorrectLettersCount = [];
+    correctLetters = [];
+    
+};
+
+
+
+// Detect guessed letter and checks if correct on 'enter'.
+document.getElementById("letter-input").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        checkLetter();
+        updateWordProgress(upperGuess);
+        checkForWin()
+        checkForLoss();
+
+    }
+});
 
 /**
  * Generates a new random word from the 'keywordOptions' array.
@@ -43,6 +69,7 @@ function newWord() {
     incorrectLettersCount = 0;
     updatedWordProgress = '';
     upperGuess = '';
+    remainingGuesses = 8;
 
     checkWordArray();
 
@@ -55,25 +82,9 @@ function newWord() {
 
     updateWordProgress(upperGuess);
 
+    $("input").show();
+    $("#next").addClass("hide");
 }
-
-// Detect guessed letter and checks if correct on 'enter'.
-document.getElementById("letter-input").addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-        checkForLoss();
-        checkForWin();
-        checkLetter();
-        updateWordProgress(upperGuess);
-
-        // Clear input box and refocus for the next input on 'enter'
-        document.getElementById("letter-input").value = "";
-        document.getElementById("letter-input").focus();    
-
-        console.log(upperGuess);
-        console.log(correctLetters);
-        console.log(incorrectLetters);
-    }
-});
 
 /**
  * Sorts the keywordOptions array in to a random order.
@@ -85,6 +96,9 @@ function randomiseKeywordOptions() {
     console.log(keywordOptions);
 };
 
+/**
+ * Checks if all words in 'keywordOptions' array have been used. 
+ */
 function checkWordArray() {
     if(keywordOptions.length == 0) {
         alert("all words have been used");
@@ -122,6 +136,12 @@ function checkLetter() {
     };
 
     ++ remainingGuesses;
+
+    // Clear input box and refocus for the next input on 'enter'
+    document.getElementById("letter-input").value = "";
+    document.getElementById("letter-input").focus();    
+    
+    
 };
 
 /**
@@ -131,7 +151,6 @@ function checkGuess() {
     if ( keywordLetters.indexOf(upperGuess) >= 0) {
         // If the letter is in the keyword, add the letter to 'correctLetters' array.
         correctLetters.push(upperGuess);
-        checkForWin();
     } else if (keywordLetters.indexOf(upperGuess) == -1){
         // If the letter is not in the keyword, add the letter to 'incorrectLetters' array.
         incorrectLetters.push(upperGuess)
@@ -139,7 +158,6 @@ function checkGuess() {
         document.getElementById("letter-array").innerHTML = incorrectLetters.join("");
         // Subtract 1 from remaining guesses count.
         remainingCount();
-        checkForLoss();
     };
 };
 
@@ -186,10 +204,11 @@ function checkForWin() {
     if (wordProgress.includes('_')) {
         win = false;
     } else {
-        win = true;
-        alert('You have won!');
         ++ currentScore;
         document.getElementById('score-count').innerHTML = currentScore;
+        alert("win")
+        $("input").hide();
+        $("#next").removeClass("hide");
     };
 };
 

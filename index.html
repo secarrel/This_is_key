@@ -21,7 +21,7 @@
             <dialog menu-modal>
                 <ul>
                     <li type="button" onclick="showTopics();menuModal.close()">Change Topic</li>
-                    <li type="button" onclick="newGame();menuModal.close()">New Game</li>
+                    <li type="button" onclick="reset();menuModal.close()">New Game</li>
                     <li type="button" onclick="newWord();menuModal.close()">New Word</li>
                 </ul>
                 <p menu-close-modal>X</p>
@@ -73,6 +73,7 @@
                 <p id="word-display">This is Where the word will be</p>
                 <div id="guess-input-container">
                     <input id="letter-input" type="text" placeholder="Guess a letter" >
+                    <button id="next" class="hide"> Next </button>
                 </div>
                 <div id="guessed-box">   
                     <div id="incorrect-letters-guessed">Incorrectly guessed letters</div>
@@ -81,17 +82,32 @@
                       </div>
                       <p id="remaining-guesses">Remaining guesses:</p>
                       <p id="remaining-guesses-count"></p>
-
                 </div>
             </div>  
+            <!-- Word end Modal-->
+            <dialog word-end-modal>
+                <div>WORD</div>
+                <div>definition</div>
+                <div>audio pronunciation</div>
+                <button onclick="newWord();wordEndModal.close()">Next word</button>
+                <button onclick="showTopics();wordEndModal.close()">Change Topic</button>
+                <button onclick="reset();wordEndModal.close();endGameModal.open()">End Game</button>
+            </dialog>
         </div>
-
+    <!-- Game end Modal-->
+        <div end-game-open-modal id="end-game">
+            <dialog end-game-modal>
+                <div id="game-end-message">Bye. Thanks for playing!</div>
+                <button onclick="endGameModal.close(); returnToHome()"> x </button>
+            </dialog>
+        </div>  
     </main>
     <footer>
 
     </footer>
     <script src="assets/js/scripts/script.js"></script>
     <script src="assets/js/scripts/game.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
 </body>
 </html>

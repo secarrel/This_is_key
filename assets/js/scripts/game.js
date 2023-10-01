@@ -13,7 +13,7 @@ let keyword = '';
 let keywordUpper = '';
 let keywordLetters = [];
 let usedWords = false;
-let remainingGuesses = 6;
+let remainingGuesses = 8;
 let currentScore = 0;
 let wordProgress = '';
 const possibleLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -60,10 +60,10 @@ function newWord() {
 // Detect guessed letter and checks if correct on 'enter'.
 document.getElementById("letter-input").addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
-
+        checkForLoss();
+        checkForWin();
         checkLetter();
         updateWordProgress(upperGuess);
-        checkForWin();
 
         // Clear input box and refocus for the next input on 'enter'
         document.getElementById("letter-input").value = "";
@@ -80,16 +80,16 @@ document.getElementById("letter-input").addEventListener("keydown", function(eve
  */
 function randomiseKeywordOptions() {
     keywordOptions.sort(function(){
-        return 0.5 - Math.random()
+        return 0.5 - Math.random();
     });
     console.log(keywordOptions);
-}
+};
 
 function checkWordArray() {
     if(keywordOptions.length == 0) {
         alert("all words have been used");
-    }
-}
+    };
+};
 
 /**
  * Checks that the key pressed by the user is a letter and converts it to upper case.
@@ -117,7 +117,7 @@ function checkLetter() {
         } else {
             // If the guess is a letter and not a duplicate, add it to the 'guessedLetters' array.
             guessedLetters.push(upperGuess);
-            checkGuess()
+            checkGuess();
         };
     };
 
@@ -131,17 +131,17 @@ function checkGuess() {
     if ( keywordLetters.indexOf(upperGuess) >= 0) {
         // If the letter is in the keyword, add the letter to 'correctLetters' array.
         correctLetters.push(upperGuess);
-        checkForWin()
-
+        checkForWin();
     } else if (keywordLetters.indexOf(upperGuess) == -1){
         // If the letter is not in the keyword, add the letter to 'incorrectLetters' array.
-        incorrectLetters.push(upperGuess);
+        incorrectLetters.push(upperGuess)
+        // Display incorrect letters for user to see.
+        document.getElementById("letter-array").innerHTML = incorrectLetters.join("");
         // Subtract 1 from remaining guesses count.
         remainingCount();
-        checkForLoss()
-
-    }
-}
+        checkForLoss();
+    };
+};
 
 /**
  * Reduces 1 from the value of 'remainingGuesses' and updates the 'Remaining Guesses' display for the user.
@@ -170,15 +170,18 @@ function updateWordProgress(upperGuess) {
       } else {
         // Otherwise, use an underscore.
         updatedWordProgress += '_ ';
-      }
-    }
+      };
+    };
   
     wordProgress = updatedWordProgress.toUpperCase();
   
     console.log('wordProgress', wordProgress);
     document.getElementById('word-display').innerHTML = wordProgress;
-}
+};
 
+/**
+ * Checks if user has correctly guessed all letters in the word.
+ */
 function checkForWin() {
     if (wordProgress.includes('_')) {
         win = false;
@@ -187,12 +190,14 @@ function checkForWin() {
         alert('You have won!');
         ++ currentScore;
         document.getElementById('score-count').innerHTML = currentScore;
-    }
+    };
 };
 
-
+/**
+ * Checks if user has made too many incorrect guesses.
+ */
 function checkForLoss() {
     if (remainingGuesses == 0) {
-        alert("Unlucky, you didn't guess the word correctly this time.")
-    }
-}
+        alert("Unlucky, you didn't guess the word correctly this time.");
+    };
+};

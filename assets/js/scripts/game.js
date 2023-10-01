@@ -1,16 +1,19 @@
 // temporary word array to test other functions
-const keywordOptions = [
+let keywordOptions = [
     "cat",
     "dog",
     "badger",
     "rabbit",
+    "hamster",
+    "bird",
+    "fish"
 ]
 
 let keyword = '';
 let keywordUpper = '';
 let keywordLetters = [];
-let tempWordArray = [];
-let remainingGuesses = 8;
+let usedWords = false;
+let remainingGuesses = 6;
 let currentScore = 0;
 let wordProgress = '';
 const possibleLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -27,14 +30,12 @@ let loss = false;
 document.getElementById('remaining-guesses-count').innerHTML = remainingGuesses;
 document.getElementById('score-count').innerHTML = currentScore;
 
+
+
 /**
  * Generates a new random word from the 'keywordOptions' array.
  */
 function newWord() {
-    keyword = keywordOptions[Math.floor(Math.random() * keywordOptions.length)];
-    keywordUpper = keyword.toUpperCase();
-    keywordLetters = keywordUpper.split("");
-
     //Reset temporary arrays from previous word
     guessedLetters = [];
     correctLetters = [];
@@ -42,7 +43,14 @@ function newWord() {
     incorrectLettersCount = 0;
     updatedWordProgress = '';
     upperGuess = '';
-    
+
+    // Generate a new word
+    randomiseKeywordOptions();
+    keyword = keywordOptions[keywordOptions.length - 1];
+    keywordOptions.pop(keyword)
+    keywordUpper = keyword.toUpperCase();
+    keywordLetters = keywordUpper.split("");
+
     updateWordProgress(upperGuess);
 
 }
@@ -51,13 +59,9 @@ function newWord() {
 document.getElementById("letter-input").addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
 
-        checkLetter()
-
+        checkLetter();
         updateWordProgress(upperGuess);
-
-        checkForWin()
-
-        checkForLoss()
+        checkForWin();
 
         // Clear input box and refocus for the next input on 'enter'
         document.getElementById("letter-input").value = "";
@@ -69,6 +73,15 @@ document.getElementById("letter-input").addEventListener("keydown", function(eve
     }
 });
 
+/**
+ * Sorts the keywordOptions array in to a random order.
+ */
+function randomiseKeywordOptions() {
+    keywordOptions.sort(function(){
+        return 0.5 - Math.random()
+    });
+    console.log(keywordOptions);
+}
 
 /**
  * Checks that the key pressed by the user is a letter and converts it to upper case.
@@ -110,11 +123,15 @@ function checkGuess() {
     if ( keywordLetters.indexOf(upperGuess) >= 0) {
         // If the letter is in the keyword, add the letter to 'correctLetters' array.
         correctLetters.push(upperGuess);
+        checkForWin()
+
     } else if (keywordLetters.indexOf(upperGuess) == -1){
         // If the letter is not in the keyword, add the letter to 'incorrectLetters' array.
         incorrectLetters.push(upperGuess);
         // Subtract 1 from remaining guesses count.
         remainingCount();
+        checkForLoss()
+
     }
 }
 
@@ -158,16 +175,16 @@ function checkForWin() {
     if (wordProgress.includes('_')) {
         win = false;
     } else {
+        win = true;
         alert('You have won!');
         ++ currentScore;
         document.getElementById('score-count').innerHTML = currentScore;
-
     }
 };
 
 
 function checkForLoss() {
-    if (remainingGuesses = 0) {
+    if (remainingGuesses == 0) {
         alert("Unlucky, you didn't guess the word correctly this time.")
     }
 }

@@ -18,6 +18,7 @@ let guess = '';
 let guessedLetters = [];
 let upperGuess = '';
 let incorrectLetters = [];
+let incorrectLettersCount = [];
 let correctLetters = [];
 let win = false;
 let loss = false;
@@ -38,6 +39,7 @@ function newWord() {
     guessedLetters = [];
     correctLetters = [];
     incorrectLetters = [];
+    incorrectLettersCount = 0;
     updatedWordProgress = '';
     upperGuess = '';
     
@@ -50,8 +52,6 @@ document.getElementById("letter-input").addEventListener("keydown", function(eve
     if (event.key === "Enter") {
 
         checkLetter()
-
-        checkGuess()
 
         updateWordProgress(upperGuess);
 
@@ -86,12 +86,9 @@ function checkLetter() {
     if (validGuess == -1) {
         alert("Guess one letter");
         upperGuess = '';
-    } else {
+    } else if (validGuess >= 0) {
         // Check if letter has already been guessed.
         let duplicateLetter = guessedLetters.indexOf(upperGuess) >= 0;
-
-        // Identify the number of letters in the input field.
-        let numberOfCharacters = guess.length;
 
         if (duplicateLetter === true) {
             // Do not allow duplicate guesses.
@@ -99,20 +96,42 @@ function checkLetter() {
         } else {
             // If the guess is a letter and not a duplicate, add it to the 'guessedLetters' array.
             guessedLetters.push(upperGuess);
+            checkGuess()
         };
     };
+
+    ++ remainingGuesses;
 };
 
+/**
+ * Checks if the guessed letter is anywhere in the keyword.
+ */
 function checkGuess() {
     if ( keywordLetters.indexOf(upperGuess) >= 0) {
         // If the letter is in the keyword, add the letter to 'correctLetters' array.
         correctLetters.push(upperGuess);
-    } else {
+    } else if (keywordLetters.indexOf(upperGuess) == -1){
         // If the letter is not in the keyword, add the letter to 'incorrectLetters' array.
         incorrectLetters.push(upperGuess);
+        // Subtract 1 from remaining guesses count.
+        remainingCount();
     }
 }
 
+/**
+ * Reduces 1 from the value of 'remainingGuesses' and updates the 'Remaining Guesses' display for the user.
+ */
+function remainingCount() {
+    incorrectLettersCount ++
+    remainingGuesses = 8 - incorrectLettersCount;
+
+    document.getElementById('remaining-guesses-count').innerHTML = remainingGuesses;
+}
+
+/**
+ * Runs a 'for loop' so the guessed letter is checked against every letter in the keyword. If there is a match, 
+ * the matching letter is displayed. If there is not a match, the letters are displayed as underscores. 
+ */
 function updateWordProgress(upperGuess) {
     updatedWordProgress = '';
   

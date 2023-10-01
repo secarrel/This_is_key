@@ -44,6 +44,8 @@ function newWord() {
     updatedWordProgress = '';
     upperGuess = '';
 
+    checkWordArray();
+
     // Generate a new word
     randomiseKeywordOptions();
     keyword = keywordOptions[keywordOptions.length - 1];
@@ -81,6 +83,12 @@ function randomiseKeywordOptions() {
         return 0.5 - Math.random()
     });
     console.log(keywordOptions);
+}
+
+function checkWordArray() {
+    if(keywordOptions.length == 0) {
+        alert("all words have been used");
+    }
 }
 
 /**

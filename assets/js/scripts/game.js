@@ -75,6 +75,8 @@ function newWord() {
     document.getElementById('letter-array').innerHTML = incorrectLetters;
     document.getElementById('remaining-guesses-count').innerHTML = remainingGuesses;
 
+    changeImage();
+
     checkWordArray();
 
     // Generate a new word
@@ -162,6 +164,8 @@ function checkGuess() {
         document.getElementById("letter-array").innerHTML = incorrectLetters.join("");
         // Subtract 1 from remaining guesses count.
         remainingCount();
+        changeImage();
+
     };
 };
 
@@ -173,6 +177,28 @@ function remainingCount() {
     remainingGuesses = 8 - incorrectLettersCount;
 
     document.getElementById('remaining-guesses-count').innerHTML = remainingGuesses;
+}
+
+function changeImage() {
+    if (incorrectLettersCount == 1) {
+        $("#changing-picture").attr("src", "assets/images/guess1.png");
+    } else if (incorrectLettersCount == 2) {
+        $("#changing-picture").attr("src", "assets/images/guess2.png");
+    } else if (incorrectLettersCount == 3) {
+        $("#changing-picture").attr("src", "assets/images/guess3.png");
+    } else if (incorrectLettersCount == 4) {
+        $("#changing-picture").attr("src", "assets/images/guess4.png");
+    } else if (incorrectLettersCount == 5) {
+        $("#changing-picture").attr("src", "assets/images/guess5.png");
+    } else if (incorrectLettersCount == 6) {
+        $("#changing-picture").attr("src", "assets/images/guess6.png");
+    } else if (incorrectLettersCount == 7) {
+        $("#changing-picture").attr("src", "assets/images/guess7.png");
+    } else if (incorrectLettersCount == 8) {
+        $("#changing-picture").attr("src", "assets/images/guess8.png");
+    } else if (incorrectLettersCount == 0) {
+        $("#changing-picture").attr("src", "assets/images/noguess.png");
+    }
 }
 
 /**

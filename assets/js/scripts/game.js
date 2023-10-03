@@ -1,18 +1,9 @@
 // temporary word array to test other functions
-let keywordOptions = [
-    "cat",
-    "dog",
-    "badger",
-    "rabbit",
-    "hamster",
-    "bird",
-    "fish"
-];
-
+let keywordOptions = [];
 let keyword = '';
 let keywordUpper = '';
 let keywordLetters = [];
-let usedWords = false;
+// let usedWords = false;
 let remainingGuesses = 8;
 let currentScore = 0;
 let wordProgress = '';
@@ -24,12 +15,18 @@ let incorrectLetters = [];
 let incorrectLettersCount = [];
 let correctLetters = [];
 let win = false;
-let loss = false;
+// let loss = false;
+let topic = '';
+const biologyJson = 'assets/js/biology_keywords/'
+let topicWords = [];
+let topicDefinitions = [];
+let wordAndDefinition = [];
+let keywordIndexOptions = [];
+let keywordIndex = '';
 
 
 document.getElementById('remaining-guesses-count').innerHTML = remainingGuesses;
 document.getElementById('score-count').innerHTML = currentScore;
-
 
 /**
  * Empties all temporary arrays.
@@ -46,7 +43,41 @@ function reset(){
 
 };
 
+/**
+ * Selects json file corresponding with click event and uses the 
+ * key word array from this file for the newWord() function.
+ */
+function selectTopic(clicked_id) {
+    topic = clicked_id;
+    jsonFile = biologyJson.concat(topic) + '.json';
+    getData(jsonFile);
+};
 
+/**
+ * Fetch the data from the relevant json file and create seperate word and definition arrays.
+ */
+function getData(jsonFile) {
+    fetch(jsonFile).then(function(response) {
+        response.json().then(function(jsonData){          
+            jsonData.forEach(function(item){
+                keywordOptions.push(item.word);
+                topicDefinitions.push(item.definition);
+          });
+        createIndexOptions();
+        });
+    });
+}
+
+/**
+ * Creates a new array for keywords indexes.
+ */
+function createIndexOptions(){
+    for (let i = 0; i < keywordOptions.length; i ++) {
+    keywordIndexOptions.push(i);
+    }
+    console.log(keywordIndexOptions);
+    console.log(keywordOptions)
+};
 
 // Detect guessed letter and checks if correct on 'enter'.
 document.getElementById("letter-input").addEventListener("keydown", function(event) {
@@ -81,12 +112,19 @@ function newWord() {
 
     // Generate a new word
     randomiseKeywordOptions();
-    keyword = keywordOptions[keywordOptions.length - 1];
-    keywordOptions.pop(keyword)
+    keywordIndex = keywordIndexOptions[keywordIndexOptions.length - 1];
+    keywordIndexOptions.pop(keywordIndex);
+    keyword = keywordOptions[keywordIndex];
     keywordUpper = keyword.toUpperCase();
     keywordLetters = keywordUpper.split("");
 
+    console.log(keyword);
+
     updateWordProgress(upperGuess);
+
+    displayDefinition()
+
+    clearAndFocus();
 
     $("input").show();
     $("#next").addClass("hide");
@@ -96,10 +134,10 @@ function newWord() {
  * Sorts the keywordOptions array in to a random order.
  */
 function randomiseKeywordOptions() {
-    keywordOptions.sort(function(){
+    keywordIndexOptions.sort(function(){
         return 0.5 - Math.random();
     });
-    console.log(keywordOptions);
+    console.log(keywordIndexOptions)
 };
 
 /**
@@ -110,6 +148,13 @@ function checkWordArray() {
         alert("all words have been used");
     };
 };
+
+/**
+ * displays the definition linked to the keyword.
+ */
+function displayDefinition() {
+    $("#definition-display").text(topicDefinitions[keywordIndex])
+}
 
 /**
  * Checks that the key pressed by the user is a letter and converts it to upper case.
@@ -143,13 +188,17 @@ function checkLetter() {
 
     ++ remainingGuesses;
 
-    // Clear input box and refocus for the next input on 'enter'
-    document.getElementById("letter-input").value = "";
-    document.getElementById("letter-input").focus();    
-    
-    
+    clearAndFocus()  
 };
 
+/**
+ * Clear input box and focus for the next input
+ */
+function clearAndFocus(){
+        document.getElementById("letter-input").value = "";
+        document.getElementById("letter-input").focus();    
+    
+}
 /**
  * Checks if the guessed letter is anywhere in the keyword.
  */
@@ -179,6 +228,9 @@ function remainingCount() {
     document.getElementById('remaining-guesses-count').innerHTML = remainingGuesses;
 }
 
+/**
+ * Changes the image every time an incorrect letter is guessed.
+ */
 function changeImage() {
     if (incorrectLettersCount == 1) {
         $("#changing-picture").attr("src", "assets/images/guess1.png");
@@ -223,7 +275,6 @@ function updateWordProgress(upperGuess) {
   
     wordProgress = updatedWordProgress.toUpperCase();
   
-    console.log('wordProgress', wordProgress);
     document.getElementById('word-display').innerHTML = wordProgress;
 };
 
@@ -255,10 +306,12 @@ function checkForLoss() {
     };
 };
 
-
+/**
+ * reduces the score by one when a word is not correctly guessed.
+ */
 function removePoint() {
     let oldScore = currentScore;
     currentScore = oldScore - 1;
 
         document.getElementById("score-count").innerHTML = currentScore;
-}
+};

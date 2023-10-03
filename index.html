@@ -55,7 +55,7 @@
             <p>These are the topic options</p>
             <!--Topics listed as buttons-->
             <div class="button-container">
-                <button type="button" onclick="selectTopic()">topic 1</button>
+                <button class="topic" id="cells" type="button" onclick="selectTopic(this.id)">Cells and Membranes</button>
             </div>
             <!--Navigation buttons-->
             <div class="button-container">
@@ -70,6 +70,7 @@
                 <div id="picture-container">
                     <img id="changing-picture" src="assets/images/noguess.png" alt="">
                 </div>
+                <p id="definition-display">This is the definition</p>
                 <p id="word-display">This is Where the word will be</p>
                 <div id="guess-input-container">
                     <input id="letter-input" type="text" placeholder="Guess a letter" >

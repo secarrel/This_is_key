@@ -49,9 +49,9 @@ const openGameEnd = document.querySelector("[end-game-open-modal]")
 const gameEndModal = document.querySelector("[end-game-modal]")
 
 // // Event listeners to open and close the modal 
-openGameEnd.addEventListener("click", () => {
-    gameEndModal.showModal()
-})
+// openGameEnd.addEventListener("click", () => {
+//     gameEndModal.showModal()
+// })
 
 
 // ---------- Show Topics Function --------------
@@ -89,15 +89,6 @@ function showGamePlay() {
     const topicsDisplay = document.getElementById("topics-display").style.display = "none";
     const gamePlayDisplay = document.getElementById("game-play-display").style.display = "block";
     const navDisplay = document.getElementById("nav-display").style.display = "flex";
-}
-
-
-// ---------- Select Topic Function --------------
-/**
- * Selects json file corresponding with click event and uses the 
- * key word array from this file for the newWord() function.
- */
-function selectTopic() {
 }
 
 

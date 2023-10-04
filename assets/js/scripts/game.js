@@ -48,6 +48,11 @@ function reset(){
  * key word array from this file for the newWord() function.
  */
 function selectTopic(clicked_id) {
+    // Reset topic related temp arrays.
+    keywordOptions = [];
+    keywordIndexOptions = [];
+    topicDefinitions = [];
+
     topic = clicked_id;
     jsonFile = biologyJson.concat(topic) + '.json';
     getData(jsonFile);

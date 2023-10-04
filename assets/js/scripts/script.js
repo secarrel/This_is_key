@@ -85,10 +85,14 @@ function returnToHome () {
  * Hides all content from "topics-display" and "home-display" divs.
  */
 function showGamePlay() {
-    const homeDisplay = document.getElementById("home-display").style.display = "none";
-    const topicsDisplay = document.getElementById("topics-display").style.display = "none";
-    const gamePlayDisplay = document.getElementById("game-play-display").style.display = "block";
-    const navDisplay = document.getElementById("nav-display").style.display = "flex";
+    if (topic !== ''){
+        const homeDisplay = document.getElementById("home-display").style.display = "none";
+        const topicsDisplay = document.getElementById("topics-display").style.display = "none";
+        const gamePlayDisplay = document.getElementById("game-play-display").style.display = "block";
+        const navDisplay = document.getElementById("nav-display").style.display = "flex";
+    } else {
+        alert("you must select a topic to continue")
+    }
 }
 
 

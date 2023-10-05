@@ -7,7 +7,7 @@ let keywordLetters = [];
 let remainingGuesses = 8;
 let currentScore = 0;
 let wordProgress = '';
-const possibleLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const possibleLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ ';
 let guess = '';
 let guessedLetters = [];
 let upperGuess = '';
@@ -23,6 +23,7 @@ let topicDefinitions = [];
 let wordAndDefinition = [];
 let keywordIndexOptions = [];
 let keywordIndex = '';
+const dictionaryURL = "https://api.dictionaryapi.dev/api/v2/entries/en/"
 
 
 document.getElementById('remaining-guesses-count').innerHTML = remainingGuesses;
@@ -48,15 +49,27 @@ function reset(){
  * key word array from this file for the newWord() function.
  */
 function selectTopic(clicked_id) {
-    // Reset topic related temp arrays.
+
+    // Reset topic related temp arrays and styling.
     keywordOptions = [];
     keywordIndexOptions = [];
     topicDefinitions = [];
 
     topic = clicked_id;
     jsonFile = biologyJson.concat(topic) + '.json';
-    getData(jsonFile);
+    getData(jsonFile);  
+
+    // forEach.$(".topic").highlight(clicked_id) 
 };
+
+// function highlight(clicked_id) {
+//     if (topic == clicked_id) {
+//         document.getElementById(this.id).style.background = "green"
+//     } else {
+//         document.getElementById(this.id).style.background = "grey"
+//     }
+// }
+
 
 /**
  * Fetch the data from the relevant json file and create seperate word and definition arrays.
@@ -71,7 +84,7 @@ function getData(jsonFile) {
         createIndexOptions();
         });
     });
-}
+};
 
 /**
  * Creates a new array for keywords indexes.
@@ -91,7 +104,6 @@ document.getElementById("letter-input").addEventListener("keydown", function(eve
         updateWordProgress(upperGuess);
         checkForWin()
         checkForLoss();
-
     }
 });
 
@@ -133,7 +145,13 @@ function newWord() {
 
     $("input").show();
     $("#next").addClass("hide");
-}
+};
+
+function getPronounciation() {
+    let pronounciation = new SpeechSynthesisUtterance(keyword);
+    speechSynthesis.speak(pronounciation);
+};
+
 
 /**
  * Sorts the keywordOptions array in to a random order.
@@ -158,7 +176,7 @@ function checkWordArray() {
  * displays the definition linked to the keyword.
  */
 function displayDefinition() {
-    $("#definition-display").text(topicDefinitions[keywordIndex])
+    $("#definition-display").text(topicDefinitions[keywordIndex]);
 }
 
 /**
@@ -277,7 +295,7 @@ function updateWordProgress(upperGuess) {
         updatedWordProgress += '_ ';
       };
     };
-  
+
     wordProgress = updatedWordProgress.toUpperCase();
   
     document.getElementById('word-display').innerHTML = wordProgress;
@@ -295,6 +313,7 @@ function checkForWin() {
         alert("win")
         $("input").hide();
         $("#next").removeClass("hide");
+        displayWordInfo();
     };
 };
 
@@ -307,7 +326,7 @@ function checkForLoss() {
         removePoint();
         $("input").hide();
         $("#next").removeClass("hide");
-
+        displayWordInfo();
     };
 };
 
@@ -318,5 +337,13 @@ function removePoint() {
     let oldScore = currentScore;
     currentScore = oldScore - 1;
 
-        document.getElementById("score-count").innerHTML = currentScore;
+    document.getElementById("score-count").innerHTML = currentScore;
 };
+
+/**
+ * Displays the keyword and definition in the word end modal. 
+ */
+function displayWordInfo() {
+    $("#end-definition").text(topicDefinitions[keywordIndex])
+    $("#end-word").text(keyword.toUpperCase())
+}

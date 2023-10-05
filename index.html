@@ -8,7 +8,7 @@
     <meta name="keywords"
     content="BBC Bitesize, GCSE, revision, biology, learn, keywords, definitions, guessing game, spelling practice" />
     <meta name="author" content="Sian Carrel" />
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/css/style.css">
     <title>This is Key!</title>
 </head>
@@ -62,7 +62,7 @@
             <!--Navigation buttons-->
             <div class="button-container">
                 <button type="button" onclick="returnToHome()">Back</button>
-                <button type="button" onclick="showGamePlay();newWord()">Play!</button>
+                <button type="button" id="play" onclick="showGamePlay();newWord()">Play!</button>
             </div>
         </div>
     <!-- Game Play Section -->
@@ -89,9 +89,9 @@
             </div>  
             <!-- Word end Modal-->
             <dialog word-end-modal>
-                <div>WORD</div>
-                <div>definition</div>
-                <div>audio pronunciation</div>
+                <div id="end-word">WORD</div>
+                <div id="end-definition">definition</div>
+                <button onclick="getPronounciation()"> <i class="fa-solid fa-circle-play"></i> </button>
                 <button onclick="newWord();wordEndModal.close()">Next word</button>
                 <button onclick="showTopics();wordEndModal.close()">Change Topic</button>
                 <button onclick="wordEndModal.close(); returnToHome(); gameEndModal.showModal()">End Game</button>

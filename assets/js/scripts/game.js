@@ -256,23 +256,23 @@ function remainingCount() {
  */
 function changeImage() {
     if (incorrectLettersCount == 1) {
-        $("#changing-picture").attr("src", "assets/images/guess1.png");
+        $("#changing-picture").attr("src", "assets/images/pinkflower_guess1.png");
     } else if (incorrectLettersCount == 2) {
-        $("#changing-picture").attr("src", "assets/images/guess2.png");
+        $("#changing-picture").attr("src", "assets/images/pinkflower_guess2.png");
     } else if (incorrectLettersCount == 3) {
-        $("#changing-picture").attr("src", "assets/images/guess3.png");
+        $("#changing-picture").attr("src", "assets/images/pinkflower_guess3.png");
     } else if (incorrectLettersCount == 4) {
-        $("#changing-picture").attr("src", "assets/images/guess4.png");
+        $("#changing-picture").attr("src", "assets/images/pinkflower_guess4.png");
     } else if (incorrectLettersCount == 5) {
-        $("#changing-picture").attr("src", "assets/images/guess5.png");
+        $("#changing-picture").attr("src", "assets/images/pinkflower_guess5.png");
     } else if (incorrectLettersCount == 6) {
-        $("#changing-picture").attr("src", "assets/images/guess6.png");
+        $("#changing-picture").attr("src", "assets/images/pinkflower_guess6.png");
     } else if (incorrectLettersCount == 7) {
-        $("#changing-picture").attr("src", "assets/images/guess7.png");
+        $("#changing-picture").attr("src", "assets/images/pinkflower_guess7.png");
     } else if (incorrectLettersCount == 8) {
-        $("#changing-picture").attr("src", "assets/images/guess8.png");
+        $("#changing-picture").attr("src", "assets/images/pinkflower_guess8.png");
     } else if (incorrectLettersCount == 0) {
-        $("#changing-picture").attr("src", "assets/images/noguess.png");
+        $("#changing-picture").attr("src", "assets/images/pinkflower_noguess.png");
     }
 }
 

@@ -54,15 +54,18 @@
         <div id="topics-display">
             <p>These are the topic options</p>
             <!--Topics listed as buttons-->
-            <div class="button-container">
-                <button class="topic" id="cells" type="button" onclick="selectTopic(this.id)">Cells and movement across membranes</button>
-                <button class="topic" id="respiration" type="button" onclick="selectTopic(this.id)">The respiratory system in humans</button>
-                <button class="topic" id="digestion" type="button" onclick="selectTopic(this.id)">The digestive system in humans</button>
+            <div class="button-container" id="topic-select">
+                <input type="radio" class="topic" name="topic-select" id="cells" onclick="selectTopic(this.id)">
+                <label class="topic-button" for="cells">Cells and movement across membranes</label>
+                <input type="radio" class="topic" name="topic-select" id="respiration" onclick="selectTopic(this.id)">
+                <label class="topic-button" for="respiration">The respiratory system in humans</label>
+                <input type="radio" class="topic" name="topic-select" id="digestion" onclick="selectTopic(this.id)">
+                <label class="topic-button" for="digestion">The digestive system in humans</label>
             </div>
             <!--Navigation buttons-->
             <div class="button-container">
                 <button type="button" onclick="returnToHome()">Back</button>
-                <button type="button" id="play" onclick="showGamePlay();newWord()">Play!</button>
+                <button type="button" id="play" disabled onclick="showGamePlay();newWord()">Play!</button>
             </div>
         </div>
     <!-- Game Play Section -->
@@ -86,12 +89,12 @@
                       <p id="remaining-guesses">Remaining guesses:</p>
                       <p id="remaining-guesses-count"></p>
                 </div>
-            </div>  
+            </div>   
             <!-- Word end Modal-->
             <dialog word-end-modal>
                 <div id="end-word">WORD</div>
                 <div id="end-definition">definition</div>
-                <button onclick="getPronounciation()"> <i class="fa-solid fa-circle-play"></i> </button>
+                <button onclick="getPronounciation()"> Listen to this word <i class="fa-solid fa-circle-play"></i> </button>
                 <button onclick="newWord();wordEndModal.close()">Next word</button>
                 <button onclick="showTopics();wordEndModal.close()">Change Topic</button>
                 <button onclick="wordEndModal.close(); returnToHome(); gameEndModal.showModal()">End Game</button>

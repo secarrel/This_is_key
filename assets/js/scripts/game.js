@@ -55,21 +55,13 @@ function selectTopic(clicked_id) {
     keywordIndexOptions = [];
     topicDefinitions = [];
 
+    // Identify the relevant json file and get data from it.
     topic = clicked_id;
     jsonFile = biologyJson.concat(topic) + '.json';
     getData(jsonFile);  
 
-    // forEach.$(".topic").highlight(clicked_id) 
+    document.getElementById("play").removeAttribute("disabled");
 };
-
-// function highlight(clicked_id) {
-//     if (topic == clicked_id) {
-//         document.getElementById(this.id).style.background = "green"
-//     } else {
-//         document.getElementById(this.id).style.background = "grey"
-//     }
-// }
-
 
 /**
  * Fetch the data from the relevant json file and create seperate word and definition arrays.

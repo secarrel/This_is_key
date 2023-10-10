@@ -3,11 +3,10 @@ let keywordOptions = [];
 let keyword = '';
 let keywordUpper = '';
 let keywordLetters = [];
-// let usedWords = false;
 let remainingGuesses = 8;
 let currentScore = 0;
 let wordProgress = '';
-const possibleLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ ';
+const possibleLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 let guess = '';
 let guessedLetters = [];
 let upperGuess = '';
@@ -15,7 +14,6 @@ let incorrectLetters = [];
 let incorrectLettersCount = [];
 let correctLetters = [];
 let win = false;
-// let loss = false;
 let topic = '';
 const biologyJson = 'assets/js/biology_keywords/'
 let topicWords = [];
@@ -26,8 +24,6 @@ let keywordIndex = '';
 const dictionaryURL = "https://api.dictionaryapi.dev/api/v2/entries/en/"
 
 
-document.getElementById('remaining-guesses-count').innerHTML = remainingGuesses;
-document.getElementById('score-count').innerHTML = currentScore;
 
 /**
  * Empties all temporary arrays.
@@ -42,6 +38,8 @@ function reset(){
     correctLetters = [];    
     remainingGuesses = 8;
 
+    document.getElementById('remaining-guesses-count').innerHTML = remainingGuesses;
+    document.getElementById('score-count').innerHTML = currentScore;
 };
 
 /**
@@ -115,7 +113,7 @@ function newWord() {
     document.getElementById('letter-array').innerHTML = incorrectLetters;
     document.getElementById('remaining-guesses-count').innerHTML = remainingGuesses;
 
-    changeImage();
+    // changeImage();
 
     checkWordArray();
 
@@ -160,7 +158,7 @@ function randomiseKeywordOptions() {
  */
 function checkWordArray() {
     if(keywordOptions.length == 0) {
-        alert("all words have been used");
+        alert("You have used all the keywords from this ");
     };
 };
 
@@ -201,7 +199,7 @@ function checkLetter() {
         };
     };
 
-    ++ remainingGuesses;
+    remainingGuesses ++;
 
     clearAndFocus()  
 };
@@ -228,7 +226,7 @@ function checkGuess() {
         document.getElementById("letter-array").innerHTML = incorrectLetters.join("");
         // Subtract 1 from remaining guesses count.
         remainingCount();
-        changeImage();
+        // changeImage();
 
     };
 };
@@ -243,30 +241,30 @@ function remainingCount() {
     document.getElementById('remaining-guesses-count').innerHTML = remainingGuesses;
 }
 
-/**
- * Changes the image every time an incorrect letter is guessed.
- */
-function changeImage() {
-    if (incorrectLettersCount == 1) {
-        $("#changing-picture").attr("src", "assets/images/pinkflower_guess1.png");
-    } else if (incorrectLettersCount == 2) {
-        $("#changing-picture").attr("src", "assets/images/pinkflower_guess2.png");
-    } else if (incorrectLettersCount == 3) {
-        $("#changing-picture").attr("src", "assets/images/pinkflower_guess3.png");
-    } else if (incorrectLettersCount == 4) {
-        $("#changing-picture").attr("src", "assets/images/pinkflower_guess4.png");
-    } else if (incorrectLettersCount == 5) {
-        $("#changing-picture").attr("src", "assets/images/pinkflower_guess5.png");
-    } else if (incorrectLettersCount == 6) {
-        $("#changing-picture").attr("src", "assets/images/pinkflower_guess6.png");
-    } else if (incorrectLettersCount == 7) {
-        $("#changing-picture").attr("src", "assets/images/pinkflower_guess7.png");
-    } else if (incorrectLettersCount == 8) {
-        $("#changing-picture").attr("src", "assets/images/pinkflower_guess8.png");
-    } else if (incorrectLettersCount == 0) {
-        $("#changing-picture").attr("src", "assets/images/pinkflower_noguess.png");
-    }
-}
+// /**
+//  * Changes the image every time an incorrect letter is guessed.
+//  */
+// function changeImage() {
+//     if (incorrectLettersCount == 1) {
+//         $("#changing-picture").attr("src", "assets/images/pinkflower_guess1.png");
+//     } else if (incorrectLettersCount == 2) {
+//         $("#changing-picture").attr("src", "assets/images/pinkflower_guess2.png");
+//     } else if (incorrectLettersCount == 3) {
+//         $("#changing-picture").attr("src", "assets/images/pinkflower_guess3.png");
+//     } else if (incorrectLettersCount == 4) {
+//         $("#changing-picture").attr("src", "assets/images/pinkflower_guess4.png");
+//     } else if (incorrectLettersCount == 5) {
+//         $("#changing-picture").attr("src", "assets/images/pinkflower_guess5.png");
+//     } else if (incorrectLettersCount == 6) {
+//         $("#changing-picture").attr("src", "assets/images/pinkflower_guess6.png");
+//     } else if (incorrectLettersCount == 7) {
+//         $("#changing-picture").attr("src", "assets/images/pinkflower_guess7.png");
+//     } else if (incorrectLettersCount == 8) {
+//         $("#changing-picture").attr("src", "assets/images/pinkflower_guess8.png");
+//     } else if (incorrectLettersCount == 0) {
+//         $("#changing-picture").attr("src", "assets/images/pinkflower_noguess.png");
+//     }
+// }
 
 /**
  * Runs a 'for loop' so the guessed letter is checked against every letter in the keyword. If there is a match, 
@@ -274,18 +272,24 @@ function changeImage() {
  */
 function updateWordProgress(upperGuess) {
     updatedWordProgress = '';
-  
+
     for (let i = 0; i < keyword.length; i++) {
-      if (correctLetters.includes(keyword[i].toUpperCase())) {
-        // If the letter has been correctly guessed, use the letter from the keyword.
-        updatedWordProgress += keyword[i];
-      } else if (upperGuess.toUpperCase() === keyword[i].toUpperCase()) {
-        // If the guessed letter matches the letter in the keyword, use the guessed letter.
-        updatedWordProgress += upperGuess;
-      } else {
-        // Otherwise, use an underscore.
-        updatedWordProgress += '_ ';
-      };
+        if (correctLetters.includes(keyword[i].toUpperCase())) {
+            // If the letter has been correctly guessed, use the letter from the keyword.
+            updatedWordProgress += keyword[i];
+        } else if (upperGuess.toUpperCase() === keyword[i].toUpperCase()) {
+            // If the guessed letter matches the letter in the keyword, use the guessed letter.
+            updatedWordProgress += upperGuess;
+        } else if (keyword[i] === ' ') {
+            // If the keyword contains a space, replace this with a slash.
+            updatedWordProgress += '/';
+        } else if (keyword[i] === '-') {
+            // If the keyword contains a dash, display this as a dash.
+            updatedWordProgress += '-';
+        } else {
+            // Otherwise, use an underscore.
+            updatedWordProgress += '_ ';
+        };
     };
 
     wordProgress = updatedWordProgress.toUpperCase();

@@ -180,12 +180,17 @@ function checkLetter() {
     guess = document.getElementById('letter-input').value;
     // Convert the letter to upper case.
     upperGuess = guess.toUpperCase();
+    // Check number of letters submitted.
+
     
     // Identify if the letter is in the 'possibleLetters' array and therefore determine if the submitted content is valid.
     let validGuess = possibleLetters.indexOf(upperGuess);
 
-    if (validGuess == -1) {
-        alert("Guess one letter");
+    
+    if (upperGuess.length > 1) {
+        alert("Please guess one number at a time.");
+    } else if (validGuess == -1) {
+        alert("You must guess a letter, numbers and special characters are not allowed.");
         upperGuess = '';
     } else if (validGuess >= 0) {
         // Check if letter has already been guessed.

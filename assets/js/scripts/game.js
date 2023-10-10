@@ -23,8 +23,6 @@ let keywordIndexOptions = [];
 let keywordIndex = '';
 const dictionaryURL = "https://api.dictionaryapi.dev/api/v2/entries/en/"
 
-
-
 /**
  * Empties all temporary arrays.
  */
@@ -47,7 +45,6 @@ function reset(){
  * key word array from this file for the newWord() function.
  */
 function selectTopic(clicked_id) {
-
     // Reset topic related temp arrays and styling.
     keywordOptions = [];
     keywordIndexOptions = [];
@@ -127,6 +124,8 @@ function newWord() {
 
     console.log(keyword);
 
+    displayScore(currentScore);
+
     updateWordProgress(upperGuess);
 
     displayDefinition()
@@ -137,6 +136,9 @@ function newWord() {
     $("#next").addClass("hide");
 };
 
+/**
+ * Provides text to speech audio of the keyword value.
+ */
 function getPronounciation() {
     let pronounciation = new SpeechSynthesisUtterance(keyword);
     speechSynthesis.speak(pronounciation);
@@ -331,9 +333,12 @@ function checkForLoss() {
  */
 function removePoint() {
     let oldScore = currentScore;
-    currentScore = oldScore - 1;
 
-    document.getElementById("score-count").innerHTML = currentScore;
+    if (oldScore > 0){
+        currentScore = oldScore - 1;
+    };
+
+    displayScore(currentScore);
 };
 
 /**
@@ -342,4 +347,11 @@ function removePoint() {
 function displayWordInfo() {
     $("#end-definition").text(topicDefinitions[keywordIndex])
     $("#end-word").text(keyword.toUpperCase())
+}
+
+/**
+ * Display the value of the 'currentScore' variable.
+ */
+function displayScore(currentScore) {
+    document.getElementById("score-count").innerHTML = currentScore;
 }

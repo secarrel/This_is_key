@@ -357,15 +357,25 @@ function checkForWin() {
     } else {
         ++ currentScore;
         displayScore(currentScore);
-        alert("win")
         displayNext();
+        displayWin();
         displayWordInfo();
     };
 };
 
+/**
+ * Hides the input field for 'letter-input' and displays the 'next' button instead.
+ */
 function displayNext() {
     document.getElementById("letter-input").classList.add("hide");
     document.getElementById("next").classList.remove("hide");
+}
+
+function displayWin() {
+    document.getElementById("definition-display").innerHTML = " \
+    <h3>Congratulations!</h3> \
+    <p>You guessed all letters correctly.</p> \
+    <p>Click 'next' to continue.</p> "
 }
 
 /**

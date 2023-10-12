@@ -169,8 +169,8 @@ function newWord() {
 
     clearAndFocus();
 
-    $("input").show();
-    $("#next").addClass("hide");
+    document.getElementById("letter-input").classList.remove("hide");
+    document.getElementById("next").classList.add("hide");
 };
 
 /**
@@ -206,7 +206,7 @@ function checkWordArray() {
  * Displays the definition linked to the keyword.
  */
 function displayDefinition() {
-    $("#definition-display").text(topicDefinitions[keywordIndex]);
+    document.getElementById("definition-display").innerHTML = topicDefinitions[keywordIndex];
 }
 
 /**
@@ -358,11 +358,15 @@ function checkForWin() {
         ++ currentScore;
         displayScore(currentScore);
         alert("win")
-        $("input").hide();
-        $("#next").removeClass("hide");
+        displayNext();
         displayWordInfo();
     };
 };
+
+function displayNext() {
+    document.getElementById("letter-input").classList.add("hide");
+    document.getElementById("next").classList.remove("hide");
+}
 
 /**
  * Checks if user has made too many incorrect guesses.
@@ -371,8 +375,7 @@ function checkForLoss() {
     if (remainingGuesses == 1) {
         alert("Unlucky, you didn't guess the word correctly this time.");
         removePoint();
-        $("input").hide();
-        $("#next").removeClass("hide");
+        displayNext();
         displayWordInfo();
     };
 };
@@ -395,8 +398,8 @@ function removePoint() {
  * Displays the keyword and definition in the word end modal. 
  */
 function displayWordInfo() {
-    $("#end-definition").text(topicDefinitions[keywordIndex])
-    $("#end-word").text(keyword.toUpperCase())
+    document.getElementById("end-definition").innerHTML = topicDefinitions[keywordIndex];
+    document.getElementById("end-word").innerHTML = keyword.toUpperCase();
 }
 
 /**

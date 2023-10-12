@@ -15,16 +15,16 @@
 <body>
     <header>
         <nav id="nav-display">
-            <div class="nav-element" id="logo" type="button" onclick="returnToHome()">Logo</div>
-            <div class="nav-element" id="title" type="button" onclick="returnToHome()">This is Key!</div>
+            <div class="nav-element" display-home id="logo" type="button" >Logo</div>
+            <div class="nav-element" display-home id="title" type="button" >This is Key!</div>
             <div class="nav-element" menu-open-modal>Menu</div>
             <dialog menu-modal>
                 <ul>
-                    <li type="button" onclick="showTopics();menuModal.close()">Change Topic</li>
-                    <li type="button" onclick="menuModal.close(); gameEndModal.showModal()">New Game</li>
-                    <li type="button" onclick="newWord();menuModal.close()">New Word</li>
+                    <li type="button" id="change-topic" change-topic >Change Topic</li>
+                    <li type="button" id="new-game" open-game-end-modal >New Game</li>
+                    <li type="button" id="new-word" onclick="newWord()">New Word</li>
                 </ul>
-                <p menu-close-modal>X</p>
+                <p id="close-menu">X</p>
             </dialog>
             </div>
         </nav>
@@ -37,22 +37,31 @@
                 <h1>This is Key!</h1>
             </div>
             <div>
-                <p>Welcome Message</p>
+                <p>Welcome! We'll help you learn and remember key words from subjects you're studying at school.</p>
             </div>
-            <!-- 'How to play' modal -->
             <div class="button-container">
                 <button rules-open-modal>How to Play</button>
+                <!-- 'How to play' modal -->
                 <dialog rules-modal>
-                    <div>The rules will go here</div>
+                    <p><em>This is Key!</em> is a useful tool if you're studying GCSE's and are having trouble learning the keywords and definitions in certain subjects.</p>
+                    <p><strong>Here's how to play...</strong></p>
+                    <ul>
+                        <li>Select a topic you would like to practice or learn.</li>
+                        <li>You'll see a definition and a line of underscores; this is the keyword with each letter replaced.</li>
+                        <li>Your aim is to work out what the keyword is by using the definition and guessing one letter at a time.</li>
+                        <li>If your guessed letter is in the keyword it will be displayed in the correct place.</li>
+                        <li>Find all the letters before you run out of guesses to score a point!</li>
+                    </ul>
+                    <p>Why not challenge a class-mate to see who can identify the most keywords?</p>
                     <button rules-close-modal>close</button>
                 </dialog>
                 <!-- Navigate to topic selection-->
-                <button type="button" onclick="showTopics()">Get Started</button>
+                <button type="button" change-topic >Get Started</button>
             </div>
         </div>
     <!-- Topics Section -->
         <div id="topics-display">
-            <p>These are the topic options</p>
+            <h2>Choose a topic</h2>
             <!--Topics listed as buttons-->
             <div class="button-container" id="topic-select">
                 <input type="radio" class="topic" name="topic-select" id="cells" onclick="selectTopic(this.id)">
@@ -64,8 +73,7 @@
             </div>
             <!--Navigation buttons-->
             <div class="button-container">
-                <button type="button" onclick="returnToHome()">Back</button>
-                <button type="button" id="play" disabled onclick="showGamePlay();newWord()">Play!</button>
+                <button type="button" id="play" disabled>Play!</button>
             </div>
         </div>
     <!-- Game Play Section -->
@@ -95,17 +103,18 @@
                 <div id="end-word">WORD</div>
                 <div id="end-definition">definition</div>
                 <button onclick="getPronounciation()"> Listen to this word <i class="fa-solid fa-circle-play"></i> </button>
-                <button onclick="newWord();wordEndModal.close()">Next word</button>
-                <button onclick="showTopics();wordEndModal.close()">Change Topic</button>
-                <button onclick="wordEndModal.close(); returnToHome(); gameEndModal.showModal()">End Game</button>
+                <button onclick="newWord()" close-word-end-modal >Next word</button>
+                <button change-topic close-word-end-modal>Change Topic</button>
+                <button id="end-game" open-game-end-modal close-word-end-modal>End Game</button>
             </dialog>
         </div>
     <!-- Game end Modal-->
-        <div id="end-game">
-            <dialog end-game-modal>
+        <div id="game-end">
+            <dialog game-end-modal>
                 <div id="game-end-message">Are you sure you want to end the game? <br> All data from this game will be cleared.</div>
-                <button onclick="reset(); returnToHome(); gameEndModal.close()">Yes, I'm done.</button>
-                <button onclick="showTopics(); gameEndModal.close()">No, I'll just change topic</button>
+                <button id="yes-end" display-home onclick="reset()">Yes, I'm done.</button>
+                <button id="no-continue" change-topic>No, I'll just change topic</button>
+                <p id="close-end-game">X</p>
             </dialog>
         </div>  
     </main>

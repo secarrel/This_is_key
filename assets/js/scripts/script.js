@@ -2,17 +2,23 @@
 
 // Get modal and modal buttons
 const openMenu = document.querySelector("[menu-open-modal]")
-const closeMenu = document.querySelector("[menu-close-modal]")
+const closeMenu = document.getElementById("close-menu")
 const menuModal = document.querySelector("[menu-modal]")
 
 // Event listeners 
-openMenu.addEventListener("click", () => {
+openMenu.addEventListener("click", openMenuModal)
+function openMenuModal () {
     menuModal.showModal()
-})
+}
 
-closeMenu.addEventListener("click", () => {
-    menuModal.close()
-})
+closeMenu.addEventListener("click", closeMenuModal)
+function closeMenuModal () {
+    menuModal.close();
+}
+
+document.getElementById("change-topic").addEventListener("click", closeMenuModal)
+document.getElementById("new-game").addEventListener("click", closeMenuModal)
+document.getElementById("new-word").addEventListener("click", closeMenuModal)
 
 // ---------- How to play modal --------------
 
@@ -33,28 +39,53 @@ closeRules.addEventListener("click", () => {
 // ---------- Word end modal --------------
 
 // Get modal and modal buttons
-const openWordEndModal = document.getElementById("next")
+const openWordEnd = document.getElementById("next")
 const wordEndModal = document.querySelector("[word-end-modal]")
+const closeWordEnd = document.querySelectorAll("[close-word-end-modal]")
 
 // Event listeners to open the modal 
-openWordEndModal.addEventListener("click", () => {
-    wordEndModal.showModal()
-})
+openWordEnd.addEventListener("click", openWordEndModal)
+
+function openWordEndModal () {
+    wordEndModal.showModal();
+}
+
+for (let i = 0; i < closeWordEnd.length; i++) {
+    closeWordEnd[i].addEventListener("click", closeWordEndModal)
+}
+
+function closeWordEndModal () {
+    wordEndModal.close();
+}
 
 
 // ---------- Game end modal --------------
-
 // Get modal and modal buttons
-const openGameEnd = document.querySelector("[end-game-open-modal]")
-const gameEndModal = document.querySelector("[end-game-modal]")
+const gameEndModal = document.querySelector("[game-end-modal]")
+document.getElementById("new-game").addEventListener("click", openGameEndModal);
+document.getElementById("end-game").addEventListener("click", openGameEndModal)
+document.getElementById("close-end-game").addEventListener("click", closeGameEndModal);
+document.getElementById("yes-end").addEventListener("click", closeGameEndModal);
+document.getElementById("no-continue").addEventListener("click", closeGameEndModal);
 
-// // Event listeners to open and close the modal 
-// openGameEnd.addEventListener("click", () => {
-//     gameEndModal.showModal()
-// })
+function openGameEndModal () {
+    gameEndModal.showModal();
+
+}
+
+function closeGameEndModal() {
+    gameEndModal.close();
+};
+
 
 
 // ---------- Show Topics Function --------------
+const changeTopic = document.querySelectorAll("[change-topic]")
+
+for (let i = 0; i < changeTopic.length; i++) {
+    changeTopic[i].addEventListener("click", showTopics)
+}
+
 /**
  * Displays all content in the "topics-display" div.
  * Hides all content from "home-display" and "game-play-display" divs.
@@ -67,6 +98,12 @@ function showTopics () {
 }
 
 // ---------- Return to Home Function --------------
+const displayHome = document.querySelectorAll("[display-home]")
+
+for (let i = 0; i < displayHome.length; i++) {
+    displayHome[i].addEventListener("click", returnToHome)
+}
+
 /**
  * Displays all content in the "home-display" div.
  * Hides all content from "topics-display" and "game-play-display" divs.
@@ -80,6 +117,8 @@ function returnToHome () {
 }
 
 // ---------- showGamePlay Function --------------
+document.getElementById("play").addEventListener("click", showGamePlay)
+document.getElementById("new-word").addEventListener("click", showGamePlay)
 /**
  * Displays all content in the "game-play-display" div.
  * Hides all content from "topics-display" and "home-display" divs.
@@ -90,6 +129,9 @@ function showGamePlay() {
         const topicsDisplay = document.getElementById("topics-display").style.display = "none";
         const gamePlayDisplay = document.getElementById("game-play-display").style.display = "block";
         const navDisplay = document.getElementById("nav-display").style.display = "flex";
+
+        newWord();
+
     } else {
         alert("you must select a topic to continue")
     }

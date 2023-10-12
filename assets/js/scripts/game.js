@@ -223,7 +223,7 @@ function checkLetter() {
     let validGuess = possibleLetters.indexOf(upperGuess);
 
     if (upperGuess.length > 1) {
-        clearAndFocus();
+        alert("Enter a letter in the input field. ENTER is not valid.")
     } else if (validGuess == -1) {
         alert("You must guess a letter, numbers and special characters are not allowed.");
         upperGuess = '';

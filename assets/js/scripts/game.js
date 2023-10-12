@@ -1,3 +1,5 @@
+/* jshint esversion: 8 */
+
 // temporary word array to test other functions
 let keywordOptions = [];
 let keyword = '';

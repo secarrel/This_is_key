@@ -1,3 +1,5 @@
+/* jshint esversion: 8 */
+
 // Set const variables 
 const openMenu = document.querySelector("[menu-open-modal]")
 const closeMenu = document.getElementById("close-menu")

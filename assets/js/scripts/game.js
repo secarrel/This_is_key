@@ -21,6 +21,7 @@ let topicDefinitions = [];
 let wordAndDefinition = [];
 let keywordIndexOptions = [];
 let keywordIndex = '';
+const topicSelection = document.getElementsByName("topic-select")
 const dictionaryURL = "https://api.dictionaryapi.dev/api/v2/entries/en/"
 
 document.getElementById("yes-end").addEventListener("click", reset);
@@ -28,18 +29,42 @@ document.getElementById("yes-end").addEventListener("click", reset);
  * Empties all temporary arrays.
  */
 function reset(){
-    keywordOptions = [];
+    // Reset temporary arrays.
     currentScore = 0;
     keywordLetters = [];
-    guessedLetters = [];
-    incorrectLetters = [];
-    incorrectLettersCount = [];
-    correctLetters = [];    
-    remainingGuesses = 8;
+    keywordOptions = [];
+    keywordIndexOptions = [];
+    topicDefinitions = [];
+    resetWordArrays();
+
+    clearTopicSelection();
 
     document.getElementById('remaining-guesses-count').innerHTML = remainingGuesses;
-    document.getElementById('score-count').innerHTML = currentScore;
+    displayScore(currentScore);
 };
+
+/**
+ * Reset all temporary arrays which relate to individual words.
+ */
+function resetWordArrays() {
+    guessedLetters = [];
+    correctLetters = [];
+    incorrectLetters = [];
+    incorrectLettersCount = 0;
+    updatedWordProgress = '';
+    upperGuess = '';
+    remainingGuesses = 8;
+}
+
+/**
+ * Removes the selection from topic selector radio buttons. 
+ */
+function clearTopicSelection() {
+    document.getElementById("play").disabled = true;
+    for ( let i = 0; topicSelection.length; i++) {
+        topicSelection[i].checked = false;
+    };
+}
 
 /**
  * Selects json file corresponding with click event and uses the 
@@ -103,21 +128,16 @@ document.getElementById("next-word").addEventListener("click", newWord);
  * Generates a new random word from the 'keywordOptions' array.
  */
 function newWord() {
-    //Reset temporary arrays from previous word
-    guessedLetters = [];
-    correctLetters = [];
-    incorrectLetters = [];
-    incorrectLettersCount = 0;
-    updatedWordProgress = '';
-    upperGuess = '';
-    remainingGuesses = 8;
+    checkWordArray();
 
+    resetWordArrays()
+
+    // Display values for updated temporary arrays 
     document.getElementById('letter-array').innerHTML = incorrectLetters;
-    document.getElementById('remaining-guesses-count').innerHTML = remainingGuesses;
+    displayRemainingGuesses();
 
     // changeImage();
 
-    checkWordArray();
 
     // Generate a new word
     randomiseKeywordOptions();
@@ -166,13 +186,14 @@ function randomiseKeywordOptions() {
  * Checks if all words in 'keywordOptions' array have been used. 
  */
 function checkWordArray() {
-    if(keywordOptions.length == 0) {
-        alert("You have used all the keywords from this ");
+    if(keywordIndexOptions.length == 0) {
+        showTopics();
+        alert("You have used all the keywords from this topic, select another.");
     };
 };
 
 /**
- * displays the definition linked to the keyword.
+ * Displays the definition linked to the keyword.
  */
 function displayDefinition() {
     $("#definition-display").text(topicDefinitions[keywordIndex]);
@@ -251,7 +272,13 @@ function checkGuess() {
 function remainingCount() {
     incorrectLettersCount ++
     remainingGuesses = 8 - incorrectLettersCount;
+    displayRemainingGuesses();
+}
 
+/**
+ * Displays the current value of remainingGuesses.
+ */
+function displayRemainingGuesses() {
     document.getElementById('remaining-guesses-count').innerHTML = remainingGuesses;
 }
 
@@ -306,8 +333,8 @@ function updateWordProgress(upperGuess) {
         };
     };
 
+    //Display the changes made to wordProgress.
     wordProgress = updatedWordProgress.toUpperCase();
-  
     document.getElementById('word-display').innerHTML = wordProgress;
 };
 
@@ -319,7 +346,7 @@ function checkForWin() {
         win = false;
     } else {
         ++ currentScore;
-        document.getElementById('score-count').innerHTML = currentScore;
+        displayScore(currentScore);
         alert("win")
         $("input").hide();
         $("#next").removeClass("hide");
@@ -346,6 +373,7 @@ function checkForLoss() {
 function removePoint() {
     let oldScore = currentScore;
 
+    // Don't allow the score to drop below '0', but otherwise reduce the value by 1.
     if (oldScore > 0){
         currentScore = oldScore - 1;
     };

@@ -366,6 +366,8 @@ function checkForWin() {
 function displayNext() {
     document.getElementById("letter-input").classList.add("hide");
     document.getElementById("next").classList.remove("hide");
+    document.getElementById("next").focus();
+
 }
 
 function displayWin() {

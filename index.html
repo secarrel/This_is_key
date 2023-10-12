@@ -22,7 +22,7 @@
                 <ul>
                     <li type="button" id="change-topic" change-topic >Change Topic</li>
                     <li type="button" id="new-game" open-game-end-modal >New Game</li>
-                    <li type="button" id="new-word" onclick="newWord()">New Word</li>
+                    <li type="button" id="new-word">New Word</li>
                 </ul>
                 <p id="close-menu">X</p>
             </dialog>
@@ -81,7 +81,7 @@
             <div id="game-play-container">
                 <div id="current-score">Current score: <span id="score-count"></span></div>
                 <div id="picture-container">
-                    <img id="changing-picture" src="assets/images/noguess.png" alt="">
+                    <img id="changing-picture" src="assets/images/noguess.kra" alt="">
                 </div>
                 <p id="definition-display">This is the definition</p>
                 <p id="word-display">This is Where the word will be</p>
@@ -102,8 +102,8 @@
             <dialog word-end-modal>
                 <div id="end-word">WORD</div>
                 <div id="end-definition">definition</div>
-                <button onclick="getPronounciation()"> Listen to this word <i class="fa-solid fa-circle-play"></i> </button>
-                <button onclick="newWord()" close-word-end-modal >Next word</button>
+                <button id="speak"> Listen to this word <i class="fa-solid fa-circle-play"></i> </button>
+                <button id="next-word" close-word-end-modal >Next word</button>
                 <button change-topic close-word-end-modal>Change Topic</button>
                 <button id="end-game" open-game-end-modal close-word-end-modal>End Game</button>
             </dialog>
@@ -112,7 +112,7 @@
         <div id="game-end">
             <dialog game-end-modal>
                 <div id="game-end-message">Are you sure you want to end the game? <br> All data from this game will be cleared.</div>
-                <button id="yes-end" display-home onclick="reset()">Yes, I'm done.</button>
+                <button id="yes-end" display-home>Yes, I'm done.</button>
                 <button id="no-continue" change-topic>No, I'll just change topic</button>
                 <p id="close-end-game">X</p>
             </dialog>

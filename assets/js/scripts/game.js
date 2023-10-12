@@ -23,6 +23,7 @@ let keywordIndexOptions = [];
 let keywordIndex = '';
 const dictionaryURL = "https://api.dictionaryapi.dev/api/v2/entries/en/"
 
+document.getElementById("yes-end").addEventListener("click", reset);
 /**
  * Empties all temporary arrays.
  */
@@ -94,6 +95,10 @@ document.getElementById("letter-input").addEventListener("keydown", function(eve
     }
 });
 
+//event listeners for running the newWord function.
+document.getElementById("new-word").addEventListener("click", newWord);
+document.getElementById("next-word").addEventListener("click", newWord);
+
 /**
  * Generates a new random word from the 'keywordOptions' array.
  */
@@ -135,6 +140,8 @@ function newWord() {
     $("input").show();
     $("#next").addClass("hide");
 };
+
+document.getElementById("speak").addEventListener("click", getPronounciation);
 
 /**
  * Provides text to speech audio of the keyword value.

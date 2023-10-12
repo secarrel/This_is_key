@@ -1,6 +1,10 @@
 /* jshint esversion: 8 */
 
-// temporary word array to test other functions
+// ----------------------- Set Variables -------------------------
+const topicSelection = document.getElementsByName("topic-select")
+const dictionaryURL = "https://api.dictionaryapi.dev/api/v2/entries/en/"
+const possibleLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const biologyJson = 'assets/js/biology_keywords/'
 let keywordOptions = [];
 let keyword = '';
 let keywordUpper = '';
@@ -8,7 +12,6 @@ let keywordLetters = [];
 let remainingGuesses = 8;
 let currentScore = 0;
 let wordProgress = '';
-const possibleLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 let guess = '';
 let guessedLetters = [];
 let upperGuess = '';
@@ -17,16 +20,36 @@ let incorrectLettersCount = [];
 let correctLetters = [];
 let win = false;
 let topic = '';
-const biologyJson = 'assets/js/biology_keywords/'
 let topicWords = [];
 let topicDefinitions = [];
 let wordAndDefinition = [];
 let keywordIndexOptions = [];
 let keywordIndex = '';
-const topicSelection = document.getElementsByName("topic-select")
-const dictionaryURL = "https://api.dictionaryapi.dev/api/v2/entries/en/"
 
+// ----------------------- Event Listeners -------------------------
+// Reset game arrays.
 document.getElementById("yes-end").addEventListener("click", reset);
+
+// Detect guessed letter and checks if correct on 'enter'.
+document.getElementById("letter-input").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        checkLetter();
+        updateWordProgress(upperGuess);
+        checkForWin()
+        checkForLoss();
+    }
+});
+
+// Triggers the newWord function.
+document.getElementById("new-word").addEventListener("click", newWord);
+document.getElementById("next-word").addEventListener("click", newWord);
+
+// Triggers the gerPronounciation function. 
+document.getElementById("speak").addEventListener("click", getPronounciation);
+
+
+// ----------------------- Functions -------------------------
+
 /**
  * Empties all temporary arrays.
  */
@@ -112,19 +135,6 @@ function createIndexOptions(){
     console.log(keywordOptions)
 };
 
-// Detect guessed letter and checks if correct on 'enter'.
-document.getElementById("letter-input").addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-        checkLetter();
-        updateWordProgress(upperGuess);
-        checkForWin()
-        checkForLoss();
-    }
-});
-
-//event listeners for running the newWord function.
-document.getElementById("new-word").addEventListener("click", newWord);
-document.getElementById("next-word").addEventListener("click", newWord);
 
 /**
  * Generates a new random word from the 'keywordOptions' array.
@@ -162,8 +172,6 @@ function newWord() {
     $("input").show();
     $("#next").addClass("hide");
 };
-
-document.getElementById("speak").addEventListener("click", getPronounciation);
 
 /**
  * Provides text to speech audio of the keyword value.

@@ -32,12 +32,12 @@ document.getElementById("yes-end").addEventListener("click", reset);
 
 // Detect guessed letter and checks if correct on 'enter'.
 document.getElementById("letter-input").addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-        checkLetter();
-        updateWordProgress(upperGuess);
-        checkForWin()
-        checkForLoss();
-    }
+    // Set the value of 'guess' to the submitted letter.
+    guess = event.key;
+    checkLetter();
+    updateWordProgress(upperGuess);
+    checkForWin()
+    checkForLoss();
 });
 
 // Triggers the newWord function.
@@ -214,8 +214,6 @@ function displayDefinition() {
  * Pushes this confirmed letter to the array 'guessedLetters'.
  */
 function checkLetter() {
-    // Set the value of 'guess' to the submitted letter.
-    guess = document.getElementById('letter-input').value;
     // Convert the letter to upper case.
     upperGuess = guess.toUpperCase();
     // Check number of letters submitted.
@@ -224,9 +222,8 @@ function checkLetter() {
     // Identify if the letter is in the 'possibleLetters' array and therefore determine if the submitted content is valid.
     let validGuess = possibleLetters.indexOf(upperGuess);
 
-    
     if (upperGuess.length > 1) {
-        alert("Please guess one number at a time.");
+        clearAndFocus();
     } else if (validGuess == -1) {
         alert("You must guess a letter, numbers and special characters are not allowed.");
         upperGuess = '';
@@ -236,7 +233,7 @@ function checkLetter() {
 
         if (duplicateLetter === true) {
             // Do not allow duplicate guesses.
-            alert("You have already guessed this letter, try another");
+            alert("You have already guessed this letter, try another.");
         } else {
             // If the guess is a letter and not a duplicate, add it to the 'guessedLetters' array.
             guessedLetters.push(upperGuess);
@@ -255,8 +252,8 @@ function checkLetter() {
 function clearAndFocus(){
         document.getElementById("letter-input").value = "";
         document.getElementById("letter-input").focus();    
-    
-}
+};
+
 /**
  * Checks if the guessed letter is anywhere in the keyword.
  */

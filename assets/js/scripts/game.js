@@ -27,7 +27,7 @@ let keywordIndexOptions = [];
 let keywordIndex = '';
 
 // ----------------------- Event Listeners -------------------------
-// Reset game arrays.
+// Triggers reset for a new game.
 document.getElementById("yes-end").addEventListener("click", reset);
 
 // Detect guessed letter and checks if correct on 'enter'.
@@ -38,18 +38,22 @@ document.getElementById("letter-input").addEventListener("keydown", function(eve
     updateWordProgress(upperGuess);
     checkForWin()
     checkForLoss();
+    clearAndFocus();
 });
 
 // Triggers the newWord function.
-document.getElementById("new-word").addEventListener("click", newWord);
 document.getElementById("next-word").addEventListener("click", newWord);
+document.getElementById("next-word").addEventListener("click", clearAndFocus);
 
-// Triggers the gerPronounciation function. 
+
+// Triggers the getPronounciation function. 
 document.getElementById("speak").addEventListener("click", getPronounciation);
 
 
 // ----------------------- Functions -------------------------
-
+function delay() {
+    
+}
 /**
  * Empties all temporary arrays.
  */
@@ -123,6 +127,56 @@ function getData(jsonFile) {
         });
     });
 };
+
+// function getDictionaryData() {
+//     let dictionaryFile = 'https://api.dictionaryapi.dev/api/v2/entries/en/'+ keyword;
+
+//     var xhr = new XMLHttpRequest();
+
+//     xhr.open("GET", dictionaryFile);
+//     xhr.send();
+
+//     xhr.onreadystatechange = function() {
+//         if (this.readyState == 4 && this.status == 200) {
+//             JSON.parse(this.responseText);
+//         }
+//     };
+// }
+
+// function setDictionaryDefinition(data) {
+//     document.getElementById("end-definition").innerHTML = data;
+//     console.log(data)
+// }
+
+// document.getElementById("dictionaryDefinition").addEventListener("click", getDictionaryData(setDictionaryDefinition));
+
+// async function getDictionaryData() {
+//     let dictionaryDefinition = [];
+
+//     fetch(dictionaryFile).then(function(response){
+//         response.json().then(function(dictionaryData){
+//             dictionaryDefinition.push(dictionaryData);
+//             console.log(dictionaryDefinition[0])
+//             })
+//         })
+//     }
+
+    //add in if statement for 404 
+    //navigate nested elements to get definitions
+    
+    // let dictionaryFetch = await fetch(dictionaryFile);
+    // let dictionaryData = await dictionaryFetch.text();
+    // let dictionaryDataParse = JSON.parse(dictionaryData);
+    // console.log(dictionaryData);
+    // console.log(dictionaryDataParse);
+    
+    
+;
+
+function displayDictionary(definition) {
+    document.getElementById("end-definition").innerHTML = dictionaryDefinition;
+    document.getElementbyId
+}
 
 /**
  * Creates a new array for keywords indexes.
@@ -198,7 +252,7 @@ function randomiseKeywordOptions() {
 function checkWordArray() {
     if(keywordIndexOptions.length == 0) {
         showTopics();
-        alert("You have used all the keywords from this topic, select another.");
+        alert("There are no words available. Select a new topic.");
     };
 };
 
@@ -216,8 +270,6 @@ function displayDefinition() {
 function checkLetter() {
     // Convert the letter to upper case.
     upperGuess = guess.toUpperCase();
-    // Check number of letters submitted.
-
     
     // Identify if the letter is in the 'possibleLetters' array and therefore determine if the submitted content is valid.
     let validGuess = possibleLetters.indexOf(upperGuess);
@@ -244,6 +296,7 @@ function checkLetter() {
     remainingGuesses ++;
 
     clearAndFocus()  
+
 };
 
 /**
@@ -409,11 +462,11 @@ function removePoint() {
 function displayWordInfo() {
     document.getElementById("end-definition").innerHTML = topicDefinitions[keywordIndex];
     document.getElementById("end-word").innerHTML = keyword.toUpperCase();
-}
+};
 
 /**
  * Display the value of the 'currentScore' variable.
  */
 function displayScore(currentScore) {
     document.getElementById("score-count").innerHTML = currentScore;
-}
+};

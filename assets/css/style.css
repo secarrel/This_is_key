@@ -1,35 +1,75 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barrio&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap');
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     margin: 0;
-    height: 100vh;
-}
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+;}
 
 main {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Cardo', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 0 15px;
+}
+
+.background-img {
+    width: 100vw;
     height: 100vh;
+    display: block;
+    position: absolute;
+    z-index: -500;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.button {
+    width: 50vw;
+    height: 40px;
+    padding: 5px;
+    margin: 10px 0;
+    border-radius: 5%;
+    box-shadow: 5px 3px #ef8b3a;
+    font-family: 'Barrio', sans-serif;
+    letter-spacing: 2px;
+    font-size: large;
+    color: #7fd5a5;
+    background-color: rgba(0, 0, 0, 0.733);
 }
 
 /* Navbar */
 nav {
-    background-color: aquamarine;
+    background-color: #BA5C12;
     height: 8vh;
     position: fixed;
+    display: flex;
 }
 
 .nav-element {
     width: 33.3vw;
     text-align: center;
-    padding: 15px;
+}
+
+#nav-logo {
+    display: block;
+    width: 50%;
+    z-index: 300;
+}
+
+#nav-logo-img {
+    max-height: 100%;
+
 }
 
 #nav-display {
@@ -46,12 +86,42 @@ nav {
     display: none;
 }
 
-/* home screen */
+/* --------------------- home display --------------------- */
+/* #topics-background {
+    background-image: url("https://images.unsplash.com/photo-1641355527446-232d7f1f2c10?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1935&q=80"); opacity: 0.5;
+} */
+
 #home-display {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    vertical-align: middle;
+    align-items: center;
+    text-align: center;
     height: 100vh;
-    padding-top: 40vh;
+    width: 100vw;
+    padding-top: 30vh;
+    background-image: radial-gradient(rgb(255, 255, 255), rgba(255, 255, 255, 0.192))
 }
+
+#logo-container {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.596);
+}
+
+#logo-container img{
+    width: 90%
+}
+
+#welcome-message {
+    padding-top: 5%;
+    width: 60%;
+}
+
+.home-button {
+    padding: none;
+}
+
+/*Topic display screen*/
 
 #topics-display {
     display: none;
@@ -67,13 +137,13 @@ nav {
 
 /* Game Play Screen */
 #game-play-container {
-    height: 92vh;
     width: 100vw;
 }
 
 #current-score {
-    position: fixed;
-    float: left;
+    position: block;
+    width: 100%;
+    text-align: left;
     z-index: 100;
     padding-left: 5px;
 }
@@ -128,5 +198,4 @@ nav {
     margin: 0;
     text-align: center;
 }
-
 

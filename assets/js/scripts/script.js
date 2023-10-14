@@ -144,7 +144,7 @@ function showGamePlay() {
         newWord();
 
     } else {
-        alert("you must select a topic to continue")
+        alert("Select a topic to play.")
     }
 }
 

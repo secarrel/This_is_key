@@ -51,9 +51,7 @@ document.getElementById("speak").addEventListener("click", getPronounciation);
 
 
 // ----------------------- Functions -------------------------
-function delay() {
-    
-}
+
 /**
  * Empties all temporary arrays.
  */
@@ -148,35 +146,36 @@ function getData(jsonFile) {
 //     console.log(data)
 // }
 
-// document.getElementById("dictionaryDefinition").addEventListener("click", getDictionaryData(setDictionaryDefinition));
 
-// async function getDictionaryData() {
-//     let dictionaryDefinition = [];
+async function getDictionaryData() {
+    let dictionaryFile = 'https://api.dictionaryapi.dev/api/v2/entries/en/'+ keyword;
 
-//     fetch(dictionaryFile).then(function(response){
-//         response.json().then(function(dictionaryData){
-//             dictionaryDefinition.push(dictionaryData);
-//             console.log(dictionaryDefinition[0])
-//             })
-//         })
-//     }
+    let dictionaryDefinition = [];
 
-    //add in if statement for 404 
-    //navigate nested elements to get definitions
+    fetch(dictionaryFile).then(function(response){
+        response.json().then(function(dictionaryData){
+            dictionaryDefinition.push(dictionaryData);
+            console.log(dictionaryDefinition[0])
+            })
+        })
+    }
+
+//add in if statement for 404 
+//navigate nested elements to get definitions
     
-    // let dictionaryFetch = await fetch(dictionaryFile);
-    // let dictionaryData = await dictionaryFetch.text();
-    // let dictionaryDataParse = JSON.parse(dictionaryData);
-    // console.log(dictionaryData);
-    // console.log(dictionaryDataParse);
+// let dictionaryFetch = await fetch(dictionaryFile);
+// let dictionaryData = await dictionaryFetch.text();
+// let dictionaryDataParse = JSON.parse(dictionaryData);
+// console.log(dictionaryData);
+// console.log(dictionaryDataParse);
     
     
 ;
 
-function displayDictionary(definition) {
-    document.getElementById("end-definition").innerHTML = dictionaryDefinition;
-    document.getElementbyId
-}
+// function displayDictionary(definition) {
+//     document.getElementById("end-definition").innerHTML = dictionaryDefinition;
+//     document.getElementbyId
+// }
 
 /**
  * Creates a new array for keywords indexes.

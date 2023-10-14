@@ -221,10 +221,11 @@ function newWord() {
 
     displayDefinition()
 
-    clearAndFocus();
-
     document.getElementById("letter-input").classList.remove("hide");
     document.getElementById("next").classList.add("hide");
+
+    clearAndFocus();
+
 };
 
 /**
@@ -430,15 +431,22 @@ function displayWin() {
     <p>Click 'next' to continue.</p> "
 }
 
+function displayLoss() {
+    document.getElementById("definition-display").innerHTML = " \
+    <h3>Unlucky</h3> \
+    <p>You didn't guessed all letters correctly this time.</p> \
+    <p>Click 'next' to continue.</p> "
+}
+
 /**
  * Checks if user has made too many incorrect guesses.
  */
 function checkForLoss() {
     if (remainingGuesses == 1) {
-        alert("Unlucky, you didn't guess the word correctly this time.");
         removePoint();
         displayNext();
         displayWordInfo();
+        displayLoss()
     };
 };
 

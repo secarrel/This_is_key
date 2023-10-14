@@ -1,25 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Barrio&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Roboto:wght@100&display=swap');
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
+};
 
 body {
     margin: 0;
     min-height: 100vh;
     width: 100%;
-    display: flex;
-;}
+};
 
 main {
-    font-family: 'Cardo', sans-serif;
+    font-family: 'Lilita One', sans-serif;
     display: flex;
+    flex: 1 0 auto;
     flex-direction: column;
     align-items: center;
     text-align: center;
-}
+};
 
 .background-img {
     width: 100vw;
@@ -27,12 +27,12 @@ main {
     display: block;
     position: absolute;
     z-index: -500;
-}
+};
 
 .button-container {
     display: flex;
     flex-direction: column;
-}
+};
 
 .button {
     width: 50vw;
@@ -41,42 +41,11 @@ main {
     margin: 10px 0;
     border-radius: 5%;
     box-shadow: 5px 3px #ef8b3a;
-    font-family: 'Barrio', sans-serif;
     letter-spacing: 2px;
     font-size: large;
     color: #7fd5a5;
     background-color: rgba(0, 0, 0, 0.733);
-}
-
-/* Navbar */
-nav {
-    background-color: #BA5C12;
-    height: 8vh;
-    position: fixed;
-    display: flex;
-}
-
-.nav-element {
-    width: 33.3vw;
-    text-align: center;
-}
-
-#nav-logo {
-    display: block;
-    width: 50%;
-    z-index: 300;
-}
-
-#nav-logo-img {
-    max-height: 100%;
-
-}
-
-#nav-display {
-    width: 100vw;
-    display: none;
-    flex-direction: row;
-}
+};
 
 .show {
     display: block;
@@ -85,6 +54,39 @@ nav {
 .hide {
     display: none;
 }
+
+
+/* --------------------- Navbar --------------------- */
+#nav-display{
+    position: fixed;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+
+.nav-element {
+    display: flex;
+    width: 33.3vw;
+    text-align: center;
+    font-family: 'Lilita One', sans-serif !important;
+    font-size: 50px;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px;
+    letter-spacing: 4px;
+    color: #0e3312;
+    background-color: #e5e5e58e;
+}
+
+.nav-element img {
+    max-width: 200px;
+}
+
+
+#nav-menu {
+    color: #c95e00;
+}
+
 
 /* --------------------- home display --------------------- */
 /* #topics-background {

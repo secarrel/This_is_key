@@ -14,10 +14,12 @@
 </head>
 <body>
     <header>
-        <nav id="nav-display">
-            <div class="nav-element" display-home id="logo" type="button" >Logo</div>
-            <div class="nav-element" display-home id="title" type="button" >This is Key!</div>
-            <div class="nav-element" menu-open-modal>Menu</div>
+        <nav class="hide" id="nav-display">
+            <div class="nav-element" display-home id="logo" type="button" >
+                <img id="nav-logo" src="assets/images/nav_logo.png">
+            </div>
+            <h1 id="nav-title" class="nav-element" display-home type="button" >This is Key!</h1>
+            <div id="nav-menu" class="nav-element" menu-open-modal><i class="fa-solid fa-bars"></i></div>
             <dialog menu-modal>
                 <ul>
                     <li type="button" id="change-topic" change-topic >Change Topic</li>

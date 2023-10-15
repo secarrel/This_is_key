@@ -13,7 +13,7 @@ body {
 }
 
 header {
-    height: 15%;
+    height: 13%;
     display: flex;
 }
 
@@ -24,7 +24,7 @@ main {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    height: 82%;
+    height: 84%;
 }
 
 footer {
@@ -66,12 +66,12 @@ button {
 }
 button:hover {
     background-color: #0e3312;
+    transition-duration: 1s;
 }
 button:disabled {
     background-color: #0e331254;
     border-color: #eeeed7;
 }
-
 
 dialog {
     margin: auto;
@@ -113,7 +113,21 @@ h2 {
 #nav-menu {
     color: #c95e00;
     font-size: 40px;
+    transition: color 0.5s;
 }
+
+#nav-menu:hover {
+    color: #76ba70;
+}
+
+#nav-title {
+    transition: color 0.5s;
+}
+
+#nav-title:hover {
+    color: #76ba70;
+}
+
 
 
 /* --------------------- home display --------------------- */
@@ -149,7 +163,6 @@ h2 {
 /* --------------------- Topic display --------------------- */
 #topic-img {
     background-image: url(https://images.unsplash.com/photo-1516979187457-637abb4f9353?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA==&auto=format&fit=crop&w=1770&q=80);
-    background-repeat: no-repeat;
 }
 
 #topics-display {
@@ -184,8 +197,8 @@ label {
     display: inline-flex;
     width: 150px;
     height: 100px !important;
-    background-color: #c95e00;
     margin: 10px;
+    background-color: #c95e00;
     padding: 15px;
     align-items: center;
     border-radius: 10%;
@@ -193,8 +206,10 @@ label {
 }
 
 label:hover {
-    background-color: #76ba70;
+    background-color: #0e3312;
     color: white;
+    transition-duration: 0.5s;
+
 }
 
 input[type="radio"] {
@@ -204,21 +219,23 @@ input[type="radio"] {
 /* --------------------- Game display --------------------- */
 
 #game-play-display {
-    padding-top: 8vh;
-    height: 100vh;
+    height: 100%;
+    width: 60%;
     display: none;
+    flex-direction: column;
+    padding: 20px;
 }
 
-#game-play-container {
-    width: 100vw;
+#game-info {
+    display: inline;
 }
 
 #current-score {
-    position: block;
-    width: 100%;
-    text-align: left;
-    z-index: 100;
-    padding-left: 5px;
+    float: left;
+}
+
+#topic-display {
+    float: right;
 }
 
 #guess-input-container {
@@ -227,8 +244,8 @@ input[type="radio"] {
 }
 
 #picture-container {
-    height: 40vh;
-    max-width: 100vw;
+    height: 200px;
+    width: 200px;
     margin: auto;
 }
 
@@ -243,10 +260,10 @@ input[type="radio"] {
 }
 
 #guessed-box {
-    width: 90vw;
-    height: 30vh;
-    margin: auto;
+    width: 100%;
+    height: 180px;
     border: solid black 1px;
+    padding: 10px;
 }
 
 .incorrect-letter {
@@ -255,8 +272,8 @@ input[type="radio"] {
 
 #guessed-letter-container {
     padding: 10px;
-    width: 60%;
-    height: 70%;
+    width: 100%;
+    height: 60%;
     margin: auto;
 }
 
@@ -270,5 +287,10 @@ input[type="radio"] {
 #remaining-guesses, #remaining-guesses-count {
     margin: 0;
     text-align: center;
+    bottom: 10px;
+}
+
+#next {
+    margin: 0
 }
 

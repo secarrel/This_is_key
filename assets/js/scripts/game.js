@@ -104,14 +104,14 @@ function clearTopicSelection() {
  * Selects json file corresponding with click event and uses the 
  * key word array from this file for the newWord() function.
  */
-function selectTopic(clicked_id) {
+function selectTopic(clicked) {
     // Reset topic related temp arrays and styling.
     keywordOptions = [];
     keywordIndexOptions = [];
     topicDefinitions = [];
 
     // Identify the relevant json file and get data from it.
-    topic = clicked_id;
+    topic = clicked.id;
     jsonFile = biologyJson.concat(topic) + '.json';
     getData(jsonFile);  
 
@@ -438,7 +438,7 @@ function displayWin() {
 function displayLoss() {
     document.getElementById("definition-display").innerHTML = " \
     <h3>Unlucky</h3> \
-    <p>You didn't guessed all letters correctly this time.</p> \
+    <p>You didn't guess all letters correctly this time.</p> \
     <p>Click 'next' to continue.</p> "
 }
 

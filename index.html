@@ -34,15 +34,13 @@
     <main>
     <!-- Home Section  -->
         <div id="home-display">
+            <div class="background-img" id="home-img"></div>
             <!-- Logo and Welcome Message-->
             <div class="logo-container">
-                <img id="main-logo" src="assets/images/full_logo.png">
+                <img id="main-logo" src="assets/images/full_logo.png" alt="This is Key logo">
             </div>
-            <div>
-                <p>Welcome! We'll help you learn and remember key words from subjects you're studying at school.</p>
-            </div>
-            <div class="button-container">
-                <button rules-open-modal>How to Play</button>
+            <div class="button-container" id="home-buttons">
+                <button rules-open-modal id="rules-button">How to Play</button>
                 <!-- 'How to play' modal -->
                 <dialog rules-modal>
                     <p><em>This is Key!</em> is a useful tool if you're studying GCSE's and are having trouble learning the keywords and definitions in certain subjects.</p>
@@ -60,9 +58,11 @@
                 <!-- Navigate to topic selection-->
                 <button type="button" change-topic >Get Started</button>
             </div>
+        
         </div>
     <!-- Topics Section -->
         <div id="topics-display">
+            <div class="background-img" id="topic-img"><div>
             <h2>Choose a topic</h2>
             <!--Topics listed as buttons-->
             <div class="button-container" id="topic-select">

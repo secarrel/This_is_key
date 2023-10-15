@@ -103,7 +103,7 @@ for (let i = 0; i < changeTopic.length; i++) {
  */
 function showTopics () {
     homeDisplay.style.display = "none";
-    topicsDisplay.style.display = "block";
+    topicsDisplay.style.display = "flex";
     gamePlayDisplay.style.display = "none";
     navDisplay.style.display = "flex";
 }
@@ -120,7 +120,7 @@ for (let i = 0; i < displayHome.length; i++) {
  * Hides all content from "topics-display" and "game-play-display" divs.
  */
 function returnToHome () {
-    homeDisplay.style.display = "block";
+    homeDisplay.style.display = "flex";
     topicsDisplay.style.display = "none";
     gamePlayDisplay.style.display = "none";
     navDisplay.style.display = "none";

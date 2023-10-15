@@ -26,7 +26,7 @@ let wordAndDefinition = [];
 let keywordIndexOptions = [];
 let keywordIndex = '';
 let mainDefinitionFromApi = '';
-let excludedWords = ["tissue", "organ system", "epithelial cell", "pH", "cell", "passive transport", "selectively permeable", "electron microscopy", "diffusion", "concentration gradient", "active site", "alveoli", "denature", "differentiation", "gas exchange", "human thorax", "alkaline", "Benedicts reagent", "biuret solution",  "calorimetry", "egestion", "Visking tubing", "calorimetry", "sedentary"]
+let excludedWords = ["tissue", "multicellular", "organ system", "epithelial cell", "pH", "cell", "passive transport", "selectively permeable", "electron microscopy", "diffusion", "concentration gradient", "active site", "alveoli", "denature", "differentiation", "gas exchange", "human thorax", "alkaline", "Benedicts reagent", "biuret solution",  "calorimetry", "egestion", "Visking tubing", "calorimetry", "sedentary"]
 
 // ----------------------- Event Listeners -------------------------
 // Triggers reset for a new game.
@@ -177,7 +177,7 @@ function newWord() {
     document.getElementById('letter-array').innerHTML = incorrectLetters;
     displayRemainingGuesses();
 
-    // changeImage();
+    changeImage();
 
 
     // Generate a new word
@@ -245,6 +245,9 @@ function displayDefinition() {
 
 function displayOfficialWJECDefinition() {
     document.getElementById("end-definition").innerHTML = topicDefinitions[keywordIndex];
+    document.getElementById("dictionary-definition").classList.remove("hide");
+    document.getElementById("official-definition").classList.add("hide");
+
 };
 
 /**
@@ -323,7 +326,7 @@ function checkGuess() {
         document.getElementById("letter-array").innerHTML = incorrectLetters.join("");
         // Subtract 1 from remaining guesses count.
         remainingCount();
-        // changeImage();
+        changeImage();
 
     };
 };
@@ -347,27 +350,27 @@ function displayRemainingGuesses() {
 // /**
 //  * Changes the image every time an incorrect letter is guessed.
 //  */
-// function changeImage() {
-//     if (incorrectLettersCount == 1) {
-//         $("#changing-picture").attr("src", "assets/images/pinkflower_guess1.png");
-//     } else if (incorrectLettersCount == 2) {
-//         $("#changing-picture").attr("src", "assets/images/pinkflower_guess2.png");
-//     } else if (incorrectLettersCount == 3) {
-//         $("#changing-picture").attr("src", "assets/images/pinkflower_guess3.png");
-//     } else if (incorrectLettersCount == 4) {
-//         $("#changing-picture").attr("src", "assets/images/pinkflower_guess4.png");
-//     } else if (incorrectLettersCount == 5) {
-//         $("#changing-picture").attr("src", "assets/images/pinkflower_guess5.png");
-//     } else if (incorrectLettersCount == 6) {
-//         $("#changing-picture").attr("src", "assets/images/pinkflower_guess6.png");
-//     } else if (incorrectLettersCount == 7) {
-//         $("#changing-picture").attr("src", "assets/images/pinkflower_guess7.png");
-//     } else if (incorrectLettersCount == 8) {
-//         $("#changing-picture").attr("src", "assets/images/pinkflower_guess8.png");
-//     } else if (incorrectLettersCount == 0) {
-//         $("#changing-picture").attr("src", "assets/images/pinkflower_noguess.png");
-//     }
-// }
+function changeImage() {
+    if (incorrectLettersCount == 1) {
+        $("#changing-picture").attr("src", "assets/images/pinkflower_guess1.png");
+    } else if (incorrectLettersCount == 2) {
+        $("#changing-picture").attr("src", "assets/images/pinkflower_guess2.png");
+    } else if (incorrectLettersCount == 3) {
+        $("#changing-picture").attr("src", "assets/images/pinkflower_guess3.png");
+    } else if (incorrectLettersCount == 4) {
+        $("#changing-picture").attr("src", "assets/images/pinkflower_guess4.png");
+    } else if (incorrectLettersCount == 5) {
+        $("#changing-picture").attr("src", "assets/images/pinkflower_guess5.png");
+    } else if (incorrectLettersCount == 6) {
+        $("#changing-picture").attr("src", "assets/images/pinkflower_guess6.png");
+    } else if (incorrectLettersCount == 7) {
+        $("#changing-picture").attr("src", "assets/images/pinkflower_guess7.png");
+    } else if (incorrectLettersCount == 8) {
+        $("#changing-picture").attr("src", "assets/images/pinkflower_guess8.png");
+    } else if (incorrectLettersCount == 0) {
+        $("#changing-picture").attr("src", "assets/images/pinkflower_noguess.png");
+    }
+}
 
 /**
  * Runs a 'for loop' so the guessed letter is checked against every letter in the keyword. If there is a match, 

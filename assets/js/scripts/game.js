@@ -115,7 +115,7 @@ function selectTopic(clicked_id) {
     jsonFile = biologyJson.concat(topic) + '.json';
     getData(jsonFile);  
 
-    document.getElementById("play").removeAttribute("disabled");
+    setTimeout(showGamePlay, 50);
 };
 
 /**

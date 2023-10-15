@@ -62,20 +62,18 @@
         </div>
     <!-- Topics Section -->
         <div id="topics-display">
-            <div class="background-img" id="topic-img"><div>
-            <h2>Choose a topic</h2>
-            <!--Topics listed as buttons-->
-            <div class="button-container" id="topic-select">
-                <input type="radio" class="topic" name="topic-select" id="cells" onclick="selectTopic(this.id)">
-                <label class="topic-button" for="cells">Cells and movement across membranes</label>
-                <input type="radio" class="topic" name="topic-select" id="respiration" onclick="selectTopic(this.id)">
-                <label class="topic-button" for="respiration">The respiratory system in humans</label>
-                <input type="radio" class="topic" name="topic-select" id="digestion" onclick="selectTopic(this.id)">
-                <label class="topic-button" for="digestion">The digestive system in humans</label>
-            </div>
-            <!--Navigation buttons-->
-            <div class="button-container">
-                <button type="button" id="play" disabled>Play!</button>
+            <div class="background-img" id="topic-img"></div>
+            <div id="topic-container">
+                <h2 id="topic-instruction">Choose a topic</h2>
+                <!--Topics listed as buttons-->
+                <div id="topic-select">
+                    <input type="radio" class="topic" name="topic-select" id="cells" onclick="selectTopic(this.id)">
+                    <label class="topic-button" for="cells">Cells and movement across membranes</label>
+                    <input type="radio" class="topic" name="topic-select" id="respiration" onclick="selectTopic(this.id)">
+                    <label class="topic-button" for="respiration">The respiratory system in humans</label>
+                    <input type="radio" class="topic" name="topic-select" id="digestion" onclick="selectTopic(this.id)">
+                    <label class="topic-button" for="digestion">The digestive system in humans</label>
+                </div>
             </div>
         </div>
     <!-- Game Play Section -->

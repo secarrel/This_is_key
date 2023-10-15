@@ -128,7 +128,6 @@ function returnToHome () {
 }
 
 // ---------- showGamePlay Function --------------
-document.getElementById("play").addEventListener("click", showGamePlay)
 document.getElementById("new-word").addEventListener("click", showGamePlay)
 /**
  * Displays all content in the "game-play-display" div.

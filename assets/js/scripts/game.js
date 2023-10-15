@@ -25,6 +25,8 @@ let topicDefinitions = [];
 let wordAndDefinition = [];
 let keywordIndexOptions = [];
 let keywordIndex = '';
+let mainDefinitionFromApi = '';
+let excludedWords = ["tissue", "organ system", "epithelial cell", "pH", "cell", "passive transport", "selectively permeable", "electron microscopy", "diffusion", "concentration gradient", "active site", "alveoli", "denature", "differentiation", "gas exchange", "human thorax", "alkaline", "Benedicts reagent", "biuret solution",  "calorimetry", "egestion", "Visking tubing", "calorimetry", "sedentary"]
 
 // ----------------------- Event Listeners -------------------------
 // Triggers reset for a new game.
@@ -49,6 +51,11 @@ document.getElementById("next-word").addEventListener("click", clearAndFocus);
 // Triggers the getPronounciation function. 
 document.getElementById("speak").addEventListener("click", getPronounciation);
 
+// Triggers alternative definition display.
+document.getElementById("dictionary-definition").addEventListener("click", displayAlternativeDefinition);
+
+// Triggers WJEC definition display.
+document.getElementById("official-definition").addEventListener("click", displayOfficialWJECDefinition);
 
 // ----------------------- Functions -------------------------
 
@@ -126,56 +133,25 @@ function getData(jsonFile) {
     });
 };
 
-// function getDictionaryData() {
-//     let dictionaryFile = 'https://api.dictionaryapi.dev/api/v2/entries/en/'+ keyword;
 
-//     var xhr = new XMLHttpRequest();
-
-//     xhr.open("GET", dictionaryFile);
-//     xhr.send();
-
-//     xhr.onreadystatechange = function() {
-//         if (this.readyState == 4 && this.status == 200) {
-//             JSON.parse(this.responseText);
-//         }
-//     };
-// }
-
-// function setDictionaryDefinition(data) {
-//     document.getElementById("end-definition").innerHTML = data;
-//     console.log(data)
-// }
+async function getDictionaryData(keyword) {
+  let dictionaryFile = 'https://api.dictionaryapi.dev/api/v2/entries/en/' + keyword;
+  console.log('keyword', keyword);
+  let dictionaryDefinition = [];
 
 
-async function getDictionaryData() {
-    let dictionaryFile = 'https://api.dictionaryapi.dev/api/v2/entries/en/'+ keyword;
+  const response = await fetch(dictionaryFile);
+  const dictionaryData = await response.json();
 
-    let dictionaryDefinition = [];
+  dictionaryDefinition.push(dictionaryData);
 
-    fetch(dictionaryFile).then(function(response){
-        response.json().then(function(dictionaryData){
-            dictionaryDefinition.push(dictionaryData);
-            console.log(dictionaryDefinition[0])
-            })
-        })
-    }
+  console.log(dictionaryDefinition[0][0]);
 
-//add in if statement for 404 
-//navigate nested elements to get definitions
-    
-// let dictionaryFetch = await fetch(dictionaryFile);
-// let dictionaryData = await dictionaryFetch.text();
-// let dictionaryDataParse = JSON.parse(dictionaryData);
-// console.log(dictionaryData);
-// console.log(dictionaryDataParse);
-    
-    
-;
+  console.log(dictionaryDefinition[0][0].meanings[0].definitions[0].definition);
+  mainDefinitionFromApi = dictionaryDefinition[0][0].meanings[0].definitions[0].definition;
 
-// function displayDictionary(definition) {
-//     document.getElementById("end-definition").innerHTML = dictionaryDefinition;
-//     document.getElementbyId
-// }
+}
+
 
 /**
  * Creates a new array for keywords indexes.
@@ -213,12 +189,15 @@ function newWord() {
     keywordLetters = keywordUpper.split("");
 
     console.log(keyword);
+    getDictionaryData(keyword);
 
     displayScore(currentScore);
 
     updateWordProgress(upperGuess);
 
     displayDefinition()
+
+    displayOfficialWJECDefinition()
 
     document.getElementById("letter-input").classList.remove("hide");
     document.getElementById("next").classList.add("hide");
@@ -261,7 +240,30 @@ function checkWordArray() {
  */
 function displayDefinition() {
     document.getElementById("definition-display").innerHTML = topicDefinitions[keywordIndex];
-}
+
+};
+
+function displayOfficialWJECDefinition() {
+    document.getElementById("end-definition").innerHTML = topicDefinitions[keywordIndex];
+};
+
+/**
+ * Displays the definition from the dictionary API
+ */
+function displayAlternativeDefinition() {
+    document.getElementById("end-definition").innerHTML = mainDefinitionFromApi;
+    document.getElementById("dictionary-definition").classList.add("hide");
+    document.getElementById("official-definition").classList.remove("hide");
+
+    for (let i = 0; i < excludedWords.length; i++) {
+        if (excludedWords[i].includes(keyword)) {
+            document.getElementById("end-definition").innerHTML = "No other definition available. Sorry!"
+
+        }
+    }
+
+};
+
 
 /**
  * Checks that the key pressed by the user is a letter and converts it to upper case.

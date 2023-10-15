@@ -36,7 +36,7 @@
         <div id="home-display">
             <!-- Logo and Welcome Message-->
             <div class="logo-container">
-                <h1>This is Key!</h1>
+                <img id="main-logo" src="assets/images/full_logo.png">
             </div>
             <div>
                 <p>Welcome! We'll help you learn and remember key words from subjects you're studying at school.</p>
@@ -105,8 +105,8 @@
                 <div id="end-word">WORD</div>
                 <div id="end-definition">definition</div>
                 <button id="speak"> Listen to this word <i class="fa-solid fa-circle-play"></i> </button>
-                <!-- <button id="dictionaryDefinition"> Alternative definition </button> -->
-                <button class="hide" id="officialDefinition"> WJEC official definition </button>
+                <button id="dictionary-definition"> Explain this differently</button>
+                <button class="hide" id="official-definition">Show the official WJEC definition </button>
                 <button id="next-word" close-word-end-modal >Next word</button>
                 <button change-topic close-word-end-modal>Change Topic</button>
                 <button id="end-game" open-game-end-modal close-word-end-modal>End Game</button>
@@ -123,7 +123,7 @@
         </div>  
     </main>
     <footer>
-
+        <div id="footer"></div>
     </footer>
     <script src="assets/js/scripts/script.js"></script>
     <script src="assets/js/scripts/game.js"></script>

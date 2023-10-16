@@ -115,8 +115,12 @@ function selectTopic(clicked) {
     jsonFile = biologyJson.concat(topic) + '.json';
     getData(jsonFile);  
 
-    setTimeout(showGamePlay, 50);
+    setTimeout(showGamePlay, 150);
+
+    document.getElementById("id-topic").innerHTML = clicked.id.toUpperCase();
 };
+
+
 
 /**
  * Fetch the data from the relevant json file and create seperate word and definition arrays.
@@ -239,7 +243,7 @@ function checkWordArray() {
  * Displays the definition linked to the keyword.
  */
 function displayDefinition() {
-    document.getElementById("definition-display").innerHTML = topicDefinitions[keywordIndex];
+    document.getElementById("definition-display").innerHTML = "Hint: <br>" + topicDefinitions[keywordIndex];
 
 };
 
@@ -280,9 +284,9 @@ function checkLetter() {
     let validGuess = possibleLetters.indexOf(upperGuess);
 
     if (upperGuess.length > 1) {
-        alert("Enter a letter in the input field. ENTER is not valid.")
+        alert("Enter a letter in the input field.")
     } else if (validGuess == -1) {
-        alert("You must guess a letter, numbers and special characters are not allowed.");
+        alert("You must guess a letter; numbers and special characters are not allowed.");
         upperGuess = '';
     } else if (validGuess >= 0) {
         // Check if letter has already been guessed.
@@ -455,7 +459,7 @@ function checkForLoss() {
 };
 
 /**
- * reduces the score by one when a word is not correctly guessed.
+ * Reduces the score by one when a word is not correctly guessed.
  */
 function removePoint() {
     let oldScore = currentScore;
@@ -477,8 +481,9 @@ function displayWordInfo() {
 };
 
 /**
- * Display the value of the 'currentScore' variable.
+ * Displays the value of the 'currentScore' variable.
  */
 function displayScore(currentScore) {
     document.getElementById("score-count").innerHTML = currentScore;
 };
+

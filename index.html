@@ -68,30 +68,33 @@
                 <!--Topics listed as buttons-->
                 <div id="topic-select">
                     <input type="radio" class="topic" name="topic-select" id="cells" onclick="selectTopic(this)">
-                    <label class="topic-button" for="cells">Cells and movement across membranes</label>
+                    <label class="topic-button" for="cells">Cells and movement across membranes <i class="fa-solid fa-microscope"></i></label>
                     <input type="radio" class="topic" name="topic-select" id="respiration" onclick="selectTopic(this)">
-                    <label class="topic-button" for="respiration">The respiratory system in humans</label>
+                    <label class="topic-button" for="respiration">The respiratory system in humans <i class="fa-solid fa-lungs"></i></label>
                     <input type="radio" class="topic" name="topic-select" id="digestion" onclick="selectTopic(this)">
-                    <label class="topic-button" for="digestion">The digestive system in humans</label>
+                    <label class="topic-button" for="digestion">The digestive system in humans <i class="fa-solid fa-poo"></i></label>
                 </div>
             </div>
         </div>
     <!-- Game Play Section -->
         <div id="game-play-display">
+            <div class="background-img" id="game-background"></div>
             <div id="game-play-container">
                 <div id="game-info">
                     <div id="current-score">Current score: <span id="score-count"></span></div>
-                    <div id="topic-display">Topic</div>
+                    <div id="id-topic">Topic</div>
                 </div>
                 <div id="picture-container">
-                    <img id="changing-picture" src="assets/images/noguess.kra" alt="">
+                    <img id="changing-picture" src="assets/images/pinkflower_noguess.png" alt="">
                 </div>
-                <p id="definition-display">This is the definition</p>
-                <p id="word-display">This is Where the word will be</p>
-                <div id="guess-input-container">
-                    <input id="letter-input" type="text" placeholder="Guess a letter" >
-                    <button id="next" class="hide"> Next </button>
-                </div>
+                <div id="keyword-info">
+                    <p id="definition-display">This is no definition</p>
+                    <p id="word-display"></p>
+                    <div id="guess-input-container">
+                        <input id="letter-input" type="text" placeholder="Guess a letter" >
+                        <button id="next" class="hide"> Next </button>
+                    </div>
+                </div>  
                 <div id="guessed-box">   
                     <div id="incorrect-letters-guessed">Incorrectly guessed letters</div>
                     <div id="guessed-letter-container">
@@ -105,7 +108,7 @@
             <dialog word-end-modal>
                 <div id="end-word">WORD</div>
                 <div id="end-definition">definition</div>
-                <button id="speak"> Listen to this word <i class="fa-solid fa-circle-play"></i> </button>
+                <button id="speak"> <i class="fa-solid fa-play"></i>  Listen to this word  </button>
                 <button id="dictionary-definition"> Explain this differently</button>
                 <button class="hide" id="official-definition">Show the official WJEC definition </button>
                 <button id="next-word" close-word-end-modal >Next word</button>

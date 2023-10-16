@@ -179,6 +179,9 @@ How to make a local copy by cloning
     - #### Compression
     https://compressjpeg.com/
 
+    - #### Removal of image background
+    https://www.remove.bg/ 
+
 ## Acknowledgements
 
 ## Future Improvements 

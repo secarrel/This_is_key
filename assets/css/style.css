@@ -224,11 +224,13 @@ label {
     border-radius: 6%;
     color: white;
     box-shadow: 2px 2px #6d3300;
+    align-items: center;
+
 }
 
 label i {
     font-size: 40px;
-    vertical-align: middle;
+    padding: 4px;
 }
 
 label:hover i{

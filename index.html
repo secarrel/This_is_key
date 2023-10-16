@@ -105,15 +105,17 @@
                 </div>
             </div>   
             <!-- Word end Modal-->
-            <dialog word-end-modal>
+            <dialog id="word-modal" word-end-modal>
                 <div id="end-word">WORD</div>
                 <div id="end-definition">definition</div>
-                <button id="speak"> <i class="fa-solid fa-play"></i>  Listen to this word  </button>
-                <button id="dictionary-definition"> Explain this differently</button>
-                <button class="hide" id="official-definition">Show the official WJEC definition </button>
-                <button id="next-word" close-word-end-modal >Next word</button>
-                <button change-topic close-word-end-modal>Change Topic</button>
-                <button id="end-game" open-game-end-modal close-word-end-modal>End Game</button>
+                <div class="button-container" id="word-end-options">
+                    <button id="speak"> <i class="fa-solid fa-play"></i>Listen to this word</button>
+                    <button id="dictionary-definition"><i class="fa-regular fa-circle-question"></i>Explain this differently</button>
+                    <button class="hide" id="official-definition"><i class="fa-solid fa-book-open"></i>Show the official WJEC definition</button>
+                    <button id="next-word" close-word-end-modal><i class="fa-solid fa-forward-step"></i>Next word</button>
+                    <button change-topic close-word-end-modal><i class="fa-solid fa-backward-step"></i>Change Topic</button>
+                    <button id="end-game" open-game-end-modal close-word-end-modal><i class="fa-solid fa-right-to-bracket"></i>End Game</button>
+                </div>
             </dialog>
         </div>
     <!-- Game end Modal-->

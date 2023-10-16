@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:ital,wght@0,100;0,200;0,700;1,400&family=Roboto:wght@100&family=Tilt+Neon&display=swap');
-* {
+  @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:ital,wght@0,100;0,200;0,700;1,400&family=Tilt+Neon&display=swap');
+
+  * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -18,7 +19,7 @@ header {
 }
 
 main {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Tilt Neon', sans-serif;
     display: flex;
     flex: 1 0 auto;
     flex-direction: column;
@@ -75,7 +76,6 @@ button:disabled {
 
 dialog {
     margin: auto;
-    height: 60%;
     width: 60%;
 }
 
@@ -294,6 +294,7 @@ input[type="radio"] {
 
 #keyword-info {
     font-size: 18px;
+    height: 40%;
 }
 
 #definition-display {
@@ -367,3 +368,34 @@ margin-bottom: 40px;
     margin: 0;
 }
 
+/* --------------------- Word End Modal --------------------- */
+#word-modal {
+    padding: 2%;
+}
+
+#word-modal div {
+    width: 100%;
+    overflow: hidden;
+}
+
+#end-word {
+    padding: 10px;
+    font-weight: 800;
+    font-size: 20px;
+}
+
+
+#word-end-options {
+    margin-top: 20px;
+}
+
+#word-end-options button{
+    margin: auto;
+    width: 43%;
+    margin: 5px;
+    padding-left: 10px;
+}
+
+#word-end-options button i{
+    float: left;
+}

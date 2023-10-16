@@ -20,13 +20,13 @@
             </div>
             <h1 id="nav-title" class="nav-element" display-home type="button" >This is Key!</h1>
             <div id="nav-menu" class="nav-element" menu-open-modal><i class="fa-solid fa-bars"></i></div>
-            <dialog menu-modal>
-                <ul>
-                    <li type="button" id="change-topic" change-topic >Change Topic</li>
-                    <li type="button" id="new-game" open-game-end-modal >New Game</li>
-                    <li type="button" id="new-word">New Word</li>
-                </ul>
-                <p id="close-menu">X</p>
+            <dialog id="menu-modal" menu-modal>
+                <div class="button-container">
+                    <button type="button" id="change-topic" change-topic >Change Topic</button>
+                    <button type="button" id="new-game" open-game-end-modal >New Game</button>
+                    <button type="button" id="new-word">New Word</button>
+                    <p class="close" id="close-menu"><i class="fa-solid fa-square-xmark"></i></p>
+                </div>
             </dialog>
             </div>
         </nav>
@@ -122,9 +122,11 @@
         <div id="game-end">
             <dialog game-end-modal>
                 <div id="game-end-message">Are you sure you want to end the game? <br> All data from this game will be cleared.</div>
-                <button id="yes-end" display-home>Yes, I'm done.</button>
-                <button id="no-continue" change-topic>No, I'll just change topic</button>
-                <p id="close-end-game">X</p>
+                <div class="button-container">
+                    <button id="yes-end" display-home>Yes, I'm done.</button>
+                    <button id="no-continue" change-topic>No, I'll just change topic</button>
+                    <p class="close" id="close-end-game"><i class="fa-solid fa-square-xmark"></i></p>
+                </div>
             </dialog>
         </div>  
     </main>

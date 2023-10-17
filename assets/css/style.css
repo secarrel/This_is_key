@@ -48,19 +48,25 @@ main {
 footer {
     height: 3%;
     background-color: #b5b9b473;
-    color:#1f7c28
+    color:#1f7c2893;
+    font-family: 'Tilt Neon', sans-serif;
+    font-size: 16px;
 
 }
 
 #footer {
     display: flex;
     justify-content: space-evenly;
-    font-size: 18px;
 }
 
 #footer a {
-    color: #1f7c28;
     text-decoration: none;
+    color:#1f7c2893;
+}
+
+#footer a:hover {
+    color: #0e3312;
+    cursor: pointer;
 }
 
 .footer-element:hover {
@@ -86,6 +92,7 @@ button {
     flex-direction: column;
     align-items: center;
 }
+
 button:hover {
     background-color: #0e3312;
     transition-duration: 1s;
@@ -230,8 +237,13 @@ h2 {
 }
 
 #topic-select {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
     background-color: #76ba70;
     width: 80%;
+    height: 70%;
     background-color: #b5b9b473;
     border-radius: 5%;
     padding: 20px;
@@ -239,19 +251,19 @@ h2 {
 }
 
 label {
-    display: inline-flex;
+    display: flex;
     font-weight: 400;
+    justify-content: space-evenly;
     width: 300px;
     height: 80px !important;
-    margin: 10px;
     background-color: #c95e00;
     padding: 15px;
+    margin: 5px;
     align-items: flex-start;
     border-radius: 6%;
     color: white;
     box-shadow: 2px 2px #6d3300;
     align-items: center;
-
 }
 
 label i {

@@ -1,0 +1,122 @@
+[
+    {
+      "word": "Allele",
+      "definition": "A version of a gene (also known as variant)."
+    },
+    {
+      "word": "Amino acids",
+      "definition": "Small molecules that make up a protein."
+    },
+    {
+      "word": "Chromosome",
+      "definition": "A long, coiled molecule of DNA that carries genetic information in the form of genes."
+    },
+    {
+      "word": "Complementary base pairing",
+      "definition": "Describes how the bases of DNA pair up with each other. A pairs with T; C pairs with G."
+    },
+    {
+      "word": "Cystic fibrosis",
+      "definition": "A genetic disorder caused by homozygous recessive alleles which causes mucus build up in the lungs."
+    },
+    {
+      "word": "DNA (Deoxyribonucleic acid)",
+      "definition": "2 chains consisting of alternating sugar and phosphates which are twisted together and connected by bases (A, T, C, and G, or adenine, thymine, cytosine and guanine). The order of the bases determines the order of amino acids in a protein synthesised from that gene; the order of the amino acids linked together determines the structure of the synthesised protein."
+    },
+    {
+      "word": "Disease",
+      "definition": "An illness that affects animal or plant health."
+    },
+    {
+      "word": "Dominant",
+      "definition": "An allele that is always expressed when present. It is represented by a capital letter."
+    },
+    {
+      "word": "Enzymes",
+      "definition": "Biological catalysts that increase the rate of chemical reactions."
+    },
+    {
+      "word": "F1 generation",
+      "definition": "The first generation of a genetic cross as a result of 2 organisms interbreeding."
+    },
+    {
+      "word": "F2 generation",
+      "definition": "The second generation of a genetic cross as a result of 2 organisms from the F1 generation interbreeding."
+    },
+    {
+      "word": "Fertilisation",
+      "definition": "When the male and female gametes fuse, restoring the full chromosome number."
+    },
+    {
+      "word": "Gamete",
+      "definition": "Sex cells (sperm and egg cells) with half the usual number of chromosomes. They are involved in reproduction."
+    },
+    {
+        "word": "Gene",
+        "definition": "A section of DNA that codes for a specific amino acid sequence which is polymerized to make a specific protein."
+    },
+    {
+    "word": "Genetic engineering",
+    "definition": "When the genome of an organism is modified to change its characteristics."
+    },
+    {
+    "word": "Genetic profiling",
+    "definition": "The process of creating a ‘profile’ for an individual based on their DNA. The DNA is cut into bands and separated into a characteristic band pattern, unique to the individual."
+    },
+    {
+    "word": "Genotype",
+    "definition": "The genetic makeup of an organism."
+    },
+    {
+    "word": "Heterozygous",
+    "definition": "When an individual has two non-identical alleles of a gene, e.g., Bb."
+    },
+    {
+    "word": "Homozygous",
+    "definition": "When an individual has two identical alleles of a gene, e.g., bb."
+    },
+    {
+    "word": "Meiosis",
+    "definition": "A form of cell division that produces gametes. They are not genetically identical and contain half the number of chromosomes."
+    },
+    {
+    "word": "Nucleotide",
+    "definition": "The monomers of DNA that consist of a common sugar, a phosphate group, and a base attached to the sugar. The chemical base can be one of A, C, T, or G."
+    },
+    {
+    "word": "PKU (Phenylketonuria)",
+    "definition": "A genetic disorder caused by homozygous recessive alleles."
+    },
+    {
+    "word": "Phenotype",
+    "definition": "The physical characteristics of an organism. It is due to interactions between the genotype and the environment."
+    },
+    {
+    "word": "Protein synthesis",
+    "definition": "The formation of proteins from amino acids which takes place in the ribosomes."
+    },
+    {
+    "word": "Punnett square",
+    "definition": "A grid used to determine potential outcomes of a genetic cross."
+    },
+    {
+    "word": "Recessive",
+    "definition": "An allele that is only expressed if two copies are present. It is represented by a small letter."
+    },
+    {
+    "word": "Selfing",
+    "definition": "Self-fertilization in plants. Selfing occurs when pollen from a plant lands on the stigma of the same plant."
+    },
+    {
+    "word": "Sex chromosomes",
+    "definition": "A pair of chromosomes responsible for the determination of gender. XY in males, XX in females."
+    },
+    {
+    "word": "Single gene inheritance (monohybrid inheritance)",
+    "definition": "Inheritance of characteristics that are controlled by a single gene."
+    },
+    {
+    "word": "Triplet code",
+    "definition": "The triplet code is a code of three bases. Three bases codes for a specific amino acid."
+    }
+]

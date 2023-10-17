@@ -1,0 +1,118 @@
+[
+    {
+      "word": "Alien species",
+      "definition": "A species that is introduced into an area (where it wouldn’t usually be found) in order to control specific pests or pathogens."
+    },
+    {
+      "word": "Bacteria",
+      "definition": "A type of pathogen which is single-celled and prokaryotic (note: not all bacteria are pathogenic)."
+    },
+    {
+      "word": "Behavioural adaptations",
+      "definition": "Adaptations in an organism’s behavior to increase its chance of survival."
+    },
+    {
+      "word": "Biodiversity",
+      "definition": "The variety and number of different species in an area."
+    },
+    {
+      "word": "Capture-recapture",
+      "definition": "A method of estimating population size. Organisms are captured, marked and then released back into the community. Time is allowed for them to redistribute, and another sample is collected. The ratio of marked to unmarked species in the second sample is determined - this is assumed to be proportional to the ratio of marked to unmarked in the entire population."
+    },
+    {
+      "word": "Classification",
+      "definition": "Grouping of organisms, which is usually based on similarities in physical features."
+    },
+    {
+      "word": "Competition",
+      "definition": "When different organisms compete for the same resources (e.g. food, shelter, and mates) in an ecosystem. It limits population size."
+    },
+    {
+      "word": "Conservation",
+      "definition": "The preservation and careful management of the environment or natural resources."
+    },
+    {
+      "word": "Disease",
+      "definition": "An illness that affects animal or plant health."
+    },
+    {
+      "word": "Ecosystem",
+      "definition": "The community of organisms (biotic) and non-living (abiotic) components of an area and their interactions."
+    },
+    {
+      "word": "Ecosystem diversity",
+      "definition": "The variety of different ecosystems in an area."
+    },
+    {
+      "word": "Ecotourism",
+      "definition": "Tourism that is driven towards natural environments to benefit local conservation schemes."
+    },
+    {
+      "word": "Endangered species",
+      "definition": "A species that is at risk from completely dying out."
+    },
+    {
+      "word": "Flowering plants",
+      "definition": "A group of plants that flower."
+    },
+    {
+      "word": "Fungi",
+      "definition": "A type of organism which is eukaryotic and can be single-celled or multicellular, e.g. yeast and mushrooms. Fungi can be pathogens."
+    },
+    {
+      "word": "Genetic diversity",
+      "definition": "The variety of different genes in a specific species."
+    },
+    {
+      "word": "Invertebrates",
+      "definition": "A group of animals that doesn’t contain a backbone."
+    },
+    {
+      "word": "Morphological adaptations",
+      "definition": "Adaptations in an organism's behavior to increase its chance of survival."
+    },
+    {
+      "word": "Non-flowering plants",
+      "definition": "A group of plants that does not produce flowers."
+    },
+    {
+      "word": "Pollution",
+      "definition": "Contamination or destruction of the natural environment due to human intervention."
+    },
+    {
+      "word": "Population",
+      "definition": "All the members of the same species that live together in a habitat."
+    },
+    {
+      "word": "Predation",
+      "definition": "A biological relationship in which a member of one species consumes a member of another species."
+    },
+    {
+      "word": "Predator",
+      "definition": "A consumer that preys on and eats other animals."
+    },
+    {
+      "word": "Prey",
+      "definition": "A consumer that is eaten by a predator."
+    },
+    {
+      "word": "Protist",
+      "definition": "A type of pathogen which is eukaryotic and single-celled. It is from the kingdom Protista."
+    },
+    {
+      "word": "Quadrat",
+      "definition": "A square grid used for sampling a known area to determine the abundance and distribution of organisms."
+    },
+    {
+      "word": "Reforestation",
+      "definition": "The process of replanting trees in an area to increase biodiversity."
+    },
+    {
+      "word": "Species diversity",
+      "definition": "The variety of species in a specific community."
+    },
+    {
+      "word": "Vertebrates",
+      "definition": "A group of animals that does contain a backbone."
+    }
+  ]

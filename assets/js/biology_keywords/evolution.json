@@ -1,0 +1,106 @@
+[
+    {
+      "word": "Antibiotic",
+      "definition": "A type of medication that helps cure bacterial disease by killing infective bacteria inside the body."
+    },
+    {
+      "word": "Antibiotic resistance",
+      "definition": "The ability of a bacteria to become resistant to the treatment that is being used to kill it, i.e. antibiotics. This provides evidence for evolution."
+    },
+    {
+      "word": "Asexual reproduction",
+      "definition": "A form of reproduction that only involves a single parent and creates genetically identical offspring."
+    },
+    {
+      "word": "Clone",
+      "definition": "An organism that is genetically identical to another and is usually produced by asexual reproduction."
+    },
+    {
+      "word": "Competition",
+      "definition": "When different organisms compete for the same resources (e.g. food, shelter, and mates) in an ecosystem. It limits population size."
+    },
+    {
+      "word": "Continuous variation",
+      "definition": "Variation that can take any value between two extremes, e.g. height or weight."
+    },
+    {
+      "word": "Cystic fibrosis",
+      "definition": "A genetic disorder caused by homozygous recessive alleles which causes mucus build up in the lungs."
+    },
+    {
+      "word": "Discontinuous variation",
+      "definition": "Variation that can only take discrete values, e.g. eye color."
+    },
+    {
+      "word": "Environmental variation",
+      "definition": "Variation in an organism's phenotype due to environmental factors e.g. climate."
+    },
+    {
+      "word": "Evolution",
+      "definition": "A gradual change in the population’s inherited characteristics over time, by the process of natural selection. This may result in the formation of a new species."
+    },
+    {
+      "word": "Extinction",
+      "definition": "The death of all members of a species. Organisms can become extinct if the process of natural selection is too slow, so the organisms cannot adapt to new environmental conditions."
+    },
+    {
+      "word": "Gamete",
+      "definition": "Sex cells (sperm and egg cells) with half the usual number of chromosomes. They are involved in reproduction."
+    },
+    {
+      "word": "Gene",
+      "definition": "A section of DNA that codes for a specific amino acid sequence which is polymerized to make a specific protein."
+    },
+    {
+      "word": "Gene therapy",
+      "definition": "Techniques which are used to correct the defective allele (usually disease causing) in DNA."
+    },
+    {
+      "word": "Genetic variation",
+      "definition": "The variation in the genes of a species."
+    },
+    {
+      "word": "Genome",
+      "definition": "The entire genetic material of an organism."
+    },
+    {
+      "word": "Heritable variation",
+      "definition": "Variation in an organism's phenotype due to genetics because of a variation in alleles."
+    },
+    {
+      "word": "Meiosis",
+      "definition": "A form of cell division that produces gametes. They are not genetically identical and contain half the number of chromosomes."
+    },
+    {
+      "word": "Mutation",
+      "definition": "A random change in DNA which increases variation. They may have a neutral, beneficial or damaging effect on the phenotype."
+    },
+    {
+      "word": "Natural selection",
+      "definition": "The process by which advantageous alleles are passed down to offspring over many generations, increasing the allele frequency. These alleles give rise to phenotypes best suited to the environment."
+    },
+    {
+      "word": "Pesticide",
+      "definition": "A type of chemical that helps control pests by killing them."
+    },
+    {
+      "word": "Pesticide resistance",
+      "definition": "The ability of a pest to become resistant to the treatment that is being used to kill it, i.e. pesticide. This provides evidence for evolution."
+    },
+    {
+      "word": "Predator",
+      "definition": "A consumer that preys on and eats other animals."
+    },
+    {
+      "word": "Prey",
+      "definition": "A consumer that is eaten by a predator."
+    },
+    {
+      "word": "Sexual reproduction",
+      "definition": "Reproduction that involves the fusion of male and female gametes. This method of reproduction produces genetic variation as the offspring are genetically different from the parents."
+    },
+    {
+      "word": "Variation",
+      "definition": "The differences between individuals of the same species, due to genetics and the environment."
+    }
+  ]

@@ -150,7 +150,6 @@ function resetWordArrays() {
  * Removes the selection from topic selector radio buttons. 
  */
 function clearTopicSelection() {
-    document.getElementById("play").disabled = true;
     for ( let i = 0; topicSelection.length; i++) {
         topicSelection[i].checked = false;
     };
@@ -281,7 +280,7 @@ function randomiseKeywordOptions() {
 function checkWordArray() {
     if(keywordIndexOptions.length == 0) {
         showTopics();
-        alert("There are no words available. Select a new topic.");
+        alert("There are no words available. Select a new topic.")
     };
 };
 

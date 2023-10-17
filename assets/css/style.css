@@ -1,4 +1,4 @@
-  @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Poppins:ital,wght@0,100;0,200;0,700;1,400&family=Tilt+Neon&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Tilt+Neon&display=swap');
 
   * {
     box-sizing: border-box;
@@ -46,7 +46,7 @@ main {
 /* --------------------- Footer --------------------- */
 footer {
     height: 3%;
-    background-color: #b5b9b473;
+    background-color: #b5b9b480;
     color:#1f7c2893;
     font-family: 'Tilt Neon', sans-serif;
     font-size: 16px;
@@ -82,7 +82,7 @@ button {
     font-size: 20px;
     border-radius: 5%;
     border-width: 3px;
-    border-color: #d3d3d338;
+    border-color: #1f7c2893;
     background-color: #76ba70;
     color: #ffffff;
 }
@@ -114,6 +114,7 @@ dialog {
     margin: auto;
     font-family: 'Tilt Neon', sans-serif;
     padding: 2%;
+    color: #0e3312;
 }
 
 h2 {

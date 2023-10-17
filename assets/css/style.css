@@ -79,7 +79,6 @@ dialog {
     margin: auto;
     font-family: 'Tilt Neon', sans-serif;
     padding: 2%;
-
 }
 
 h2 {
@@ -147,9 +146,6 @@ h2 {
     color: #1f7c28;
 }
 
-/* --------------------- Nav Menu Modal --------------------- */
-
-
 /* --------------------- Home Display --------------------- */
 
 #home-display {
@@ -179,6 +175,17 @@ h2 {
     margin-top: 40px;
 }
 
+[rules-modal] ul{
+    list-style: none;
+}
+
+[rules-modal] ul li {
+    padding: 3px;
+}
+
+[rules-modal] p{
+    padding: 10px;
+}
 
 /* --------------------- Topic display --------------------- */
 #topic-img {

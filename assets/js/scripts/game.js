@@ -115,7 +115,7 @@ function selectTopic(clicked) {
     jsonFile = biologyJson.concat(topic) + '.json';
     getData(jsonFile);  
 
-    setTimeout(showGamePlay, 150);
+    setTimeout(showGamePlay, 250);
 
     document.getElementById("id-topic").innerHTML = clicked.id.toUpperCase();
 };

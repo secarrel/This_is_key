@@ -144,7 +144,7 @@ function resetWordArrays() {
     updatedWordProgress = '';
     upperGuess = '';
     remainingGuesses = 8;
-}
+};
 
 /**
  * Removes the selection from topic selector radio buttons. 
@@ -154,7 +154,7 @@ function clearTopicSelection() {
     for ( let i = 0; topicSelection.length; i++) {
         topicSelection[i].checked = false;
     };
-}
+};
 
 /**
  * Selects json file corresponding with click event and uses the 
@@ -193,25 +193,21 @@ function getData(jsonFile) {
     });
 };
 
-
+/**
+ * Uses the dictionary API to fetch a dictionary definition for the keyword.
+ */
 async function getDictionaryData(keyword) {
   let dictionaryFile = 'https://api.dictionaryapi.dev/api/v2/entries/en/' + keyword;
   console.log('keyword', keyword);
   let dictionaryDefinition = [];
-
 
   const response = await fetch(dictionaryFile);
   const dictionaryData = await response.json();
 
   dictionaryDefinition.push(dictionaryData);
 
-  console.log(dictionaryDefinition[0][0]);
-
-  console.log(dictionaryDefinition[0][0].meanings[0].definitions[0].definition);
   mainDefinitionFromApi = dictionaryDefinition[0][0].meanings[0].definitions[0].definition;
-
-}
-
+};
 
 /**
  * Creates a new array for keywords indexes.
@@ -219,9 +215,7 @@ async function getDictionaryData(keyword) {
 function createIndexOptions(){
     for (let i = 0; i < keywordOptions.length; i ++) {
     keywordIndexOptions.push(i);
-    }
-    console.log(keywordIndexOptions);
-    console.log(keywordOptions)
+    };
 };
 
 
@@ -239,7 +233,6 @@ function newWord() {
 
     changeImage();
 
-
     // Generate a new word
     randomiseKeywordOptions();
     keywordIndex = keywordIndexOptions[keywordIndexOptions.length - 1];
@@ -248,7 +241,6 @@ function newWord() {
     keywordUpper = keyword.toUpperCase();
     keywordLetters = keywordUpper.split("");
 
-    console.log(keyword);
     getDictionaryData(keyword);
 
     displayScore(currentScore);
@@ -263,7 +255,6 @@ function newWord() {
     document.getElementById("next").classList.add("hide");
 
     clearAndFocus();
-
 };
 
 /**
@@ -273,7 +264,6 @@ function getPronounciation() {
     let pronounciation = new SpeechSynthesisUtterance(keyword);
     speechSynthesis.speak(pronounciation);
 };
-
 
 /**
  * Sorts the keywordOptions array in to a random order.
@@ -300,18 +290,19 @@ function checkWordArray() {
  */
 function displayDefinition() {
     document.getElementById("definition-display").innerHTML = "Hint: <br>" + topicDefinitions[keywordIndex];
-
 };
 
+/**
+ * Displays the official WJEC definition for the keyword and displays the button to show an alternative definition. 
+ */
 function displayOfficialWJECDefinition() {
     document.getElementById("end-definition").innerHTML = topicDefinitions[keywordIndex];
     document.getElementById("dictionary-definition").classList.remove("hide");
     document.getElementById("official-definition").classList.add("hide");
-
 };
 
 /**
- * Displays the definition from the dictionary API
+ * Displays the definition from the dictionary API and displays a message if there is no alternative definition avaialble.
  */
 function displayAlternativeDefinition() {
     document.getElementById("end-definition").innerHTML = mainDefinitionFromApi;
@@ -321,12 +312,9 @@ function displayAlternativeDefinition() {
     for (let i = 0; i < excludedWords.length; i++) {
         if (excludedWords[i].includes(keyword)) {
             document.getElementById("end-definition").innerHTML = "No other definition available. Sorry!"
-
-        }
-    }
-
+        };
+    };
 };
-
 
 /**
  * Checks that the key pressed by the user is a letter and converts it to upper case.
@@ -361,7 +349,6 @@ function checkLetter() {
     remainingGuesses ++;
 
     clearAndFocus()  
-
 };
 
 /**
@@ -387,7 +374,6 @@ function checkGuess() {
         // Subtract 1 from remaining guesses count.
         remainingCount();
         changeImage();
-
     };
 };
 
@@ -398,14 +384,14 @@ function remainingCount() {
     incorrectLettersCount ++
     remainingGuesses = 8 - incorrectLettersCount;
     displayRemainingGuesses();
-}
+};
 
 /**
  * Displays the current value of remainingGuesses.
  */
 function displayRemainingGuesses() {
     document.getElementById('remaining-guesses-count').innerHTML = remainingGuesses;
-}
+};
 
 // /**
 //  * Changes the image every time an incorrect letter is guessed.
@@ -429,8 +415,8 @@ function changeImage() {
         $("#changing-picture").attr("src", "assets/images/pinkflower_guess8.png");
     } else if (incorrectLettersCount == 0) {
         $("#changing-picture").attr("src", "assets/images/pinkflower_noguess.png");
-    }
-}
+    };
+};
 
 /**
  * Runs a 'for loop' so the guessed letter is checked against every letter in the keyword. If there is a match, 
@@ -485,22 +471,27 @@ function displayNext() {
     document.getElementById("letter-input").classList.add("hide");
     document.getElementById("next").classList.remove("hide");
     document.getElementById("next").focus();
+};
 
-}
-
+/**
+ * Displays a message to the user if the keyword is guessed correctly.
+ */
 function displayWin() {
     document.getElementById("definition-display").innerHTML = " \
     <h3>Congratulations!</h3> \
     <p>You guessed all letters correctly.</p> \
     <p>Click 'next' to continue.</p> "
-}
+};
 
+/**
+ * Displays a message to the user if the keyword is not guessed correctly.
+ */
 function displayLoss() {
     document.getElementById("definition-display").innerHTML = " \
     <h3>Unlucky</h3> \
     <p>You didn't guess all letters correctly this time.</p> \
     <p>Click 'next' to continue.</p> "
-}
+};
 
 /**
  * Checks if user has made too many incorrect guesses.

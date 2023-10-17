@@ -140,7 +140,7 @@ function showGamePlay() {
     if (topic !== ''){
         homeDisplay.style.display = "none";
         topicsDisplay.style.display = "none";
-        gamePlayDisplay.style.display = "flex";
+        gamePlayDisplay.style.display = "block";
         navDisplay.style.display = "flex";
 
         newWord();

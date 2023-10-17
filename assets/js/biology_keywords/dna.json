@@ -20,8 +20,8 @@
       "definition": "A genetic disorder caused by homozygous recessive alleles which causes mucus build up in the lungs."
     },
     {
-      "word": "DNA (Deoxyribonucleic acid)",
-      "definition": "2 chains consisting of alternating sugar and phosphates which are twisted together and connected by bases (A, T, C, and G, or adenine, thymine, cytosine and guanine). The order of the bases determines the order of amino acids in a protein synthesised from that gene; the order of the amino acids linked together determines the structure of the synthesised protein."
+      "word": "DNA",
+      "definition": "(Deoxyribonucleic acid) 2 chains consisting of alternating sugar and phosphates which are twisted together and connected by bases (A, T, C, and G). The order of the bases determines the order of amino acids in a protein synthesised from that gene; the order of the amino acids linked together determines the structure of the synthesised protein."
     },
     {
       "word": "Disease",
@@ -84,8 +84,8 @@
     "definition": "The monomers of DNA that consist of a common sugar, a phosphate group, and a base attached to the sugar. The chemical base can be one of A, C, T, or G."
     },
     {
-    "word": "PKU (Phenylketonuria)",
-    "definition": "A genetic disorder caused by homozygous recessive alleles."
+    "word": "PKU",
+    "definition": "A genetic disorder caused by homozygous recessive alleles (Phenylketonuria)."
     },
     {
     "word": "Phenotype",
@@ -112,8 +112,8 @@
     "definition": "A pair of chromosomes responsible for the determination of gender. XY in males, XX in females."
     },
     {
-    "word": "Single gene inheritance (monohybrid inheritance)",
-    "definition": "Inheritance of characteristics that are controlled by a single gene."
+    "word": "Single gene inheritance",
+    "definition": "(Monohybrid inheritance) Inheritance of characteristics that are controlled by a single gene."
     },
     {
     "word": "Triplet code",

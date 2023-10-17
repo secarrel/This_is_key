@@ -57,6 +57,8 @@ footer {
 #footer {
     display: flex;
     justify-content: space-evenly;
+    height: 100%;
+    align-items: center;
 }
 
 #footer a {
@@ -323,6 +325,8 @@ input[type="radio"] {
     width: 50%;
     margin: auto;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 #game-info {
@@ -341,6 +345,8 @@ input[type="radio"] {
     height: 200px;
     width: 200px;
     margin: auto;
+    display: flex;
+    justify-content: center;
 }
 
 #changing-picture {

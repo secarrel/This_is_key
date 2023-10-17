@@ -128,11 +128,13 @@ h2 {
     width: 100%;
     flex-direction: row;
     background-color: #b5b9b473;
+    justify-content: space-around;
 }
 
 .nav-element {
     display: flex;
-    width: 33.333%;
+    width: 250px;
+    padding: 10px;
     text-align: center;
     font-family: 'Lilita One', sans-serif !important;
     font-size: 50px;
@@ -153,6 +155,9 @@ h2 {
     max-width: 200px;
 }
 
+#green-key-logo {
+    display: none;
+}
 
 #nav-menu {
     color: #c95e00;
@@ -166,6 +171,7 @@ h2 {
 
 #nav-title {
     transition: color 0.5s;
+    width: 40%;
 }
 
 #nav-title:hover {
@@ -455,3 +461,138 @@ margin-bottom: 40px;
     float: left;
 }
 
+/* --------------------- Word End Modal --------------------- */
+#game-end button{
+    width: 300px;
+}
+
+
+/* ----------------------------- BREAKPOINTS ----------------------------- */
+/* The above styling is for screen sizes above 950px. The below styling applies to the sepcified breakpoints. */
+
+@media only screen and (max-width: 1281px) {
+
+#topic-select {
+    overflow-y: scroll;
+}
+
+}
+
+
+@media only screen and (max-width: 950px) {
+
+    
+    .nav-element {
+        font-size: 40px;
+    }
+
+    #nav-title {
+        transition: color 0.5s;
+    }
+
+    #game-play-container {
+        width: 80%;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    #green-key-logo {
+        display: flex;
+        width: 70.2px
+    }
+
+    #logo {
+        width: 70.2px;
+    }
+
+    #nav-menu {
+        width: 70.2px;
+    }
+
+    #nav-title {
+        max-width: 400px;
+    }
+
+    #nav-logo {
+        display: none;
+    }
+
+    #game-play-container {
+        width: 80%;
+    }
+    
+}
+
+@media only screen and (max-width: 650px) {
+    dialog {
+        width: 90%;
+    }
+    #main-logo {
+        width: 80%;
+    }
+
+    #home-buttons {
+        display: flex;
+    }
+    
+    #logo {
+        display: none;
+    }
+
+    #nav-title {
+        width: 80%;
+    }
+
+    #wjec-link {
+        display: none;
+    }
+
+    #topic-container {
+    width: 90%;
+    }
+
+    #topic-select {
+        width:90%;
+        height: 75%;
+    }
+
+    #game-play-container {
+        width: 90%;
+        padding: 0 5px 5px 5px;
+    }
+
+    #picture-container {
+        height: 160px;
+    }
+
+    #changing-picture {
+        height: 160px;
+    }
+
+    #definition-display {
+        overflow-y: scroll;
+        height: 110px;
+        margin: 10px;
+        font-size: 17px;
+    }
+
+    #word-display {
+        font-size: 16px;
+    }
+
+    #word-end-options button{
+        width:90%;
+    }
+
+    #game-end button {
+        width: 80%;
+    }
+
+    #word-modal {
+        width: 80%;
+    }
+}

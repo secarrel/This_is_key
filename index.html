@@ -16,7 +16,8 @@
     <header>
         <nav class="hide" id="nav-display">
             <div class="nav-element" display-home id="logo" type="button" >
-                <img id="nav-logo" src="assets/images/nav_logo.png">
+                <img id="nav-logo" src="assets/images/nav_logo.png" alt="Logo icon wth catch-phrase">
+                <img id="green-key-logo" src="assets/images/green_key.png" alt="logo icon without catch-phrase">
             </div>
             <h1 id="nav-title" class="nav-element" display-home type="button" >This is Key!</h1>
             <div id="nav-menu" class="nav-element" menu-open-modal><i class="fa-solid fa-bars"></i></div>
@@ -114,6 +115,7 @@
     <!-- Game end Modal-->
         <div id="game-end">
             <dialog game-end-modal>
+                <h2>Would you like to end the game?</h2>
                 <div id="game-end-message">Are you sure you want to end the game? <br> All data from this game will be cleared.</div>
                 <div class="button-container">
                     <button id="yes-end" display-home>Yes, I'm done.</button>
@@ -151,7 +153,7 @@
         <div id="footer">
             <p open-about-modal class="footer-element">About <em>This is Key!</em></p>
             <p footer-rules class="footer-element"><i class="fa-regular fa-circle-question"></i> How to Play</p>
-            <a class="footer-element" href="https://resource.download.wjec.co.uk/vtc/2022-23/Biology/English/index.html" target="_blank">Learn more with WJEC</a>
+            <a class="footer-element" id="wjec-link" href="https://resource.download.wjec.co.uk/vtc/2022-23/Biology/English/index.html" target="_blank">Learn more with WJEC</a>
         </div>
     </footer>
     <script src="assets/js/scripts/script.js"></script>

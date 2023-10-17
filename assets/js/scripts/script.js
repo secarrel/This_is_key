@@ -15,15 +15,15 @@ const homeDisplay = document.getElementById("home-display")
 const topicsDisplay = document.getElementById("topics-display")
 const gamePlayDisplay = document.getElementById("game-play-display")
 const navDisplay = document.getElementById("nav-display")
+const closeAbout = document.querySelector("[close-about-modal]")
+const openAbout = document.querySelector("[open-about-modal]")
+const aboutModal = document.querySelector("[about-modal]")
 
 
 
 
 // ---------- Burger Menu --------------
-
-// Get modal and modal buttons
-
-// Event listeners 
+// Event listeners to open and close the modal 
 openMenu.addEventListener("click", openMenuModal)
 function openMenuModal () {
     menuModal.showModal()
@@ -39,22 +39,28 @@ document.getElementById("new-game").addEventListener("click", closeMenuModal)
 document.getElementById("new-word").addEventListener("click", closeMenuModal)
 
 // ---------- How to play modal --------------
-
-// Get modal and modal buttons
-
 // Event listeners to open and close the modal 
-openRules.addEventListener("click", () => {
+openRules.addEventListener("click", showRulesModal);
+
+function showRulesModal () {
     rulesModal.showModal()
-})
+}
 
 closeRules.addEventListener("click", () => {
     rulesModal.close()
 })
 
+// ---------- About modal --------------
+// Event listeners to open and close the modal 
+openAbout.addEventListener("click", () => {
+    aboutModal.showModal()
+})
+
+closeAbout.addEventListener("click", () => {
+    aboutModal.close()
+})
+
 // ---------- Word end modal --------------
-
-// Get modal and modal buttons
-
 // Event listeners to open the modal 
 openWordEnd.addEventListener("click", openWordEndModal)
 
@@ -82,14 +88,11 @@ document.getElementById("no-continue").addEventListener("click", closeGameEndMod
 
 function openGameEndModal () {
     gameEndModal.showModal();
-
 }
 
 function closeGameEndModal() {
     gameEndModal.close();
 };
-
-
 
 // ---------- Show Topics Function --------------
 

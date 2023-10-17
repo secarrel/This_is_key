@@ -41,19 +41,6 @@
             </div>
             <div class="button-container" id="home-buttons">
                 <button rules-open-modal id="rules-button">How to Play</button>
-                <!-- 'How to play' modal -->
-                <dialog rules-modal>
-                    <p><strong>Here's how to play...</strong></p>
-                    <ul>
-                        <li>Select a topic you would like to practice or learn.</li>
-                        <li>You'll see a definition and a line of underscores; this is the keyword with each letter replaced.</li>
-                        <li>Your aim is to identify the keyword by using the definition and guessing one letter at a time.</li>
-                        <li>If your guessed letter is in the keyword it will be displayed.</li>
-                        <li>Find all the letters before you run out of guesses to score a point!</li>
-                    </ul>
-                    <p><i class="fa-regular fa-lightbulb"></i>  <em>Why not challenge a class-mate to see who can identify the most keywords?</em></p>
-                    <p rules-close-modal class="close" id="close-menu"><i class="fa-solid fa-square-xmark"></i></p>
-                </dialog>
                 <!-- Navigate to topic selection-->
                 <button type="button" change-topic >Get Started</button>
             </div>
@@ -136,13 +123,28 @@
                 is supplied to schools as a teaching aid. As a result this app is targetted at pupils in Wales who have WJEC as their
                 exam board for most subjects. 
             </p>
+            <p class="close" close-about-modal><i class="fa-solid fa-square-xmark"></i></p>
         </dialog>
+        <!-- 'How to play' modal -->
+        <dialog rules-modal>
+            <h2><strong>Here's how to play...</strong></h2>
+            <ul>
+                <li>Select a topic you would like to practice or learn.</li>
+                <li>You'll see a definition and a line of underscores; this is the keyword with each letter replaced.</li>
+                <li>Your aim is to identify the keyword by using the definition and guessing one letter at a time.</li>
+                <li>If your guessed letter is in the keyword it will be displayed.</li>
+                <li>Find all the letters before you run out of guesses to score a point!</li>
+            </ul>
+            <p><i class="fa-regular fa-lightbulb"></i>  <em>Why not challenge a class-mate to see who can identify the most keywords?</em></p>
+            <p rules-close-modal class="close" id="close-menu"><i class="fa-solid fa-square-xmark"></i></p>
+        </dialog>
+        
     </main>
     <footer>
         <div id="footer">
-            <p>About <em>This is Key!</em></p>
-            <p><i class="fa-regular fa-circle-question"></i>How to Play</p>
-            <a href="https://resource.download.wjec.co.uk/vtc/2022-23/Biology/English/index.html">Learn more with WJEC</a>
+            <p open-about-modal class="footer-element">About <em>This is Key!</em></p>
+            <p footer-rules class="footer-element"><i class="fa-regular fa-circle-question"></i> How to Play</p>
+            <a class="footer-element" href="https://resource.download.wjec.co.uk/vtc/2022-23/Biology/English/index.html" target="_blank">Learn more with WJEC</a>
         </div>
     </footer>
     <script src="assets/js/scripts/script.js"></script>

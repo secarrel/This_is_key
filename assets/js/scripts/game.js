@@ -57,6 +57,8 @@ document.getElementById("dictionary-definition").addEventListener("click", displ
 // Triggers WJEC definition display.
 document.getElementById("official-definition").addEventListener("click", displayOfficialWJECDefinition);
 
+document.querySelector("[footer-rules]").addEventListener("click", showRulesModal)
+
 // ----------------------- Functions -------------------------
 
 /**

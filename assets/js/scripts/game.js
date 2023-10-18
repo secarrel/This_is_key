@@ -407,8 +407,9 @@ function remainingCount() {
  * Displays the current value of remainingGuesses.
  */
 function displayRemainingGuesses() {
-  document.getElementById("remaining-guesses-count").innerHTML =
-    remainingGuesses;
+  let displayGuesses = document.getElementById("remaining-guesses-count");
+  displayGuesses.innerHTML = remainingGuesses;
+  return displayGuesses;
 }
 
 // /**
@@ -477,15 +478,15 @@ function updateWordProgress(upperGuess) {
  */
 function checkForWin() {
   if (wordProgress.includes("_")) {
-    win = false;
+    return win;
   } else {
     ++currentScore;
     displayScore();
     displayNext();
     displayWin();
     displayWordInfo();
+    return currentScore;
   }
-  return currentScore;
 }
 
 /**
@@ -529,6 +530,7 @@ function checkForLoss() {
     displayLoss();
     loss = true;
   }
+  return loss;
 }
 
 /**
@@ -551,6 +553,7 @@ function displayScore() {
 module.exports = {
   displayScore,
   checkForWin,
+  checkForLoss,
   remainingCount,
   displayRemainingGuesses,
   changeImage,
@@ -558,4 +561,5 @@ module.exports = {
   updateWordProgress,
   displayTopic,
   checkGuess,
+  remainingGuesses,
 };

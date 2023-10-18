@@ -1,3 +1,4 @@
+const { before, beforeEach } = require("node:test");
 const {
   displayScore,
   checkForWin,
@@ -7,6 +8,9 @@ const {
   updateWordProgress,
   displayTopic,
   checkGuess,
+  displayRemainingGuesses,
+  checkForLoss,
+  remainingGuesses,
 } = require("../game");
 
 beforeAll(() => {
@@ -23,7 +27,7 @@ describe("game display contains correct elements", () => {
     expect(displayScore()).toBeDefined();
   });
   test("remaining guesses count exists", () => {
-    expect(remainingCount()).toBeGreaterThanOrEqual(0);
+    expect(displayRemainingGuesses()).toBeDefined();
   });
   test("changing picture exists", () => {
     expect(changeImage()).toBeDefined();
@@ -47,10 +51,50 @@ describe("current score is functional and equal to the number of wins", () => {
   test("current score equals 0 at start of game", () => {
     expect(displayScore()).toEqual(0);
   });
-  beforeAll(() => {
-    win = true;
-  });
   test("Current score increases if a win is achieved", () => {
     expect(checkForWin()).toEqual(1);
+  });
+  test("Current score continues to increase if a win is achieved", () => {
+    expect(checkForWin()).toEqual(2);
+  });
+});
+
+// Check that the remaining guesses decreases with each incorrect guess.
+describe("remaining guesses counts down from 8 as letters are guessed incorrectly and when 1 is reached, a loss is detected", () => {
+  test("loss is initially detected as false as remaining guesses is greater than 1", () => {
+    expect(checkForLoss()).toBe(false);
+  });
+  test("remaining guesses decreases by one if called to equal 7", () => {
+    expect(remainingCount()).toEqual(7);
+  });
+  test("remaining guesses decreases by one if called to equal 6", () => {
+    expect(remainingCount()).toEqual(6);
+  });
+  test("remaining guesses decreases by one if called to equal 5", () => {
+    expect(remainingCount()).toEqual(5);
+  });
+  test("remaining guesses decreases by one if called to equal 4", () => {
+    expect(remainingCount()).toEqual(4);
+  });
+  test("remaining guesses decreases by one if called to equal 3", () => {
+    expect(remainingCount()).toEqual(3);
+  });
+  test("remaining guesses decreases by one if called to equal 2", () => {
+    expect(remainingCount()).toEqual(2);
+  });
+  test("loss is detected as false until remaining guesses equals 0", () => {
+    expect(checkForLoss()).toBe(false);
+  });
+  test("remaining guesses decreases by one if called to equal 1, which marks a loss", () => {
+    expect(remainingCount()).toEqual(1);
+  });
+  test("loss is detected as true when remaining guesses equals 1", () => {
+    expect(checkForLoss()).toBe(true);
+  });
+  test("remaining guesses continues to decreases by one if a wrong letter is guessed", () => {
+    expect(remainingCount()).toEqual(0);
+  });
+  test("loss is detected if remaining guess equals less than 1", () => {
+    expect(checkForLoss()).toBe(true);
   });
 });

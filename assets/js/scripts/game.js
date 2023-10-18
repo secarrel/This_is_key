@@ -397,6 +397,7 @@ function remainingCount() {
   incorrectLettersCount++;
   remainingGuesses = 8 - incorrectLettersCount;
   displayRemainingGuesses();
+  return remainingGuesses;
 }
 
 /**
@@ -405,32 +406,34 @@ function remainingCount() {
 function displayRemainingGuesses() {
   document.getElementById("remaining-guesses-count").innerHTML =
     remainingGuesses;
-  return remainingGuesses;
 }
 
 // /**
 //  * Changes the image every time an incorrect letter is guessed.
 //  */
 function changeImage() {
+  let changingPicture = document.getElementById("changing-picture");
+
   if (incorrectLettersCount == 1) {
-    $("#changing-picture").attr("src", "assets/images/pinkflower_guess1.png");
+    changingPicture.setAttribute("src", "assets/images/pinkflower_guess1.png");
   } else if (incorrectLettersCount == 2) {
-    $("#changing-picture").attr("src", "assets/images/pinkflower_guess2.png");
+    changingPicture.setAttribute("src", "assets/images/pinkflower_guess2.png");
   } else if (incorrectLettersCount == 3) {
-    $("#changing-picture").attr("src", "assets/images/pinkflower_guess3.png");
+    changingPicture.setAttribute("src", "assets/images/pinkflower_guess3.png");
   } else if (incorrectLettersCount == 4) {
-    $("#changing-picture").attr("src", "assets/images/pinkflower_guess4.png");
+    changingPicture.setAttribute("src", "assets/images/pinkflower_guess4.png");
   } else if (incorrectLettersCount == 5) {
-    $("#changing-picture").attr("src", "assets/images/pinkflower_guess5.png");
+    changingPicture.setAttribute("src", "assets/images/pinkflower_guess5.png");
   } else if (incorrectLettersCount == 6) {
-    $("#changing-picture").attr("src", "assets/images/pinkflower_guess6.png");
+    changingPicture.setAttribute("src", "assets/images/pinkflower_guess6.png");
   } else if (incorrectLettersCount == 7) {
-    $("#changing-picture").attr("src", "assets/images/pinkflower_guess7.png");
+    changingPicture.setAttribute("src", "assets/images/pinkflower_guess7.png");
   } else if (incorrectLettersCount == 8) {
-    $("#changing-picture").attr("src", "assets/images/pinkflower_guess8.png");
+    changingPicture.setAttribute("src", "assets/images/pinkflower_guess8.png");
   } else if (incorrectLettersCount == 0) {
-    $("#changing-picture").attr("src", "assets/images/pinkflower_noguess.png");
+    changingPicture.setAttribute("src", "assets/images/pinkflower_noguess.png");
   }
+  return changingPicture;
 }
 
 /**
@@ -540,4 +543,10 @@ function displayScore() {
   return currentScore;
 }
 
-module.exports = { displayScore, checkForWin };
+module.exports = {
+  displayScore,
+  checkForWin,
+  remainingCount,
+  displayRemainingGuesses,
+  changeImage,
+};

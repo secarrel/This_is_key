@@ -117,6 +117,7 @@ document
   .getElementById("official-definition")
   ?.addEventListener("click", displayOfficialWJECDefinition);
 
+// Triggers display of rules modal at any time using the footer option.
 document
   .querySelector("[footer-rules]")
   ?.addEventListener("click", showRulesModal);
@@ -156,15 +157,6 @@ function resetWordArrays() {
 }
 
 /**
- * Removes the selection from topic selector radio buttons.
- */
-function clearTopicSelection() {
-  for (let i = 0; topicSelection.length; i++) {
-    topicSelection[i].checked = false;
-  }
-}
-
-/**
  * Selects json file corresponding with click event and uses the
  * key word array from this file for the newWord() function.
  */
@@ -180,8 +172,16 @@ function selectTopic(clicked) {
   getData(jsonFile);
 
   setTimeout(showGamePlay, 250);
+  displayTopic(topic);
+}
 
-  document.getElementById("id-topic").innerHTML = clicked.id.toUpperCase();
+/**
+ * Displays the current topic ID.
+ */
+function displayTopic(topic) {
+  topicId = document.getElementById("id-topic");
+  topicId.innerHTML = topic?.toUpperCase();
+  return topicId;
 }
 
 /**
@@ -296,8 +296,9 @@ function checkWordArray() {
  * Displays the definition linked to the keyword.
  */
 function displayDefinition() {
-  document.getElementById("definition-display").innerHTML =
-    "Hint: <br>" + topicDefinitions[keywordIndex];
+  let hintDefinition = document.getElementById("definition-display");
+  hintDefinition.innerHTML = "Hint: <br>" + topicDefinitions[keywordIndex];
+  return hintDefinition;
 }
 
 /**
@@ -375,18 +376,20 @@ function clearAndFocus() {
  * Checks if the guessed letter is anywhere in the keyword.
  */
 function checkGuess() {
-  if (keywordLetters.indexOf(upperGuess) >= 0) {
+  let letterPosition = keywordLetters.indexOf(upperGuess);
+  if (letterPosition >= 0) {
     // If the letter is in the keyword, add the letter to 'correctLetters' array.
     correctLetters.push(upperGuess);
-  } else if (keywordLetters.indexOf(upperGuess) == -1) {
+  } else if (letterPosition == -1) {
     // If the letter is not in the keyword, add the letter to 'incorrectLetters' array.
     incorrectLetters.push(upperGuess);
     // Display incorrect letters for user to see.
-    document.getElementById("letter-array").innerHTML =
-      incorrectLetters.join("");
+    let letterDisplay = document.getElementById("letter-array");
+    letterDisplay.innerHTML = incorrectLetters.join("");
     // Subtract 1 from remaining guesses count.
     remainingCount();
     changeImage();
+    return letterDisplay;
   }
 }
 
@@ -465,6 +468,8 @@ function updateWordProgress(upperGuess) {
   //Display the changes made to wordProgress.
   wordProgress = updatedWordProgress.toUpperCase();
   document.getElementById("word-display").innerHTML = wordProgress;
+
+  return wordProgress;
 }
 
 /**
@@ -549,4 +554,8 @@ module.exports = {
   remainingCount,
   displayRemainingGuesses,
   changeImage,
+  displayDefinition,
+  updateWordProgress,
+  displayTopic,
+  checkGuess,
 };

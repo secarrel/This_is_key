@@ -6,6 +6,7 @@ const dictionaryURL = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 const possibleLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const biologyJson = "assets/js/biology_keywords/";
 const errorMessage = document.getElementById("error-message");
+const definitionDisplay = document.getElementById("definition-display");
 let keywordOptions = [];
 let keyword = "";
 let keywordUpper = "";
@@ -288,11 +289,16 @@ function randomiseKeywordOptions() {
  */
 function checkWordArray() {
   if (keywordIndexOptions.length == 0) {
-    showTopics();
-    alert(
-      "You have used all words in this topic. Start a new game or choose another topic."
-    );
+    definitionDisplay.innerHTML =
+      "You have used all words in this topic. Start a new game or choose another topic.";
+    definitionDisplay.style.color = "#c95e00";
+    setTimeout(showTopics, 6000);
+    colorReset();
   }
+}
+
+function colorReset() {
+  definitionDisplay.style.color = "#0e3312";
 }
 
 /**
@@ -365,7 +371,7 @@ function checkLetter() {
   remainingGuesses++;
 
   setTimeout(clear, 500);
-  setTimeout(clearError, 3000);
+  setTimeout(clearError, 4000);
   focus();
 }
 

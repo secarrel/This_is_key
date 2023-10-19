@@ -5,6 +5,7 @@ const topicSelection = document.getElementsByName("topic-select");
 const dictionaryURL = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 const possibleLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const biologyJson = "assets/js/biology_keywords/";
+const errorMessage = document.getElementById("error-message");
 let keywordOptions = [];
 let keyword = "";
 let keywordUpper = "";
@@ -121,7 +122,7 @@ document
 // Triggers display of rules modal at any time using the footer option.
 document
   .querySelector("[footer-rules]")
-  .addEventListener("click", showRulesModal);
+  ?.addEventListener("click", showRulesModal);
 
 // ----------------------- Functions -------------------------
 
@@ -342,12 +343,9 @@ function checkLetter() {
   // Identify if the letter is in the 'possibleLetters' array and therefore determine if the submitted content is valid.
   let validGuess = possibleLetters.indexOf(upperGuess);
 
-  if (upperGuess.length > 1) {
-    alert("Enter a letter in the input field.");
-  } else if (validGuess == -1) {
-    alert(
-      "You must guess a letter; numbers and special characters are not allowed."
-    );
+  if (validGuess == -1) {
+    errorMessage.innerHTML =
+      "You must guess a letter; numbers and special characters are not allowed.";
     upperGuess = "";
   } else if (validGuess >= 0) {
     // Check if letter has already been guessed.
@@ -355,7 +353,8 @@ function checkLetter() {
 
     if (duplicateLetter === true) {
       // Do not allow duplicate guesses.
-      alert("You have already guessed this letter, try another.");
+      errorMessage.innerHTML =
+        "You have already guessed this letter, try another.";
     } else {
       // If the guess is a letter and not a duplicate, add it to the 'guessedLetters' array.
       guessedLetters.push(upperGuess);
@@ -366,6 +365,7 @@ function checkLetter() {
   remainingGuesses++;
 
   setTimeout(clear, 500);
+  setTimeout(clearError, 3000);
   focus();
 }
 
@@ -381,6 +381,13 @@ function focus() {
  */
 function clear() {
   document.getElementById("letter-input").value = "";
+}
+
+/**
+ * Clears any Error message.
+ */
+function clearError() {
+  errorMessage.innerHTML = "";
 }
 
 /**

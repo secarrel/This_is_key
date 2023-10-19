@@ -129,6 +129,7 @@ h2 {
 #nav-display{
     position: fixed;
     width: 100%;
+    height: 13%;
     flex-direction: row;
     background-color: #b5b9b473;
     justify-content: space-around;
@@ -325,8 +326,9 @@ input[type="radio"] {
 #game-play-container {
     height: 100%;
     width: 50%;
-    margin: auto;
+    margin: 10px auto;
     padding: 10px;
+    border-radius: 2%;
     display: flex;
     flex-direction: column;
     background-color: #f7f7f781;
@@ -435,6 +437,10 @@ margin-bottom: 40px;
 
 #next {
     margin: 0;
+}
+
+#error-message {
+    color: red;
 }
 
 /* --------------------- Word End Modal --------------------- */

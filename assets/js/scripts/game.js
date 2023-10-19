@@ -190,14 +190,11 @@ function displayTopic(topic) {
 async function getData(jsonFile) {
   const response = await fetch(jsonFile);
   const jsonData = await response.json();
-
   jsonData.forEach(function (item) {
     keywordOptions.push(item.word);
     topicDefinitions.push(item.definition);
-
-    createIndexOptions();
   });
-
+  createIndexOptions();
   showGamePlay();
 }
 

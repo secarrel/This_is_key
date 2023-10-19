@@ -1,6 +1,6 @@
   @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Tilt+Neon&display=swap');
 
-  * {
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -43,72 +43,6 @@ main {
     background-size:cover;
 }
 
-/* --------------------- Footer --------------------- */
-footer {
-    height: 3%;
-    background-color: #b5b9b480;
-    color:#1f7c2893;
-    font-family: 'Tilt Neon', sans-serif;
-    font-size: 16px;
-}
-
-#footer {
-    display: flex;
-    justify-content: space-evenly;
-    height: 100%;
-    align-items: center;
-}
-
-#footer a {
-    text-decoration: none;
-    color:#1f7c2893;
-}
-
-#footer a:hover {
-    color: #0e3312;
-    cursor: pointer;
-}
-
-.footer-element:hover {
-    color: #0e3312;
-    cursor: pointer;
-}
-
-/* ---- Buttons ---- */
-button {
-    width: 150px;
-    margin: 10px;
-    padding: 5px;
-    font-size: 20px;
-    border-radius: 5%;
-    border-width: 3px;
-    border-color: #1f7c2893;
-    background-color: #76ba70;
-    color: #ffffff;
-}
-
-.button-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-button:hover {
-    background-color: #0e3312;
-    transition-duration: 1s;
-    cursor: pointer;
-}
-
-/* ---- Close Icon ---- */
-.close {
-    font-size: 40px;
-    transition: color 0.5s;
-}
-
-.close:hover {
-    color: #c95e00;
-}
-
 /* ---------------------Dialogs --------------------- */
 dialog {
     margin: auto;
@@ -123,6 +57,16 @@ dialog {
 h2 {
     padding: 10px;
     font-size: 40px;
+}
+
+/* ---- Close Icon ---- */
+.close {
+    font-size: 40px;
+    transition: color 0.5s;
+}
+
+.close:hover {
+    color: #c95e00;
 }
 
 /* --------------------- Navbar --------------------- */
@@ -163,6 +107,15 @@ h2 {
     display: none;
 }
 
+#nav-title {
+    transition: color 0.5s;
+    width: 40%;
+}
+
+#nav-title:hover {
+    color: #1f7c28;
+}
+
 #nav-menu {
     color: #c95e00;
     font-size: 40px;
@@ -171,15 +124,6 @@ h2 {
 
 #nav-menu:hover {
     color: #e99e5d;
-}
-
-#nav-title {
-    transition: color 0.5s;
-    width: 40%;
-}
-
-#nav-title:hover {
-    color: #1f7c28;
 }
 
 /* --------------------- Home Display --------------------- */
@@ -223,10 +167,6 @@ h2 {
 }
 
 /* --------------------- Topic display --------------------- */
-#topic-img {
-    background-image: url(https://images.unsplash.com/photo-1516979187457-637abb4f9353?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA==&auto=format&fit=crop&w=1770&q=80);
-}
-
 #topics-display {
     display: none;
     flex-direction: column;
@@ -234,6 +174,10 @@ h2 {
     text-align: center;
     height: 100%;
     width: 100%;
+}
+
+#topic-img {
+    background-image: url(https://images.unsplash.com/photo-1516979187457-637abb4f9353?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA==&auto=format&fit=crop&w=1770&q=80);
 }
 
 #topic-container {
@@ -257,6 +201,10 @@ h2 {
     border-radius: 5%;
     padding: 20px;
     overflow-y: hidden;
+}
+
+input[type="radio"] {
+    display: none;
 }
 
 label {
@@ -285,8 +233,6 @@ label:hover i{
     animation: shake 0.4s;
 }
 
-
-
 @keyframes shake {
     0% { transform: translate(1px, 1px) rotate(0deg); }
     150% { transform: translate(-1px, -1px) rotate(-1deg); }
@@ -304,10 +250,6 @@ label:hover {
     box-shadow: none;
     font-size: 16.3px;
     cursor: pointer;
-}
-
-input[type="radio"] {
-    display: none;
 }
 
 /* --------------------- Game display --------------------- */
@@ -373,6 +315,7 @@ input[type="radio"] {
 height: 80px;
 padding: 3px;
 margin-bottom: 40px;
+overflow-y: scroll;
 }
 
 #word-display {
@@ -409,6 +352,10 @@ margin-bottom: 40px;
     box-shadow: none;
 }
 
+#next {
+    margin: 0;
+}
+
 #guessed-box {
     width: 100%;
     height: 20%;
@@ -436,12 +383,25 @@ margin-bottom: 40px;
     font-weight: 800;
 }
 
-#next {
-    margin: 0;
-}
-
 #error-message {
     color: red;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ffffff9c;
+}
+ 
+::-webkit-scrollbar-thumb {
+    background: #c95e008a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #c95e00;
 }
 
 /* --------------------- Word End Modal --------------------- */
@@ -476,10 +436,65 @@ margin-bottom: 40px;
 }
 
 /* --------------------- Word End Modal --------------------- */
-#game-end button{
+[game-end-modal] button{
     width: 300px;
 }
 
+/* --------------------- Footer --------------------- */
+footer {
+    height: 3%;
+    background-color: #b5b9b480;
+    color:#1f7c2893;
+    font-family: 'Tilt Neon', sans-serif;
+    font-size: 16px;
+}
+
+#footer {
+    display: flex;
+    justify-content: space-evenly;
+    height: 100%;
+    align-items: center;
+}
+
+#footer a {
+    text-decoration: none;
+    color:#1f7c2893;
+}
+
+#footer a:hover {
+    color: #0e3312;
+    cursor: pointer;
+}
+
+.footer-element:hover {
+    color: #0e3312;
+    cursor: pointer;
+}
+
+/* ---- Buttons ---- */
+button {
+    width: 150px;
+    margin: 10px;
+    padding: 5px;
+    font-size: 20px;
+    border-radius: 5%;
+    border-width: 3px;
+    border-color: #1f7c2893;
+    background-color: #76ba70;
+    color: #ffffff;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button:hover {
+    background-color: #0e3312;
+    transition-duration: 1s;
+    cursor: pointer;
+}
 
 /* ----------------------------- BREAKPOINTS ----------------------------- */
 /* The above styling is for screen sizes above 950px. The below styling applies to the sepcified breakpoints. */
@@ -581,7 +596,6 @@ margin-bottom: 40px;
     }
 
     #definition-display {
-        overflow-y: scroll;
         height: 110px;
         margin: 10px;
         font-size: 17px;
@@ -595,7 +609,7 @@ margin-bottom: 40px;
         width:90%;
     }
 
-    #game-end button {
+    [game-end-modal] button {
         width: 80%;
     }
 

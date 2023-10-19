@@ -14,18 +14,26 @@
 </head>
 <body>
     <header>
+        <!-- Nav not displayed on landing page -->
         <nav class="hide" id="nav-display">
             <div class="nav-element" display-home id="logo" type="button" >
+                <!-- Logo options for responsive screen sizing -->
                 <img id="nav-logo" src="assets/images/nav_logo.png" alt="Logo icon wth catch-phrase">
                 <img id="green-key-logo" src="assets/images/green_key.png" alt="logo icon without catch-phrase">
             </div>
+            <!-- Game Title -->
             <h1 id="nav-title" class="nav-element" display-home type="button" >This is Key!</h1>
+            <!-- Menu -->
             <div id="nav-menu" class="nav-element" menu-open-modal><i class="fa-solid fa-bars"></i></div>
             <dialog id="menu-modal" menu-modal>
                 <div class="button-container">
+                    <!-- Change topic -->
                     <button type="button" id="change-topic" change-topic >Change Topic</button>
+                    <!-- New Game -->
                     <button type="button" id="new-game" open-game-end-modal >New Game</button>
+                    <!-- New Word -->
                     <button type="button" id="new-word">New Word</button>
+                    <!-- Close -->
                     <p class="close" id="close-menu"><i class="fa-solid fa-square-xmark"></i></p>
                 </div>
             </dialog>
@@ -54,16 +62,22 @@
                 <h2 id="topic-instruction">Choose a topic</h2>
                 <!--Topics listed as buttons-->
                 <div id="topic-select">
+                    <!-- Cells topic -->
                     <input type="radio" class="topic" name="topic-select" id="cells" onclick="selectTopic(this)">
                     <label class="topic-button" for="cells">Cells and movement across membranes <i class="fa-solid fa-microscope"></i></label>
+                    <!-- Respiration topic -->
                     <input type="radio" class="topic" name="topic-select" id="respiration" onclick="selectTopic(this)">
                     <label class="topic-button" for="respiration">The respiratory system in humans <i class="fa-solid fa-lungs"></i></label>
+                    <!-- Digestion topic -->
                     <input type="radio" class="topic" name="topic-select" id="digestion" onclick="selectTopic(this)">
                     <label class="topic-button" for="digestion">The digestive system in humans <i class="fa-solid fa-poo"></i></label>
+                    <!-- Biodiversity topic -->
                     <input type="radio" class="topic" name="topic-select" id="biodiversity" onclick="selectTopic(this)">
                     <label class="topic-button" for="biodiversity">Classification and biodiversity <i class="fa-solid fa-frog"></i></label>
+                    <!-- DNA topic -->
                     <input type="radio" class="topic" name="topic-select" id="dna" onclick="selectTopic(this)">
                     <label class="topic-button" for="dna">DNA and inheritance <i class="fa-solid fa-dna"></i></label>
+                    <!-- Evolution topic -->
                     <input type="radio" class="topic" name="topic-select" id="evolution" onclick="selectTopic(this)">
                     <label class="topic-button" for="evolution">Variation and Evolution <i class="fa-solid fa-hourglass-half"></i></label>
 
@@ -73,58 +87,74 @@
     <!-- Game Play Section -->
         <div id="game-play-display">
             <div class="background-img" id="game-background"></div>
+            <!-- Contains all elements related to game-play. -->
             <div id="game-play-container">
+                <!-- Score and Topic information -->
                 <div id="game-info">
                     <div id="current-score">Current score: <span id="score-count"></span></div>
                     <div id="id-topic">Topic</div>
                 </div>
+                <!-- Changing picture -->
                 <div id="picture-container">
                     <img id="changing-picture" src="assets/images/pinkflower_noguess.png" alt="A flower that loses a petal with every incorrect guess">
                 </div>
                 <div id="keyword-info">
+                    <!-- Keyword guess updates and definition -->
                     <p id="definition-display"></p>
                     <p id="word-display"></p>
+                    <!-- Letter guess input field -->
                     <div id="guess-input-container">
                         <input id="letter-input" type="text" placeholder="Guess a letter" >
                         <button id="next" class="hide"> Next </button>
                         <p id="error-message"></p>
                     </div>
                 </div>  
+                <!-- Incorrectly guessed letter information -->
                 <div id="guessed-box">   
+                    <!-- Displays incorrect letters -->
                     <div id="incorrect-letters-guessed">Incorrectly guessed letters</div>
                     <div id="guessed-letter-container">
                         <div id="letter-array"></div>
-                      </div>
-                      <p id="remaining-guesses">Remaining guesses:</p>
-                      <p id="remaining-guesses-count"></p>
+                    </div>
+                    <!-- Remaining guesses -->
+                    <p id="remaining-guesses">Remaining guesses:</p>
+                    <p id="remaining-guesses-count"></p>
                 </div>
             </div>   
-            <!-- Word end Modal-->
+            <!-- 'Word end' Modal-->
             <dialog id="word-modal" word-end-modal>
+                <!-- Word Information -->
                 <div id="end-word">WORD</div>
                 <div id="end-definition">definition</div>
+                <!-- Navigation options -->
                 <div class="button-container" id="word-end-options">
+                    <!-- Keyword audio -->
                     <button id="speak"> <i class="fa-solid fa-play"></i>Listen to this word</button>
+                    <!-- Alternative definition -->
                     <button id="dictionary-definition"><i class="fa-regular fa-circle-question"></i>Explain this differently</button>
+                    <!-- WJEC definition -->
                     <button class="hide" id="official-definition"><i class="fa-solid fa-book-open"></i>Show the official WJEC definition</button>
+                    <!-- Next Word -->
                     <button id="next-word" close-word-end-modal><i class="fa-solid fa-forward-step"></i>Next word</button>
+                    <!-- Change Topic -->
                     <button change-topic close-word-end-modal><i class="fa-solid fa-backward-step"></i>Change Topic</button>
+                    <!-- End Game -->
                     <button id="end-game" open-game-end-modal close-word-end-modal><i class="fa-solid fa-right-to-bracket"></i>End Game</button>
                 </div>
             </dialog>
         </div>
-    <!-- Game end Modal-->
-        <div id="game-end">
-            <dialog game-end-modal>
-                <h2>Would you like to end the game?</h2>
-                <div id="game-end-message">Are you sure you want to end the game? <br> All data from this game will be cleared.</div>
-                <div class="button-container">
-                    <button id="yes-end" display-home>Yes, I'm done.</button>
-                    <button id="no-continue" change-topic>No, I'll just change topic</button>
-                    <p class="close" id="close-end-game"><i class="fa-solid fa-square-xmark"></i></p>
-                </div>
-            </dialog>
-        </div>  
+        <!-- 'Game end' Modal-->
+        <dialog game-end-modal>
+            <h2>Would you like to end the game?</h2>
+            <div id="game-end-message">Are you sure you want to end the game? <br> All data from this game will be cleared.</div>
+            <!-- Game end options -->
+            <div class="button-container">
+                <button id="yes-end" display-home>Yes, please.</button>
+                <button id="no-continue" change-topic>No, I'll just change topic</button>
+                <p class="close" id="close-end-game"><i class="fa-solid fa-square-xmark"></i></p>
+            </div>
+        </dialog>
+        <!-- 'About' Modal -->
         <dialog about-modal id="about-modal">
             <h2>About <em>This is Key!</em></h2>
             <p>
@@ -151,9 +181,13 @@
         
     </main>
     <footer>
+        <!-- Footer -->
         <div id="footer">
+            <!-- Open 'about' modal -->
             <p open-about-modal class="footer-element">About <em>This is Key!</em></p>
+            <!-- Open 'how to play' modal -->
             <p footer-rules class="footer-element"><i class="fa-regular fa-circle-question"></i> How to Play</p>
+            <!-- Link to WJEC learning resources for further development -->
             <a class="footer-element" id="wjec-link" href="https://resource.download.wjec.co.uk/vtc/2022-23/Biology/English/index.html" target="_blank" title="Open WJEC's interactive learning resource">Learn more with WJEC</a>
         </div>
     </footer>

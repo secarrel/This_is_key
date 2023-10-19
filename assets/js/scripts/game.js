@@ -97,7 +97,8 @@ document
     updateWordProgress(upperGuess);
     checkForWin();
     checkForLoss();
-    clearAndFocus();
+    setTimeout(clear, 1500);
+    focus();
   });
 
 // Triggers the newWord function.
@@ -261,7 +262,8 @@ function newWord() {
   document.getElementById("letter-input").classList.remove("hide");
   document.getElementById("next").classList.add("hide");
 
-  clearAndFocus();
+  setTimeout(clear, 1500);
+  focus();
 }
 
 /**
@@ -325,6 +327,8 @@ function displayAlternativeDefinition() {
         "No other definition available. Sorry!";
     }
   }
+
+  return mainDefinitionFromApi;
 }
 
 /**
@@ -361,15 +365,19 @@ function checkLetter() {
 
   remainingGuesses++;
 
-  clearAndFocus();
+  setTimeout(clear, 1500);
+  focus();
 }
 
 /**
  * Clear input box and focus for the next input
  */
-function clearAndFocus() {
-  document.getElementById("letter-input").value = "";
+function focus() {
   document.getElementById("letter-input").focus();
+}
+
+function clear() {
+  document.getElementById("letter-input").value = "";
 }
 
 /**
@@ -561,5 +569,8 @@ module.exports = {
   updateWordProgress,
   displayTopic,
   checkGuess,
-  remainingGuesses,
+  checkLetter,
+  displayAlternativeDefinition,
+  upperGuess,
+  keyword,
 };

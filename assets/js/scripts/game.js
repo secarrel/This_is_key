@@ -97,13 +97,13 @@ document
     updateWordProgress(upperGuess);
     checkForWin();
     checkForLoss();
-    setTimeout(clear, 1500);
+    clear();
     focus();
   });
 
 // Triggers the newWord function.
 document.getElementById("next-word")?.addEventListener("click", newWord);
-document.getElementById("next-word")?.addEventListener("click", clearAndFocus);
+document.getElementById("next-word")?.addEventListener("click", focus);
 
 // Triggers the getPronounciation function.
 document.getElementById("speak")?.addEventListener("click", getPronounciation);
@@ -121,7 +121,7 @@ document
 // Triggers display of rules modal at any time using the footer option.
 document
   .querySelector("[footer-rules]")
-  ?.addEventListener("click", showRulesModal);
+  .addEventListener("click", showRulesModal);
 
 // ----------------------- Functions -------------------------
 
@@ -172,7 +172,6 @@ function selectTopic(clicked) {
   jsonFile = biologyJson.concat(topic) + ".json";
   getData(jsonFile);
 
-  setTimeout(showGamePlay, 250);
   displayTopic(topic);
 }
 
@@ -188,16 +187,18 @@ function displayTopic(topic) {
 /**
  * Fetch the data from the relevant json file and create seperate word and definition arrays.
  */
-function getData(jsonFile) {
-  fetch(jsonFile).then(function (response) {
-    response.json().then(function (jsonData) {
-      jsonData.forEach(function (item) {
-        keywordOptions.push(item.word);
-        topicDefinitions.push(item.definition);
-      });
-      createIndexOptions();
-    });
+async function getData(jsonFile) {
+  const response = await fetch(jsonFile);
+  const jsonData = await response.json();
+
+  jsonData.forEach(function (item) {
+    keywordOptions.push(item.word);
+    topicDefinitions.push(item.definition);
+
+    createIndexOptions();
   });
+
+  showGamePlay();
 }
 
 /**
@@ -262,7 +263,7 @@ function newWord() {
   document.getElementById("letter-input").classList.remove("hide");
   document.getElementById("next").classList.add("hide");
 
-  setTimeout(clear, 1500);
+  setTimeout(clear, 500);
   focus();
 }
 
@@ -290,7 +291,9 @@ function randomiseKeywordOptions() {
 function checkWordArray() {
   if (keywordIndexOptions.length == 0) {
     showTopics();
-    alert("There are no words available. Select a new topic.");
+    alert(
+      "You have used all words in this topic. Start a new game or choose another topic."
+    );
   }
 }
 
@@ -365,17 +368,20 @@ function checkLetter() {
 
   remainingGuesses++;
 
-  setTimeout(clear, 1500);
+  setTimeout(clear, 500);
   focus();
 }
 
 /**
- * Clear input box and focus for the next input
+ * Focus on the input field.
  */
 function focus() {
   document.getElementById("letter-input").focus();
 }
 
+/**
+ * Clear the input field.
+ */
 function clear() {
   document.getElementById("letter-input").value = "";
 }

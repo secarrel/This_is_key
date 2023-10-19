@@ -7,6 +7,7 @@ const possibleLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const biologyJson = "assets/js/biology_keywords/";
 const errorMessage = document.getElementById("error-message");
 const definitionDisplay = document.getElementById("definition-display");
+const inputField = document.getElementById("letter-input");
 let keywordOptions = [];
 let keyword = "";
 let keywordUpper = "";
@@ -404,17 +405,25 @@ function checkGuess() {
   if (letterPosition >= 0) {
     // If the letter is in the keyword, add the letter to 'correctLetters' array.
     correctLetters.push(upperGuess);
+    inputField.style.backgroundColor = "#1f7c2893";
+    setTimeout(resetInputColour, 500);
   } else if (letterPosition == -1) {
     // If the letter is not in the keyword, add the letter to 'incorrectLetters' array.
     incorrectLetters.push(upperGuess);
+    inputField.style.backgroundColor = "#c95e0079";
     // Display incorrect letters for user to see.
     let letterDisplay = document.getElementById("letter-array");
     letterDisplay.innerHTML = incorrectLetters.join("");
     // Subtract 1 from remaining guesses count.
     remainingCount();
     changeImage();
+    setTimeout(resetInputColour, 500);
     return letterDisplay;
   }
+}
+
+function resetInputColour() {
+  inputField.style.backgroundColor = "#b5b9b473";
 }
 
 /**

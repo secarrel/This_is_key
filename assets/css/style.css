@@ -423,6 +423,7 @@ margin-bottom: 40px;
 #letter-array {
     letter-spacing: 8px;
     font-weight: 800;
+    color: #c95e00;
 }
 
 #guessed-letter-container {

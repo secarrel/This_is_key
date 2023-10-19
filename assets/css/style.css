@@ -261,7 +261,7 @@ h2 {
 label {
     display: flex;
     font-weight: 400;
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: 300px;
     height: 80px !important;
     background-color: #c95e00;
@@ -272,6 +272,7 @@ label {
     color: white;
     box-shadow: 2px 2px #6d3300;
     align-items: center;
+    text-align: left;
 }
 
 label i {
@@ -282,6 +283,8 @@ label i {
 label:hover i{
     animation: shake 0.4s;
 }
+
+
 
 @keyframes shake {
     0% { transform: translate(1px, 1px) rotate(0deg); }

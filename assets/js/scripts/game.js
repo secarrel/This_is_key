@@ -95,7 +95,7 @@ document.getElementById("yes-end")?.addEventListener("click", reset);
 // Detect guessed letter and checks if correct on 'enter'.
 document
   .getElementById("letter-input")
-  ?.addEventListener("keydown", function (event) {
+  ?.addEventListener("keyup", function (event) {
     // Set the value of 'guess' to the submitted letter.
     guess = event.key;
     // Check validity of the guessed letter.

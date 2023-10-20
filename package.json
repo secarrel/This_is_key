@@ -2,7 +2,7 @@
   "name": "this_is_key",
   "version": "1.0.0",
   "description": "*Desciption of app*",
-  "main": "index.js",
+  "main": "game.js",
   "devDependencies": {
     "jest": "29.7.0",
     "jest-environment-jsdom": "^29.7.0"

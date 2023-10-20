@@ -10,7 +10,8 @@ const {
   checkGuess,
   displayRemainingGuesses,
   checkForLoss,
-  remainingGuesses,
+  checkLetter,
+  displayAlternativeDefinition,
 } = require("../game");
 
 beforeAll(() => {
@@ -51,10 +52,10 @@ describe("current score is functional and equal to the number of wins", () => {
   test("current score equals 0 at start of game", () => {
     expect(displayScore()).toEqual(0);
   });
-  test("Current score increases if a win is achieved", () => {
+  test("Current score increases if a win is achieved and checkForWin in called", () => {
     expect(checkForWin()).toEqual(1);
   });
-  test("Current score continues to increase if a win is achieved", () => {
+  test("Current score continues to increase if a win is achieved and check for win is called", () => {
     expect(checkForWin()).toEqual(2);
   });
 });
@@ -96,5 +97,12 @@ describe("remaining guesses counts down from 8 as letters are guessed incorrectl
   });
   test("loss is detected if remaining guess equals less than 1", () => {
     expect(checkForLoss()).toBe(true);
+  });
+});
+
+// Check that updateWordProgress function works correctly, replacing letters for underscores and vice versa.
+describe("updateWordProgress displays the keyword as a string of letters or underscores", () => {
+  test("updateWordProgress should return an empty string as the keyword is yet not defined", () => {
+    expect(updateWordProgress()).toBe("");
   });
 });

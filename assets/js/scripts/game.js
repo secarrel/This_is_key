@@ -96,19 +96,12 @@ document.getElementById("yes-end")?.addEventListener("click", reset);
 document
   .getElementById("letter-input")
   ?.addEventListener("keydown", function (event) {
-    // Set the value of 'guess' to the submitted letter.
     guess = event.key;
-    // Check validity of the guessed letter.
     checkLetter();
-    // Update the keyword display to show guessed letter if it is correct.
     updateWordProgress(upperGuess);
-    // Check if all letters in the keyword have been guessed.
     checkForWin();
-    // Check if there are any guesses remaining.
     checkForLoss();
-    // Clear the input field.
     clear();
-    // Focus on the input field ready for next guess.
     focus();
   });
 
@@ -142,22 +135,17 @@ document
  * Empties all temporary arrays.
  */
 function reset() {
-  // Reset temporary arrays.
   currentScore = 0;
   keywordLetters = [];
   keywordOptions = [];
   keywordIndexOptions = [];
   topicDefinitions = [];
   resetWordArrays();
-
-  // Removes selection of radio buttons so keyword array isn't re-filled.
   clearTopicSelection();
 
-  //Displays the remaining guesses after reset.
   document.getElementById("remaining-guesses-count").innerHTML =
     remainingGuesses;
 
-  //Displays the current score after reset.
   displayScore();
 }
 
@@ -184,14 +172,10 @@ function selectTopic(clicked) {
   keywordIndexOptions = [];
   topicDefinitions = [];
 
-  // Set the value of 'Topic' to the ID of the selected topic.
   topic = clicked.id;
-  // Set the value of jsonFile to the file name that contains the relevant topic data.
   jsonFile = biologyJson.concat(topic) + ".json";
-  // Get keyword data for the selected topic from the relevant json file.
   getData(jsonFile);
 
-  // Display the ID of the topic on the game-play display.
   displayTopic(topic);
 }
 
@@ -199,30 +183,22 @@ function selectTopic(clicked) {
  * Displays the current topic ID on the game-play display.
  */
 function displayTopic(topic) {
-  // Set the inner HTML of the topic display to the current topic ID.
   topicId.innerHTML = topic?.toUpperCase();
-  return topicId;
 }
 
 /**
  * Fetch the data from the relevant json file and create seperate word and definition arrays.
  */
 async function getData(jsonFile) {
-  // Set the value of response to the content of the jsonFile once fetched.
   const response = await fetch(jsonFile);
-  // Make the data accessible for use and assign it to the jsonData variable.
   const jsonData = await response.json();
-  // For every item in the json file, add the keyword to the keywordOptions array,
-  // and the definition of that keyword to the topicDefinitions array.
   jsonData.forEach(function (item) {
     keywordOptions.push(item.word);
     topicDefinitions.push(item.definition);
   });
 
-  // Call the create index options to number each item ready to be called on during game-play.
   createIndexOptions();
 
-  // Once the data is processed, show the game-play display.
   showGamePlay();
 }
 
@@ -230,28 +206,20 @@ async function getData(jsonFile) {
  * Uses the dictionary API to fetch a dictionary definition for the keyword.
  */
 async function getDictionaryData(keyword) {
-  // Create the correct file-name to get data from Dictionary API which matched the keyword.
   let dictionaryFile =
     "https://api.dictionaryapi.dev/api/v2/entries/en/" + keyword;
-  // Clear the value of the dictionaryDefinition variable ready for new data to be pushed to it.
   let dictionaryDefinition = [];
 
   try {
-    // Fetch the word data from Dictionary API using the above file-name.
     const response = await fetch(dictionaryFile);
-    // Format the data in a way that is accessible and assign it to dictionaryData variable.
     const dictionaryData = await response.json();
 
-    // Add the dictionary data just collected to the cleared dictionaryDefinition variable.
     dictionaryDefinition.push(dictionaryData);
 
-    // Navigate the dictionaryDefinition data to find the first definition of the keyword
-    // and assign this definition to the mainDefinitionFromApi variable.
     mainDefinitionFromApi =
       dictionaryDefinition[0][0].meanings[0].definitions[0].definition;
   } catch {
-    console.log("ERROR");
-    mainDefinitionFromApi = "This word isn't available in the dictionary.";
+    console.log("ERROR: word doesn't exist in dictionary API");
   }
 }
 
@@ -259,9 +227,6 @@ async function getDictionaryData(keyword) {
  * Creates a new array for keywords indexes.
  */
 function createIndexOptions() {
-  // Loop through each item in the keywordOptions variable and add it's index to the
-  // keywordIndexOptions variable. This will allow me to access the macthing definition and
-  // keyword when needed.
   for (let i = 0; i < keywordOptions.length; i++) {
     keywordIndexOptions.push(i);
   }
@@ -271,42 +236,21 @@ function createIndexOptions() {
  * Generates a new random word from the 'keywordOptions' array.
  */
 function newWord() {
-  // Check there are words still available in the keywordOptions array. If there are not the
-  // user is asked to select another topic or start a new game.
   checkWordArray();
-
-  // Reset all arrays related to the previous keyword.
   resetWordArrays();
-
-  // Display the current incorrectly guessed letters. There should be none at this stage.
   document.getElementById("letter-array").innerHTML = incorrectLetters;
-  // Display the remaining guesses as this should be reset to equal 8.
   displayRemainingGuesses();
-  // Set the changing image to the no guesses variation to indicate the start of the new word.
   changeImage();
-  // Generate the new keyword.
   generateWord();
-  // Get the API keyword definition.
   getDictionaryData(keyword);
-  // Display the current score.
   displayScore();
-  // Show the keyword as a series of underscores. At this stage there should be no letters in the
-  // display, only special characters that the user isn't able to guess.
   updateWordProgress(upperGuess);
-  // Display the WJEC definition of the keyword for the user to use as a hint.
   displayDefinition();
-  // Resets the definition in the word-end modal to the official WJEC one, which is the same as
-  // is displayed on the game-play display as a hint.
   displayOfficialWJECDefinition();
 
-  // Displays the letter input field so the user can make guesses. This would have been hidden in
-  // the previous word and replaced with the 'next' button.
   document.getElementById("letter-input").classList.remove("hide");
-  // Hide the 'next' button from the previous word as this option shouldn't be available
-  // at this stage in the game.
   document.getElementById("next").classList.add("hide");
 
-  // Focus on the input field so the user can make guesses easily.
   focus();
 }
 
@@ -371,7 +315,7 @@ function displayDefinition() {
  */
 function displayOfficialWJECDefinition() {
   document.getElementById("end-definition").innerHTML =
-    topicDefinitions[keywordIndex];
+    "<p><em>WJEC definition:</em></p>" + topicDefinitions[keywordIndex];
   document.getElementById("dictionary-definition").classList.remove("hide");
   document.getElementById("official-definition").classList.add("hide");
 }
@@ -380,7 +324,8 @@ function displayOfficialWJECDefinition() {
  * Displays the definition from the dictionary API and displays a message if there is no alternative definition avaialble.
  */
 function displayAlternativeDefinition() {
-  document.getElementById("end-definition").innerHTML = mainDefinitionFromApi;
+  document.getElementById("end-definition").innerHTML =
+    "<p><em>Dictionary definition:</em></p>" + mainDefinitionFromApi;
   document.getElementById("dictionary-definition").classList.add("hide");
   document.getElementById("official-definition").classList.remove("hide");
 
@@ -641,19 +586,23 @@ function displayScore() {
   return currentScore;
 }
 
-module.exports = {
-  displayScore,
-  checkForWin,
-  checkForLoss,
-  remainingCount,
-  displayRemainingGuesses,
-  changeImage,
-  displayDefinition,
-  updateWordProgress,
-  displayTopic,
-  checkGuess,
-  checkLetter,
-  displayAlternativeDefinition,
-  upperGuess,
-  keyword,
-};
+try {
+  module.exports = {
+    displayScore,
+    checkForWin,
+    checkForLoss,
+    remainingCount,
+    displayRemainingGuesses,
+    changeImage,
+    displayDefinition,
+    updateWordProgress,
+    displayTopic,
+    checkGuess,
+    checkLetter,
+    displayAlternativeDefinition,
+    upperGuess,
+    keyword,
+  };
+} catch {
+  console.log("Module exports");
+}

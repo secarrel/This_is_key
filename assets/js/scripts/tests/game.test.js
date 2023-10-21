@@ -39,9 +39,6 @@ describe("game display contains correct elements", () => {
   test("Keyword exists", () => {
     expect(updateWordProgress()).toBeDefined();
   });
-  test("current topic exists", () => {
-    expect(displayTopic()).toBeDefined();
-  });
   test("guessed letters display exists", () => {
     expect(checkGuess).toBeDefined();
   });

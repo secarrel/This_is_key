@@ -95,7 +95,7 @@ document.getElementById("yes-end")?.addEventListener("click", reset);
 // Detect guessed letter and checks if correct on 'enter'.
 document
   .getElementById("letter-input")
-  ?.addEventListener("keyup", function (event) {
+  ?.addEventListener("keydown", function (event) {
     // Set the value of 'guess' to the submitted letter.
     guess = event.key;
     // Check validity of the guessed letter.
@@ -236,18 +236,23 @@ async function getDictionaryData(keyword) {
   // Clear the value of the dictionaryDefinition variable ready for new data to be pushed to it.
   let dictionaryDefinition = [];
 
-  // Fetch the word data from Dictionary API using the above file-name.
-  const response = await fetch(dictionaryFile);
-  // Format the data in a way that is accessible and assign it to dictionaryData variable.
-  const dictionaryData = await response.json();
+  try {
+    // Fetch the word data from Dictionary API using the above file-name.
+    const response = await fetch(dictionaryFile);
+    // Format the data in a way that is accessible and assign it to dictionaryData variable.
+    const dictionaryData = await response.json();
 
-  // Add the dictionary data just collected to the cleared dictionaryDefinition variable.
-  dictionaryDefinition.push(dictionaryData);
+    // Add the dictionary data just collected to the cleared dictionaryDefinition variable.
+    dictionaryDefinition.push(dictionaryData);
 
-  // Navigate the dictionaryDefinition data to find the first definition of the keyword
-  // and assign this definition to the mainDefinitionFromApi variable.
-  mainDefinitionFromApi =
-    dictionaryDefinition[0][0].meanings[0].definitions[0].definition;
+    // Navigate the dictionaryDefinition data to find the first definition of the keyword
+    // and assign this definition to the mainDefinitionFromApi variable.
+    mainDefinitionFromApi =
+      dictionaryDefinition[0][0].meanings[0].definitions[0].definition;
+  } catch {
+    console.log("ERROR");
+    mainDefinitionFromApi = "This word isn't available in the dictionary.";
+  }
 }
 
 /**

@@ -128,7 +128,7 @@ function letterInput() {
   updateWordProgress(upperGuess);
   checkForWin();
   checkForLoss();
-  setTimeout(clear, 500);
+  setTimeout(clear, 200);
   focus();
 }
 
@@ -372,9 +372,9 @@ function checkLetter() {
 
   remainingGuesses++;
 
-  setTimeout(clear, 500);
-  setTimeout(clearError, 4000);
+  setTimeout(clear, 200);
   focus();
+  setTimeout(clearError, 3000);
 }
 
 /**

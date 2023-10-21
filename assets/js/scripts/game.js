@@ -126,17 +126,12 @@ document
  */
 function letterInput() {
   guess = document.getElementById("letter-input").value;
-  console.log(guess);
   checkLetter();
   updateWordProgress(upperGuess);
   checkForWin();
   checkForLoss();
   clear();
   focus();
-}
-
-function submit() {
-  document.getElementById("letter-input").submit(guess);
 }
 
 /**

@@ -440,6 +440,16 @@ overflow-y: scroll;
     width: 300px;
 }
 
+/* --------------------- About Modal --------------------- */
+#about-modal {
+    max-width: 80%;
+}
+
+#about-modal p {
+    padding: 10px;
+}
+
+
 /* --------------------- Footer --------------------- */
 footer {
     height: 3%;
@@ -495,6 +505,7 @@ button:hover {
     transition-duration: 1s;
     cursor: pointer;
 }
+
 
 /* ----------------------------- BREAKPOINTS ----------------------------- */
 /* The above styling is for screen sizes above 950px. The below styling applies to the sepcified breakpoints. */
@@ -553,6 +564,7 @@ button:hover {
     dialog {
         width: 90%;
     }
+
     #main-logo {
         width: 80%;
     }

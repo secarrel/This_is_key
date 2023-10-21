@@ -1,36 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-    content="This is Key gives school pupils the chance to learn and revise key words for subjects they are studying at school in a fun and engaging way" />
+        content="This is Key gives school pupils the chance to learn and revise key words for subjects they are studying at school in a fun and engaging way" />
     <meta name="keywords"
-    content="BBC Bitesize, GCSE, revision, biology, learn, keywords, definitions, guessing game, spelling practice" />
+        content="BBC Bitesize, GCSE, revision, biology, learn, keywords, definitions, guessing game, spelling practice" />
     <meta name="author" content="Sian Carrel" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/css/style.css">
     <title>This is Key!</title>
 </head>
+
 <body>
     <header>
         <!-- Nav not displayed on landing page -->
         <nav class="hide" id="nav-display">
-            <div class="nav-element" display-home id="logo" type="button" >
+            <div class="nav-element" display-home id="logo" type="button">
                 <!-- Logo options for responsive screen sizing -->
                 <img id="nav-logo" src="assets/images/nav_logo.png" alt="Logo icon wth catch-phrase">
                 <img id="green-key-logo" src="assets/images/green_key.png" alt="logo icon without catch-phrase">
             </div>
             <!-- Game Title -->
-            <h1 id="nav-title" class="nav-element" display-home type="button" >This is Key!</h1>
+            <h1 id="nav-title" class="nav-element" display-home type="button">This is Key!</h1>
             <!-- Menu -->
             <div id="nav-menu" class="nav-element" menu-open-modal><i class="fa-solid fa-bars"></i></div>
             <dialog id="menu-modal" menu-modal>
                 <div class="button-container">
                     <!-- Change topic -->
-                    <button type="button" id="change-topic" change-topic >Change Topic</button>
+                    <button type="button" id="change-topic" change-topic>Change Topic</button>
                     <!-- New Game -->
-                    <button type="button" id="new-game" open-game-end-modal >New Game</button>
+                    <button type="button" id="new-game" open-game-end-modal>New Game</button>
                     <!-- New Word -->
                     <button type="button" id="new-word">New Word</button>
                     <!-- Close -->
@@ -41,9 +45,9 @@
         </nav>
     </header>
     <main>
-    <!-- Home Section  -->
+        <!-- Home Section  -->
         <div id="home-display">
-            <div class="background-img" id="home-img"></div>
+            <div <div class="background-img" id="home-img"></div>
             <!-- Logo and Welcome Message-->
             <div class="logo-container">
                 <img id="main-logo" src="assets/images/full_logo.png" alt="This is Key logo">
@@ -51,11 +55,11 @@
             <div class="button-container" id="home-buttons">
                 <button rules-open-modal id="rules-button">How to Play</button>
                 <!-- Navigate to topic selection-->
-                <button type="button" change-topic >Get Started</button>
+                <button type="button" change-topic>Get Started</button>
             </div>
-        
+
         </div>
-    <!-- Topics Section -->
+        <!-- Topics Section -->
         <div id="topics-display">
             <div class="background-img" id="topic-img"></div>
             <div id="topic-container">
@@ -64,27 +68,32 @@
                 <div id="topic-select">
                     <!-- Cells topic -->
                     <input type="radio" class="topic" name="topic-select" id="cells" onclick="selectTopic(this)">
-                    <label class="topic-button" for="cells">Cells and movement across membranes <i class="fa-solid fa-microscope"></i></label>
+                    <label class="topic-button" for="cells">Cells and movement across membranes <i
+                            class="fa-solid fa-microscope"></i></label>
                     <!-- Respiration topic -->
                     <input type="radio" class="topic" name="topic-select" id="respiration" onclick="selectTopic(this)">
-                    <label class="topic-button" for="respiration">The respiratory system in humans <i class="fa-solid fa-lungs"></i></label>
+                    <label class="topic-button" for="respiration">The respiratory system in humans <i
+                            class="fa-solid fa-lungs"></i></label>
                     <!-- Digestion topic -->
                     <input type="radio" class="topic" name="topic-select" id="digestion" onclick="selectTopic(this)">
-                    <label class="topic-button" for="digestion">The digestive system in humans <i class="fa-solid fa-poo"></i></label>
+                    <label class="topic-button" for="digestion">The digestive system in humans <i
+                            class="fa-solid fa-poo"></i></label>
                     <!-- Biodiversity topic -->
                     <input type="radio" class="topic" name="topic-select" id="biodiversity" onclick="selectTopic(this)">
-                    <label class="topic-button" for="biodiversity">Classification and biodiversity <i class="fa-solid fa-frog"></i></label>
+                    <label class="topic-button" for="biodiversity">Classification and biodiversity <i
+                            class="fa-solid fa-frog"></i></label>
                     <!-- DNA topic -->
                     <input type="radio" class="topic" name="topic-select" id="dna" onclick="selectTopic(this)">
                     <label class="topic-button" for="dna">DNA and inheritance <i class="fa-solid fa-dna"></i></label>
                     <!-- Evolution topic -->
                     <input type="radio" class="topic" name="topic-select" id="evolution" onclick="selectTopic(this)">
-                    <label class="topic-button" for="evolution">Variation and Evolution <i class="fa-solid fa-hourglass-half"></i></label>
+                    <label class="topic-button" for="evolution">Variation and Evolution <i
+                            class="fa-solid fa-hourglass-half"></i></label>
 
                 </div>
             </div>
         </div>
-    <!-- Game Play Section -->
+        <!-- Game Play Section -->
         <div id="game-play-display">
             <div class="background-img" id="game-background"></div>
             <!-- Contains all elements related to game-play. -->
@@ -96,7 +105,8 @@
                 </div>
                 <!-- Changing picture -->
                 <div id="picture-container">
-                    <img id="changing-picture" src="assets/images/pinkflower_noguess.png" alt="A flower that loses a petal with every incorrect guess">
+                    <img id="changing-picture" src="assets/images/pinkflower_noguess.png"
+                        alt="A flower that loses a petal with every incorrect guess">
                 </div>
                 <div id="keyword-info">
                     <!-- Keyword guess updates and definition -->
@@ -104,13 +114,13 @@
                     <p id="word-display"></p>
                     <!-- Letter guess input field -->
                     <div id="guess-input-container">
-                        <input id="letter-input" type="text" placeholder="Guess a letter" >
+                        <input id="letter-input" type="text" placeholder="Guess a letter">
                         <button id="next" class="hide"> Next </button>
                         <p id="error-message"></p>
                     </div>
-                </div>  
+                </div>
                 <!-- Incorrectly guessed letter information -->
-                <div id="guessed-box">   
+                <div id="guessed-box">
                     <!-- Displays incorrect letters -->
                     <div id="incorrect-letters-guessed">Incorrectly guessed letters</div>
                     <div id="guessed-letter-container">
@@ -120,7 +130,7 @@
                     <p id="remaining-guesses">Remaining guesses:</p>
                     <p id="remaining-guesses-count"></p>
                 </div>
-            </div>   
+            </div>
             <!-- 'Word end' Modal-->
             <dialog id="word-modal" word-end-modal>
                 <!-- Word Information -->
@@ -131,22 +141,28 @@
                     <!-- Keyword audio -->
                     <button id="speak"> <i class="fa-solid fa-play"></i>Listen to this word</button>
                     <!-- Alternative definition -->
-                    <button id="dictionary-definition"><i class="fa-regular fa-circle-question"></i>Explain this differently</button>
+                    <button id="dictionary-definition"><i class="fa-regular fa-circle-question"></i>Explain this
+                        differently</button>
                     <!-- WJEC definition -->
-                    <button class="hide" id="official-definition"><i class="fa-solid fa-book-open"></i>Show the official WJEC definition</button>
+                    <button class="hide" id="official-definition"><i class="fa-solid fa-book-open"></i>Show the official
+                        WJEC definition</button>
                     <!-- Next Word -->
-                    <button id="next-word" close-word-end-modal><i class="fa-solid fa-forward-step"></i>Next word</button>
+                    <button id="next-word" close-word-end-modal><i class="fa-solid fa-forward-step"></i>Next
+                        word</button>
                     <!-- Change Topic -->
-                    <button change-topic close-word-end-modal><i class="fa-solid fa-backward-step"></i>Change Topic</button>
+                    <button change-topic close-word-end-modal><i class="fa-solid fa-backward-step"></i>Change
+                        Topic</button>
                     <!-- End Game -->
-                    <button id="end-game" open-game-end-modal close-word-end-modal><i class="fa-solid fa-right-to-bracket"></i>End Game</button>
+                    <button id="end-game" open-game-end-modal close-word-end-modal><i
+                            class="fa-solid fa-right-to-bracket"></i>End Game</button>
                 </div>
             </dialog>
         </div>
         <!-- 'Game end' Modal-->
         <dialog game-end-modal>
             <h2>Would you like to end the game?</h2>
-            <div id="game-end-message">Are you sure you want to end the game? <br> All data from this game will be cleared.</div>
+            <div id="game-end-message">Are you sure you want to end the game? <br> All data from this game will be
+                cleared.</div>
             <!-- Game end options -->
             <div class="button-container">
                 <button id="yes-end" display-home>Yes, please.</button>
@@ -158,13 +174,17 @@
         <dialog about-modal id="about-modal">
             <h2>About <em>This is Key!</em></h2>
             <p>
-                <em>This is Key!</em> is designed to help GCSE pupils learn and remember keywords and their definitions from topics they
-                are studying in school. All keyword data is taken directly from the WJEC keywords glossary which 
-                is supplied to schools as a teaching aid. As a result this app is targetted at pupils in Wales who have WJEC as their
-                exam board for most subjects. 
+                <em>This is Key!</em> is designed to help GCSE pupils learn and remember keywords and their definitions
+                from topics they
+                are studying in school. All keyword data is taken directly from the WJEC keywords glossary which
+                is supplied to schools as a teaching aid. As a result this app is targetted at pupils in Wales who have
+                WJEC as their
+                exam board for most subjects.
             </p>
             <p> Find more information about <em>This is Key!</em> on GitHub:</p>
-            <a id="github-link" href="https://github.com/secarrel/This_is_key/tree/main#local-leaderboard" target="_blank" title="Open the GitHub repository for 'This is Key!'"><em>This is Key!</em> GitHub repository</a>
+            <a id="github-link" href="https://github.com/secarrel/This_is_key/tree/main#local-leaderboard"
+                target="_blank" title="Open the GitHub repository for 'This is Key!'"><em>This is Key!</em> GitHub
+                repository</a>
             <p class="close" close-about-modal><i class="fa-solid fa-square-xmark"></i></p>
         </dialog>
         <!-- 'How to play' modal -->
@@ -172,15 +192,17 @@
             <h2><strong>Here's how to play...</strong></h2>
             <ul>
                 <li>Select a topic you would like to practice or learn.</li>
-                <li>You'll see a definition and a line of underscores; this is the keyword with each letter replaced.</li>
+                <li>You'll see a definition and a line of underscores; this is the keyword with each letter replaced.
+                </li>
                 <li>Your aim is to identify the keyword by using the definition and guessing one letter at a time.</li>
                 <li>If your guessed letter is in the keyword it will be displayed.</li>
                 <li>Find all the letters before you run out of guesses to score a point!</li>
             </ul>
-            <p><i class="fa-regular fa-lightbulb"></i>  <em>Why not challenge a class-mate to see who can identify the most keywords?</em></p>
+            <p><i class="fa-regular fa-lightbulb"></i> <em>Why not challenge a class-mate to see who can identify the
+                    most keywords?</em></p>
             <p rules-close-modal class="close" id="close-menu"><i class="fa-solid fa-square-xmark"></i></p>
         </dialog>
-        
+
     </main>
     <footer>
         <!-- Footer -->
@@ -190,12 +212,16 @@
             <!-- Open 'how to play' modal -->
             <p footer-rules class="footer-element"><i class="fa-regular fa-circle-question"></i> How to Play</p>
             <!-- Link to WJEC learning resources for further development -->
-            <a class="footer-element" id="wjec-link" href="https://resource.download.wjec.co.uk/vtc/2022-23/Biology/English/index.html" target="_blank" title="Open WJEC's interactive learning resource">Learn more with WJEC</a>
+            <a class="footer-element" id="wjec-link"
+                href="https://resource.download.wjec.co.uk/vtc/2022-23/Biology/English/index.html" target="_blank"
+                title="Open WJEC's interactive learning resource">Learn more with WJEC</a>
         </div>
     </footer>
     <script src="assets/js/scripts/script.js"></script>
     <script src="assets/js/scripts/game.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
 </body>
+
 </html>

@@ -8,12 +8,13 @@
 
 body {
     margin: 0;
+    width: 100%;
+    display: flex;
     height: 100vh;
-    width: 100vw;
+    flex-direction: column;
 }
 
 header {
-    height: 13%;
     display: flex;
     font-size: 'Lilita One', sans-serif;
 }
@@ -23,10 +24,10 @@ main {
     color: #0e3312;
     display: flex;
     flex: 1 0 auto;
+    height: 90%;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    height: 84%;
 }
 
 .hide {
@@ -34,14 +35,34 @@ main {
 }
 
 .background-img {
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     position: fixed;
     z-index: -400;
     opacity: 0.2;
     top: 0;
     background-size:cover;
+    background-position: center;
 }
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 5px;
+    position: static;
+}
+
+::-webkit-scrollbar-track {
+    background: #ffffff00;
+}
+ 
+::-webkit-scrollbar-thumb {
+    background: #c95e008a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #c95e00;
+}
+
 
 /* ---------------------Dialogs --------------------- */
 dialog {
@@ -73,7 +94,6 @@ h2 {
 #nav-display{
     position: fixed;
     width: 100%;
-    height: 13%;
     flex-direction: row;
     background-color: #b5b9b473;
     justify-content: space-around;
@@ -130,10 +150,10 @@ h2 {
 #home-display {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    height: 100%;
     width: 100%;
+    height: 100%;
+    justify-content: center;
+    overflow-y: scroll;
 }
 
 #home-img {
@@ -172,8 +192,9 @@ h2 {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    height: 100%;
     width: 100%;
+    height: 100%;
+    justify-content: center;
 }
 
 #topic-img {
@@ -181,12 +202,13 @@ h2 {
 }
 
 #topic-container {
-    height: 100%;
     width: 70%;
+    height: 90%;
     display: flex;
     flex-direction: column;
-    padding-top: 8%;
+    padding-top: 70px;
     align-items: center;
+    justify-content: center;
 }
 
 #topic-select {
@@ -196,11 +218,10 @@ h2 {
     align-items: center;
     background-color: #76ba70;
     width: 80%;
-    height: 70%;
     background-color: #b5b9b473;
     border-radius: 5%;
     padding: 20px;
-    overflow-y: hidden;
+    overflow-y: scroll;
 }
 
 input[type="radio"] {
@@ -212,7 +233,6 @@ label {
     font-weight: 400;
     justify-content: space-between;
     width: 300px;
-    height: 80px !important;
     background-color: #c95e00;
     padding: 15px;
     margin: 5px;
@@ -254,11 +274,14 @@ label:hover {
 
 /* --------------------- Game display --------------------- */
 #game-play-display {
-    height: 100%;
     width: 100%;
+    height: 100%;
+    margin-top: 100px;
     display: none;
     flex-direction: column;
-    overflow: hidden;
+    overflow-y: hidden;
+    align-items: center;
+    justify-content: center;
 }
 
 #game-background {
@@ -266,14 +289,15 @@ label:hover {
 }
 
 #game-play-container {
-    height: 100%;
     width: 50%;
-    margin: 10px auto;
+    height: fit-content;
     padding: 10px;
     border-radius: 2%;
     display: flex;
     flex-direction: column;
     background-color: #f7f7f781;
+    margin-bottom: 10px;
+    overflow-y: scroll;
 }
 
 #game-info {
@@ -289,7 +313,6 @@ label:hover {
 }
 
 #picture-container {
-    height: 200px;
     width: 200px;
     margin: auto;
     display: flex;
@@ -298,8 +321,8 @@ label:hover {
 
 #changing-picture {
     position: relative;
-    height: 100%;
     transition: 0.5s;
+    max-height: 200px;
 }
 
 #changing-picture:hover {
@@ -308,18 +331,14 @@ label:hover {
 
 #keyword-info {
     font-size: 18px;
-    height: 40%;
 }
 
 #definition-display {
-height: 80px;
 padding: 3px;
-margin-bottom: 40px;
-overflow-y: scroll;
+margin-bottom: 10px;
 }
 
 #word-display {
-    height: 30px;
     margin: 10px;
     padding: 3px;
     letter-spacing: 3px;
@@ -335,7 +354,6 @@ overflow-y: scroll;
     border-radius: 5%;
     border-width: 0 !important;
     text-align: center;
-    height: 50px;
     width: 150px;
     box-shadow: 2px 2px 4px ;
     color: rgb(0, 0, 0);
@@ -358,11 +376,10 @@ overflow-y: scroll;
 
 #guessed-box {
     width: 100%;
-    height: 20%;
     background-color: #b5b9b473;
     border-color: #b5b9b473;
     border-radius: 5%;
-    margin: 20px auto;
+    margin: 5px auto;
     padding: 4px;
     position: relative;
 }
@@ -370,12 +387,13 @@ overflow-y: scroll;
 #letter-array {
     letter-spacing: 8px;
     font-weight: 800;
+    height: 40px;
+    padding: 5px;
     color: #c95e00;
 }
 
 #guessed-letter-container {
     width: 100%;
-    height: 35%;
     margin: auto;
 }
 
@@ -385,23 +403,7 @@ overflow-y: scroll;
 
 #error-message {
     color: red;
-}
-
-/* Scrollbar */
-::-webkit-scrollbar {
-    width: 5px;
-}
-
-::-webkit-scrollbar-track {
-    background: #ffffff9c;
-}
- 
-::-webkit-scrollbar-thumb {
-    background: #c95e008a;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #c95e00;
+    height: 20px;
 }
 
 /* --------------------- Word End Modal --------------------- */
@@ -452,26 +454,21 @@ overflow-y: scroll;
 
 /* --------------------- Footer --------------------- */
 footer {
-    height: 3%;
     background-color: #b5b9b480;
     color:#1f7c2893;
     font-family: 'Tilt Neon', sans-serif;
     font-size: 16px;
-}
-
-#footer {
     display: flex;
     justify-content: space-evenly;
-    height: 100%;
     align-items: center;
 }
 
-#footer a {
+footer a {
     text-decoration: none;
     color:#1f7c2893;
 }
 
-#footer a:hover {
+footer a:hover {
     color: #0e3312;
     cursor: pointer;
 }
@@ -509,11 +506,6 @@ button:hover {
 
 /* ----------------------------- BREAKPOINTS ----------------------------- */
 /* The above styling is for screen sizes above 950px. The below styling applies to the sepcified breakpoints. */
-@media only screen and (max-width: 1281px) {
-    #topic-select {
-        overflow-y: scroll;
-    }
-}
 
 @media only screen and (max-width: 950px) {
     .nav-element {
@@ -591,7 +583,6 @@ button:hover {
 
     #topic-select {
         width:90%;
-        height: 75%;
     }
 
     #game-play-container {
@@ -600,15 +591,12 @@ button:hover {
     }
 
     #picture-container {
-        height: 160px;
     }
 
     #changing-picture {
-        height: 160px;
     }
 
     #definition-display {
-        height: 110px;
         margin: 10px;
         font-size: 17px;
     }

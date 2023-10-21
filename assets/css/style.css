@@ -40,7 +40,6 @@ main {
   position: fixed;
   z-index: -400;
   opacity: 0.2;
-  top: 0;
   background-size: cover;
   background-position: center;
 }

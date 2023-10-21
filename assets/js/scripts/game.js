@@ -65,8 +65,6 @@ let excludedWords = [
   "Morphological adaptations",
   "Non-flowering plants",
   "Prey",
-  "F1 generation",
-  "F2 generation",
   "Protein synthesis",
   "Punnett square",
   "Complementary base pairing",
@@ -122,7 +120,7 @@ document
 // ----------------------- Functions -------------------------
 
 /**
- *
+ * Sets the value of the input field to the 'guess' variable and processes guess.
  */
 function letterInput() {
   guess = document.getElementById("letter-input").value;

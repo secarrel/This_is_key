@@ -92,18 +92,8 @@ let excludedWords = [
 // Triggers reset for a new game.
 document.getElementById("yes-end")?.addEventListener("click", reset);
 
-// Detect guessed letter and checks if correct on 'enter'.
-document
-  .getElementById("letter-input")
-  ?.addEventListener("keydown", function (event) {
-    guess = event.key;
-    checkLetter();
-    updateWordProgress(upperGuess);
-    checkForWin();
-    checkForLoss();
-    clear();
-    focus();
-  });
+// Triggers the letter input submission.
+document.getElementById("letter-input")?.addEventListener("input", letterInput);
 
 // Triggers the newWord function.
 document.getElementById("next-word")?.addEventListener("click", newWord);
@@ -130,6 +120,24 @@ document
   ?.addEventListener("click", showRulesModal);
 
 // ----------------------- Functions -------------------------
+
+/**
+ *
+ */
+function letterInput() {
+  guess = document.getElementById("letter-input").value;
+  console.log(guess);
+  checkLetter();
+  updateWordProgress(upperGuess);
+  checkForWin();
+  checkForLoss();
+  clear();
+  focus();
+}
+
+function submit() {
+  document.getElementById("letter-input").submit(guess);
+}
 
 /**
  * Empties all temporary arrays.

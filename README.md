@@ -503,7 +503,7 @@ I also made sure to add hover effects to all items that were interactive so that
 
     Though the display appears responsive and as intended on chrome dev tools, when used on a handheld device, the URL bar (which disappears on scroll) affects the display of the content. I’ve researched ways to resolve this error but haven’t had the time to implement it. This will be an area for improvement. 
 
-    ![mobile input fix](documentation/readme_images/vh_mobile_bug.mp4)
+    [mobile input fix video demonstration](documentation/readme_images/vh_mobile_bug.mp4)
 
 - #### Error message disappears after random timeframe
 
@@ -511,7 +511,7 @@ I also made sure to add hover effects to all items that were interactive so that
 
     To resolve this I tried to move the clear function callback after the focus function callback. I thought this may help as it seemed like the setTimeout was being affected by the focus function. I also felt that these functions should be called in this new order anyway, it makes more logical sence. 
 
-    ![Attempt at fixing bug](documentation/readme_images/clear_error_fix)
+    ![Attempt at fixing bug](documentation/readme_images/clear_error_fix.png)
 
     This seems to have improved the bug but I still find that sometimes the error disappears too quickly.
 
@@ -611,66 +611,56 @@ How to make a local copy by cloning
 
         - [Topic display background](https://images.unsplash.com/photo-1516979187457-637abb4f9353?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA==&auto=format&fit=crop&w=1770&q=80) 
 
-        - [Game display background](https://plus.unsplash.com/premium_photo-1661430659143-ffbb5ce2b6a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80)     
-
- 
- 
+        - [Game display background](https://images.unsplash.com/photo-1597742200037-aa4d64d843be?auto=format&fit=crop&q=80&w=1974&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA==)     
 
 ## Acknowledgements 
 
- 
- 
-
 ## Future Improvements  
- 
 
 - ### Potential Scope 
 
     I aimed to create an application that has scope to grow and become more accessible to different age groups, pupils studying using different examining bodies, and different subjects. As it is currently, the project targets GCSE aged pupils studying Biology in Wales under the WJEC exam governing body.This is a very small target audience but was used to demonstrate the potential of the app in the given time frame.  
 
- 
- 
-
 - ### Future Features  
-
- 
- 
 
     - #### Local leaderboard 
 
-        I would like to introduce a feature which allows the user to save their score to a leaderboard. The leaderboard would be only for 'invited' users or those in a designated 'room', with the idea being that the 'room' could contain pupils from a class. This would then allow them to share their scores with their classmates or let their teacher track their progress as they work their way throug hthe syllabus.  
-
- 
- 
+    I would like to introduce a feature which allows the user to save their score to a leaderboard. The leaderboard would be only for 'invited' users or those in a designated 'room', with the idea being that the 'room' could contain pupils from a class. This would then allow them to share their scores with their classmates or let their teacher track their progress as they work their way throug hthe syllabus.  
 
     - #### Subject selection 
 
-        As mentioned in the 'Potential Scope' section, I would like this app to be expanded to include more subjects. It currently just targets Biology. The aim would be to eventualy expand the subject options to make it available to as many subjects as are suitable. 
-
- 
- 
+    As mentioned in the 'Potential Scope' section, I would like this app to be expanded to include more subjects. It currently just targets Biology. The aim would be to eventualy expand the subject options to make it available to as many subjects as are suitable. 
 
     - #### Exam body selection 
 
-        Similarly to above, I would like to widen the offering of this app to allow pupils using AQA or Edexcel, for example, for their studies.  
-
- 
- 
+    Similarly to above, I would like to widen the offering of this app to allow pupils using AQA or Edexcel, for example, for their studies.  
 
     - #### Increase topic offering 
 
-        The app currently offers 6 topics in the subject of Biology, but the GCSE syllabus actually has around 20 topics which the pupils will learn in school. Due to time constraints, I didn't include all of those in this version, but a future improvement would be to add the rest of the topics.  
-
-     
+    The app currently offers 6 topics in the subject of Biology, but the GCSE syllabus actually has around 20 topics which the pupils will learn in school. Due to time constraints, I didn't include all of those in this version, but a future improvement would be to add the rest of the topics.  
 
     - #### Picture relevant to topic 
+    
+    As mentioned above, I almost didn't include the changing image as it is as I felt it didn't connect with the topic well enough to earn its place. Having deciding to keep it and seeing its benefit, I feel that it could be improved. Ideally, this image will represent that current top, similarly to the icons on the topic select page.
 
+    - #### Difficulty level
+
+    In future versions of this game I would like to include an option to change the difficulty. This could in turn change the number of guesses the user can make before losing.
+
+    - #### Save score data
+
+    When refreshing the page, all data from the current game is reset which means the score and keyword options array are reset. Though this isn't an issue on a pc so much, on a mobie, it is very easy to accidentally refresh a page. I can imagine this being frustrating for the user after a while. I would lke to store data in the future, when I learn these skills, so this reset issue doesn't cause frustration.
  
- 
- 
- 
-- ### Improvements to current features 
+- ### Improvements to current code quality 
 
     - #### Improve functionality on mobile devices 
 
     As mentioned in the unresolved bugs, the display of the app is negatively affected by the URL bar on mobile devices which disappears on scroll. I intend to improve the mobile display of this app in the future.  
+
+    [URL bar bug on mobie](documentation/readme_images/vh_mobile_bug.mp4)
+ 
+    - #### Topic select event listener in HTML file
+
+    I have left an event listener in each radio button in the index.html file. I ideally would like all event listeners in the game.js file to make the code cleaner but I ran out of time to improve this. This is something I intent to imporve.
+
+    ![Event listener in HTML file](documentation/readme_images/select_topic_improvement.png)

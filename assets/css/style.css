@@ -298,8 +298,8 @@ label:hover {
 }
 
 #game-background {
-  background: url(https://images.unsplash.com/photo-1597742200037-aa4d64d843be?auto=format&fit=crop&q=80&w=1974&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
-    bottom no-repeat;
+  background: url(https://images.unsplash.com/photo-1597742200037-aa4d64d843be?auto=format&fit=crop&q=80&w=1974&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+  top: 0;
 }
 
 #game-play-container {
@@ -601,6 +601,10 @@ button:hover {
     width: 95%;
   }
 
+  #game-play-display {
+    margin-top: 70px;
+  }
+
   #game-play-container {
     width: 90%;
     padding: 0 5px 5px 5px;
@@ -631,5 +635,11 @@ button:hover {
 @media only screen and (max-width: 400px) {
   #changing-picture {
     max-height: 160px;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  #game-play-display {
+    margin-top: 110px;
   }
 }

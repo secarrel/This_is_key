@@ -497,6 +497,16 @@ I also made sure to add hover effects to all items that were interactive so that
     ![mobile input fix](documentation/readme_images/mobile_input_fix.mp4)
     ![mobile input fix code](documentation/readme_images/mobile_input_fix.png)
 
+- #### Background image display mis-aligned
+
+    As shown below the background image started appearing in the wrong place on the game-play display. I found that this could be resolved by changing it's position to 'top'.
+    
+    ![background image misaligned bug](documentation/readme_imagesbackground_image_bug.png)
+    ![background image misaligned code](documentation/readme_imagesbackground_image_bug_code.png)
+    ![background image misaligned fix](documentation/readme_imagesbackground_image_fix_code.png)
+
+
+
 ### Unresolves Bugs 
  
 - #### Viewport height on mobile devices 

@@ -130,7 +130,7 @@ function letterInput() {
   updateWordProgress(upperGuess);
   checkForWin();
   checkForLoss();
-  clear();
+  setTimeout(clear, 500);
   focus();
 }
 

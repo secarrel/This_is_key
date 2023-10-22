@@ -159,6 +159,7 @@ function closeGameEndModal() {
 getStarted.addEventListener("click", showTopics);
 newTopic.addEventListener("click", showTopics);
 noEnd.addEventListener("click", showTopics);
+changeTopic.addEventListener("click", showTopics);
 
 /**
  * Displays all content in the "topics-display" div.

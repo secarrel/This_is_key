@@ -500,12 +500,10 @@ I also made sure to add hover effects to all items that were interactive so that
 - #### Background image display mis-aligned
 
     As shown below the background image started appearing in the wrong place on the game-play display. I found that this could be resolved by changing it's position to 'top'.
-    
+
     ![background image misaligned bug](documentation/readme_imagesbackground_image_bug.png)
     ![background image misaligned code](documentation/readme_imagesbackground_image_bug_code.png)
     ![background image misaligned fix](documentation/readme_imagesbackground_image_fix_code.png)
-
-
 
 ### Unresolves Bugs 
  
@@ -529,32 +527,67 @@ I also made sure to add hover effects to all items that were interactive so that
 
 ### Compatibility 
 
-Compatibility Table 
+I tested the game in a variety of browsers. See my notes in my [compatability table](documentation/readme_images/compatable.png)
 
 - #### Chrome 
 
-- #### Safari 
+    - See [video of chrome compatability test](documentation/readme_images/chrome_compatability.mp4)
+    - See [video of responsiveness with chrome compatability test](documentation/readme_images/chrome_responsive.mp4)
+
+
+- #### Brave 
+
+    - See [video of Brave compatability test](documentation/readme_images/brave_compatability.mp4)
+    - See [video of responsiveness with chrome compatability test](documentation/readme_images/chrome_responsive.mp4)
+
 
 - #### Edge 
 
+    - See [video of Edge compatability test](documentation/readme_images/edge_compatability.mp4)
+    - See [video of responsiveness with chrome compatability test](documentation/readme_images/chrome_responsive.mp4)
+
 - #### Firefox 
 
- 
+    - See [video of Firefox compatability test](documentation/readme_images/firefox_compatability.mp4)
+    - See [video of responsiveness with chrome compatability test](documentation/readme_images/chrome_responsive.mp4)
  
  
 
 ### Responsiveness 
-
-Could include videos here  
+I used [responsive test tools](http://www.responsivetesttool.com/) to test responsiveness on a range of devices. See the responsiveness table [here](documentation/readme_images/responsive.png)
 
 - #### Phone 
 
+    - [Apple iPhone 8 home](documentation/readme_images/iphone8.png)
+    - [Apple iPhone 8 topics](documentation/readme_images/iphone8_topic.png)
+    - [Apple iPhone 8 game](documentation/readme_images/iphone8_game.png)
+
+    - [Samsung S8 home](documentation/readme_images/samsung_home.png)
+    - [Samsung S8 topics](documentation/readme_images/samsung_topic.png)
+    - [Samsung S8 game](documentation/readme_images/samsung_game.png)
+
 - #### Tablet 
+    - [Apple iPad home](documentation/readme_images/ipad_home.png)
+    - [Apple iPad topics](documentation/readme_images/ipad_topic.png)
+    - [Apple iPad game](documentation/readme_images/ipad_game.png)
+
+    - [Microsoft Surface home portrait](documentation/readme_images/surface_home1.png)
+    - [Microsoft Surface home landscape](documentation/readme_images/surface_home2.png)
+    - [Microsoft Surface topics portrait](documentation/readme_images/surface_topic1.png)
+    - [Microsoft Surface topics landscape](documentation/readme_images/surface_topic2.png)
+    - [Microsoft Surface game portrait](documentation/readme_images/surface_game1.png)
+    - [Microsoft Surface game landscape](documentation/readme_images/surface_game2.png)
 
 - #### Desktop 
 
- 
- 
+    - [1440 x 900 desktop home](documentation/readme_images/desktop_large_home.png)
+    - [1440 x 900 desktop topics](documentation/readme_images/desktop_large_topic.png)
+    - [1440 x 900 desktop game](documentation/readme_images/desktop_large_game.png)
+
+    - [1366 x 768 desktop home](documentation/readme_images/desktop_small_home.png)
+    - [1366 x 768 desktop topics](documentation/readme_images/desktop_small_topic.png)
+    - [1366 x 768 desktop game](documentation/readme_images/desktop_small_game.png)
+
 
 ### Validator Testing 
 
@@ -564,7 +597,8 @@ Could include videos here
 
 - #### JS with JSHint? 
 
- 
+### Automated Testing
+I used [Jest]() to test a portion of my code. See the test results [here](documentation/readme_images/jest_test.png)
  
 
 ### Accessibility and Performance 
@@ -590,9 +624,6 @@ How to make a local copy by cloning
 
 ## Credits 
 
- 
- 
-
 - ### Content 
 
     - Keywords and WJEC definitions were originally taken from [BBC Bitesize's website](https://www.bbc.co.uk/bitesize/guides/zsgfv4j/revision/1) which provides a glossary for each topic. However, midway through the project the website was updated and the glossary data was removed. Instead, I got the same data from my partner who had it provided by [pmt.education](https://www.pmt.education/?utm_source=resources&utm_medium=referral&utm_campaign=pdf&utm_content=copyright_notice) as a resource for teaching in school.  
@@ -601,26 +632,15 @@ How to make a local copy by cloning
 
     - Inspiration for the project came from my partner who teaches biology in secondary school and is always looking for quick educational activities for the pupils at the start of each lesson. 
 
- 
- 
-
 - ### Media 
 
     - #### Flower animation 
-
         - I created the flower animation using the art package [Krita](https://krita.org/). 
-
         - I removed the background using [removebg](https://www.remove.bg/). 
 
- 
- 
-
     - #### All background images were taken from [unsplash](https://unsplash.com/) 
-
         - [Home display background](https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80) 
-
         - [Topic display background](https://images.unsplash.com/photo-1516979187457-637abb4f9353?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA==&auto=format&fit=crop&w=1770&q=80) 
-
         - [Game display background](https://images.unsplash.com/photo-1597742200037-aa4d64d843be?auto=format&fit=crop&q=80&w=1974&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA==)     
 
 ## Acknowledgements 

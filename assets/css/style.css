@@ -393,7 +393,7 @@ label:hover {
 #guessed-box {
   width: 100%;
   background-color: #b5b9b473;
-  border-color: #b5b9b473;
+  border-color: none;
   border-radius: 5%;
   margin: 5px auto;
   padding: 4px;

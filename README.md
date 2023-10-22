@@ -1,5 +1,8 @@
 # This is Key! 
 
+![Fully responsive This is Key](documentation/readme_images/responsive_game.png)
+
+
 *This is Key!* is a learning and revision aid for school pupils. It is a Hangman-style game which provides key words within selected topics from school subjects, which the user can guess. The official definition taken from the exam governing body is provided as a hint to help the pupil use or build knowledge of the topic to identify the key word. 
 
 Currently the game demonstrates its potential by offering keywords from a selection of Biology topics based on the WJEC GCSE syllabus. There is great scope for growth by expanding the subject options, topic options, governing body options, and tailoring it to different age groups.  
@@ -27,6 +30,8 @@ This game is designed for use on a laptop or desktop but is responsive so works 
 ### Frequent Visitor Goals 
 
 - As a frequent user, I would like to receive guidance on how to further improve my understanding of the subject. 
+
+- As a frequent user, I would like to be able to see progress each time I play.
 
 ## Features 
 
@@ -60,7 +65,7 @@ The first button on this display is the 'How to Play' modal opener which explain
 
 - [Tablet 'How to Play' modal](documentation/readme_images/tablet_rules.png) 
 
-- [Mobile desktop 'How to Play' modal](documentation/readme_images/mobile_modal.png) 
+- [Mobile desktop 'How to Play' modal](documentation/readme_images/mobile_rules.png) 
 
 
 #### Get Started 
@@ -120,7 +125,7 @@ The topic options are displayed as radio buttons so that only one can be selecte
 
 The buttons are displayed in a container which allows the user to scroll through the topics if in the future the topic list were to expand. This was a decision made to improve responsiveness and maintainability.  
 
-![Scroll topics](documentation/readme_images/topic_scroll.mp4) 
+[Scroll topics](documentation/readme_images/topic_scroll.mp4) 
 
 Each topic has a related icon which helps the user to quickly identify a topic. The icons also add to the sence of fun the app is trying to create. I added an extra animation so that on hover the icons shake around to add to the fun.  
  
@@ -153,7 +158,7 @@ This feature was added later in the development of the game as I thought it woul
 
 #### Changing Picture 
 
-![Video of the changing picture](documentation/readme_images/changing_picture.mp4) 
+[Changing picture video](documentation/readme_images/changing_picture.mp4) 
 
 The changing picture indicates how many guesses the user has before they 'lose' the word. It counts down, displaying a full happy flower to start and ending with just a sad seed head if all guesses are used.  
 
@@ -329,41 +334,41 @@ I used [figma](https://www.figma.com/) to create wireframes for this project. Th
 
 - [Landing page large desktop](documentation/readme_images/wireframe_lg_desktop_home.png) 
 
-- [Landing page large desktop](documentation/readme_images/wireframe_sm_desktop_home.png) 
+- [Landing page small desktop](documentation/readme_images/wireframe_sm_desktop_home.png) 
 
-- [Landing page large desktop](documentation/readme_images/wireframe_tablet_home.png) 
+- [Landing page tablet](documentation/readme_images/wireframe_tablet_home.png) 
 
-- [Landing page large desktop](documentation/readme_images/wireframe_mobile_home.png) 
+- [Landing page mobile](documentation/readme_images/wireframe_mobile_home.png) 
 
 ### How to Play 
 
-- [Landing page large desktop](documentation/readme_images/wireframe_lg_desktop_rules.png) 
+- [How to play large desktop](documentation/readme_images/wireframe_lg_desktop_rules.png) 
 
-- [Landing page large desktop](documentation/readme_images/wireframe_sm_desktop_rules.png) 
+- [How to play small desktop](documentation/readme_images/wireframe_sm_desktop_rules.png) 
 
-- [Landing page large desktop](documentation/readme_images/wireframe_tablet_rules.png) 
+- [How to play tablet](documentation/readme_images/wireframe_tablet_rules.png) 
 
-- [Landing page large desktop](documentation/readme_images/wireframemobile_rules.png) 
+- [How to play mobile](documentation/readme_images/wireframemobile_rules.png) 
 
 ### Topic Selection 
 
-- [Landing page large desktop](documentation/readme_images/wireframe_lg_desktop_topics.png) 
+- [Topic Selection  large desktop](documentation/readme_images/wireframe_lg_desktop_topics.png) 
 
-- [Landing page large desktop](documentation/readme_images/wireframe_sm_desktop_topics.png) 
+- [Topic Selection  small desktop](documentation/readme_images/wireframe_sm_desktop_topics.png) 
 
-- [Landing page large desktop](documentation/readme_images/wireframe_tablet_topics.png) 
+- [Topic Selection  tablet](documentation/readme_images/wireframe_tablet_topics.png) 
 
-- [Landing page large desktop](documentation/readme_images/wireframemobile_topics.png) 
+- [Topic Selection  mobile](documentation/readme_images/wireframemobile_topics.png) 
 
 ### Game-play display 
 
-- [Landing page large desktop](documentation/readme_images/wireframe_lg_desktop_game.png) 
+- [Game-play display large desktop](documentation/readme_images/wireframe_lg_desktop_game.png) 
 
-- [Landing page large desktop](documentation/readme_images/wireframe_sm_desktop_game.png) 
+- [Game-play display small desktop](documentation/readme_images/wireframe_sm_desktop_game.png) 
 
-- [Landing page large desktop](documentation/readme_images/wireframe_tablet_game.png) 
+- [Game-play display tablet](documentation/readme_images/wireframe_tablet_game.png) 
 
-- [Landing page large desktop](documentation/readme_images/wireframe_mobile_game.png) 
+- [Game-play display mobile](documentation/readme_images/wireframe_mobile_game.png) 
 
 ## Design Choices 
 
@@ -423,34 +428,25 @@ I also made sure to add hover effects to all items that were interactive so that
 
     checkLetter() stopped preventing the user from submitting multiple letters at once or numbers. To resolve this bug, I first used 'console.log()' to identify where the problem was and then changed individual sections of the code and tested it each time to see if the changes were affective. The solution in the end was to correct the 'if' statement for 'guessValid'. 
 
-    The first image shows 'numberOfCharacters' and 'validGuess === true'. 
+    [The first image](documentation/readme_images/valid_guess_incorrect.png) shows 'numberOfCharacters' and 'validGuess === true' 
 
-    ![initial code that needed correcting](documentation/readme_images/valid_guess_incorrect.png) 
-
-    The second image shows that when replacing this 'validGuess !== -1', it disallows double character guesses as well and it identified letter characters more affectively as well. This meant I could remove the 'numberOfCharacters' 'if' statement. 
-
-    ![Corrected code](documentation/readme_images/valid_guess_fixed.png) 
+    [The second image](documentation/readme_images/valid_guess_fixed.png)  shows that when replacing this 'validGuess !== -1', it disallows double character guesses as well and it identified letter characters more affectively as well. This meant I could remove the 'numberOfCharacters' 'if' statement. 
 
 - #### Keywords containing spaces can't be completed 
 
     If the keyword contains a space or dash, the user is unable to correctly guess the whole word (they can only guess letters, not special characters). See this bug below: 
 
-    ![Unable to correctly guess whole word](documentation/readme_images/space_error.png) 
+    [Unable to correctly guess whole word](documentation/readme_images/space_error.png) 
 
     I initially added spaces to the 'possibleLetters' array, but for better UX these shouldn't appear as underscores to begin with. I found that a solution to this was to add a couple of lines to the 'if statement' in the updateWordProgress function. The addition is displayed below and highlighted.  
 
-    ![Code to correct spaces bug](documentation/readme_images/spaces_correct.png) 
+    [Code to correct spaces bug](documentation/readme_images/spaces_correct.png) 
  
-
 - #### Minus scores displayed  
 
-    If the user has more 'losses' than 'wins', the 'Current Score:' displays negative numbers. This is evidenced below. 
+    If the user has more 'losses' than 'wins', the 'Current Score:' displays negative numbers. This is evidenced [here.](documentation/readme_images/current_score_bug.png) 
 
-    ![Minus points can be displayed as the current score](documentation/readme_images/current_score_bug.png) 
-
-    This doesn't create a good experience for the user so I wanted to make sure the score could not go lower than '0'. To resolve this bug, I added an 'if statement' to the removePoint() function. See below. 
-
-    ![Minus points display resolved](documentation/readme_images/current_score_fix.png) 
+    This doesn't create a good experience for the user so I wanted to make sure the score could not go lower than '0'. To resolve this bug, I added an 'if statement' to the removePoint() function. See [here](documentation/readme_images/current_score_fix.png). 
  
 - #### Duplicated 'newWord' function 
 
@@ -466,9 +462,11 @@ I also made sure to add hover effects to all items that were interactive so that
 
     Though this was long-winded and time-consuming, I think it's important to go through every word and definition to screen the data and ensure it is suitable for school-aged children.  
 
-    ![Definition not retrieved](documentation/readme_images/definition_error.png) 
-    ![Caught error and returned message to console](documentation/readme_images/definition_error_fix.png) 
-    ![Alternative definition fix](documentation/readme_images/alt_definition_fix.png)
+    [Definition not retrieved](documentation/readme_images/definition_error.png)
+
+    [Caught error and returned message to console](documentation/readme_images/definition_error_fix.png)
+     
+    [Alternative definition fix](documentation/readme_images/alt_definition_fix.png)
 
 
 - #### Delay on topic select 
@@ -477,7 +475,7 @@ I also made sure to add hover effects to all items that were interactive so that
 
     I resolved this bug by changing the getData(Json) function to an async function and added the showGamePlay callback at the end of this function. This was when the data has finished loading, the next page is automatically displayed.  
 
-    ![topic selection fix](documentation/readme_images/topic_select_fix.png) 
+    [Topic selection fix](documentation/readme_images/topic_select_fix.png) 
 
 - #### querySelectorAll not working with showModal method. 
 
@@ -489,21 +487,25 @@ I also made sure to add hover effects to all items that were interactive so that
 
     I initially used a ‘keydown’ event listener to detect guessed letters and this worked on laptops/desktops. When testing in Chrome Dev Tools, I also found no issue with this event listener. However, I tested the app on my phone to check it was responsive and found that the ‘keydown’ event listener couldn’t detect the input because ‘keydown’ doesn’t exist for the on-screen keyboards.  
 
-    ![Letter input not working on mobile devices](documentation/readme_images/mobile_input_bug.jpg)
-    [mobile input  bug video demonstration](documentation/readme_images/mobile_input_bug.mp4)
+    [Letter input not working on mobile devices](documentation/readme_images/mobile_input_bug.jpg)
+
+    [Mobile input  bug video demonstration](documentation/readme_images/mobile_input_bug.mp4)
 
     To resolve this, I changed the event listener to a ‘input’ detection. This resolved the bug and the game works affectively on mobile devices.  
 
-    ![mobile input fix](documentation/readme_images/mobile_input_fix.mp4)
-    ![mobile input fix code](documentation/readme_images/mobile_input_fix.png)
+    [Mobile input fix](documentation/readme_images/mobile_input_fix.mp4)
+
+    [Mobile input fix code](documentation/readme_images/mobile_input_fix.png)
 
 - #### Background image display mis-aligned
 
     As shown below the background image started appearing in the wrong place on the game-play display. I found that this could be resolved by changing it's position to 'top'.
 
-    ![background image misaligned bug](documentation/readme_imagesbackground_image_bug.png)
-    ![background image misaligned code](documentation/readme_imagesbackground_image_bug_code.png)
-    ![background image misaligned fix](documentation/readme_imagesbackground_image_fix_code.png)
+    [Background image misaligned bug](documentation/readme_images/background_img_bug.png)
+
+    [Background image misaligned code](documentation/readme_images/background_img_bug_code.png)
+
+    [Background image misaligned fix](documentation/readme_images/background_img_fix_code.png)
 
 ### Unresolves Bugs 
  
@@ -511,7 +513,7 @@ I also made sure to add hover effects to all items that were interactive so that
 
     Though the display appears responsive and as intended on chrome dev tools, when used on a handheld device, the URL bar (which disappears on scroll) affects the display of the content. I’ve researched ways to resolve this error but haven’t had the time to implement it. This will be an area for improvement. 
 
-    [mobile input fix video demonstration](documentation/readme_images/vh_mobile_bug.mp4)
+    [Mobile display disrupted by URL](documentation/readme_images/vh_mobile_bug.mp4)
 
 - #### Error message disappears after random timeframe
 
@@ -519,9 +521,9 @@ I also made sure to add hover effects to all items that were interactive so that
 
     To resolve this I tried to move the clear function callback after the focus function callback. I thought this may help as it seemed like the setTimeout was being affected by the focus function. I also felt that these functions should be called in this new order anyway, it makes more logical sence. 
 
-    ![Attempt at fixing bug](documentation/readme_images/clear_error_fix.png)
+    [Attempt at fixing bug](documentation/readme_images/clear_error_fix.png)
 
-    This seems to have improved the bug but I still find that sometimes the error disappears too quickly.
+    This seems to have improved the bug but I still find that sometimes the error message disappears too quickly.
 
 ## Testing 
 
@@ -534,12 +536,10 @@ I tested the game in a variety of browsers. See my notes in my [compatability ta
     - See [video of chrome compatability test](documentation/readme_images/chrome_compatability.mp4)
     - See [video of responsiveness with chrome compatability test](documentation/readme_images/chrome_responsive.mp4)
 
-
 - #### Brave 
 
     - See [video of Brave compatability test](documentation/readme_images/brave_compatability.mp4)
     - See [video of responsiveness with chrome compatability test](documentation/readme_images/chrome_responsive.mp4)
-
 
 - #### Edge 
 
@@ -550,8 +550,6 @@ I tested the game in a variety of browsers. See my notes in my [compatability ta
 
     - See [video of Firefox compatability test](documentation/readme_images/firefox_compatability.mp4)
     - See [video of responsiveness with chrome compatability test](documentation/readme_images/chrome_responsive.mp4)
- 
- 
 
 ### Responsiveness 
 I used [responsive test tools](http://www.responsivetesttool.com/) to test responsiveness on a range of devices. See the responsiveness table [here](documentation/readme_images/responsive.png)
@@ -588,45 +586,70 @@ I used [responsive test tools](http://www.responsivetesttool.com/) to test respo
     - [1366 x 768 desktop topics](documentation/readme_images/desktop_small_topic.png)
     - [1366 x 768 desktop game](documentation/readme_images/desktop_small_game.png)
 
-
 ### Validator Testing 
 
 - #### HTML with W3C 
+The W3C HTML Validation Service reported that there were no errors in my HTML.
+![HTML Validation](documentation/readme_images/w3c_html_validator.png)
 
 - #### CSS with W3C 
+The W3C CSS Validator returned one error which was found in the [Font Awesome script](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css) that I linked at the top of my HTML file. I haven't removed this error as it isn't part of my project.
+![CSS Validation](documentation/readme_images/w3c_css_validator.png)
 
-- #### JS with JSHint? 
+- #### JavaScript with JSHint
+See the results for my script.js file [here](documentation/readme_images/jshint_scriptjs.png)
+
+There are two undefined variables reported for the script.js file. These are used/defined in a function in my game.js file, as shown [here](documentation/readme_images/jshint_exp1.png).
+
+See the results for my game.js file [here](documentation/readme_images/jshint_gamejs.png).
+
+This showed 8 undefined variables but each can be explained and is defined during game-play.
+- showRulesModal, showGamePlay and showTopics are all defined in the script.js file. 
+- updatedWordProgress is undefined on so many lines because when jshint ran this code, the keyword variable wasn't defined. The updateWordProgress function is only called when the variables that run within the function are defined. 
+- jsonFile is shown as undefined for the same reason. The variable is only defined when the user selects a topic.
+- SpeechSynthesisUtterance and speechSynthesis are undefined because the keyword variable is not yet defined either. When the newWord function is called, these become defined. 
+- module is related to the Jest testing file.
+- selectTopic is a function called by an event listener in my HTML. As explained in the bugs and future improvements section, I hope to remove the event listeners from the HTML file when I am not working to a deadline. 
 
 ### Automated Testing
-I used [Jest]() to test a portion of my code. See the test results [here](documentation/readme_images/jest_test.png)
- 
+I used [Jest](https://jestjs.io/) to test a portion of my code. See the test results [here](documentation/readme_images/jest_test.png)
 
-### Accessibility and Performance 
+### User story testing
+The project achieves the user story goals but there is still room for improvement as discussed in in the future improvementssection. See the [testing of the user story goals here](documentation/readme_images/user_story_testing.png).
 
-Lighthouse  
+### Feature testing
+All links and interactive elements have been tested by hovering and clicking. All work correctly on all deviced tested.
 
- 
- 
+The game has also been played, running through all key words in topics to ensure all functions are working correctly. 
+
+### Accessibility and performance testing
+
+I used Lighthouse in Chrome Dev Tools to test performance and accessibility. All scores are between 90 and 100. With the biggest issue being the colour contrast on the landing page buttons. The hover animation makes the labels clearer and better contrasted.
+
+![Lighthouse Scores](documentation/readme_images/lighthouse.png)
 
 ## Deployment  
 
-Githube pages. Explain how it was deployed. 
+To deploy this project I used github pages and followed these steps:
+- In the [GitHub repository](https://github.com/secarrel/This_is_key), navigate to the settings tab.
+- Navigate to the 'pages' section.
+- In the source section drop-down menu, select Deploy from a branch.
+- Select main as the branch.
+- Save and the page will refresh to indicate a successful deployment. 
 
- 
- 
+[Here](https://secarrel.github.io/This_is_key/) is the deployed link. 
 
 ## Local Deployment 
 
-How to make a local copy by cloning 
+You can make a local copy of this project by cloning it in your IDE. Type the following in your terminal:
 
+    git clone https://github.com/secarrel/This_is_key.git
  
- 
-
 ## Credits 
 
 - ### Content 
 
-    - Keywords and WJEC definitions were originally taken from [BBC Bitesize's website](https://www.bbc.co.uk/bitesize/guides/zsgfv4j/revision/1) which provides a glossary for each topic. However, midway through the project the website was updated and the glossary data was removed. Instead, I got the same data from my partner who had it provided by [pmt.education](https://www.pmt.education/?utm_source=resources&utm_medium=referral&utm_campaign=pdf&utm_content=copyright_notice) as a resource for teaching in school.  
+    - Keywords and [WJEC](https://www.wjec.co.uk/) definitions were originally taken from [BBC Bitesize's website](https://www.bbc.co.uk/bitesize/guides/zsgfv4j/revision/1) which provides a glossary for each topic. However, midway through the project the website was updated and the glossary data was removed. Instead, I got the same data from my partner who had it provided by [pmt.education](https://www.pmt.education/?utm_source=resources&utm_medium=referral&utm_campaign=pdf&utm_content=copyright_notice) as a resource for teaching in school.  
 
     - I used [Free Dictionary API](https://dictionaryapi.dev/) to provide an alternative definition to aid understanding. 
 
@@ -643,7 +666,16 @@ How to make a local copy by cloning
         - [Topic display background](https://images.unsplash.com/photo-1516979187457-637abb4f9353?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA==&auto=format&fit=crop&w=1770&q=80) 
         - [Game display background](https://images.unsplash.com/photo-1597742200037-aa4d64d843be?auto=format&fit=crop&q=80&w=1974&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA==)     
 
+    - #### Read me
+        - [mp4 compress](https://www.mp4compress.com/) was used to compress the videos for this read me. 
+
 ## Acknowledgements 
+
+I would like to express my appreciation and thanks to [Iuliia Konovalova](https://github.com/IuliiaKonovalova) for her support, guidance and advice throughout this project. She helped me through some of the larger challenges I faced and kept me progressing and calm.
+
+My family have been very supportive in testing the app on their mobile devices and identifying some of the bugs mentioned above.
+
+I would also like to thank my partner who helped to inspire the idea of this game through talking about his work at a secondary school. He also was very useful in bug checking and provided some data when it was removed from the website I was originally using.
 
 ## Future Improvements  
 
@@ -693,4 +725,4 @@ How to make a local copy by cloning
 
     I have left an event listener in each radio button in the index.html file. I ideally would like all event listeners in the game.js file to make the code cleaner but I ran out of time to improve this. This is something I intent to imporve.
 
-    ![Event listener in HTML file](documentation/readme_images/select_topic_improvement.png)
+    [Event listener in HTML file](documentation/readme_images/select_topic_improvement.png)

@@ -1,4 +1,4 @@
-/* jshint esversion: 8 */
+/* jshint esversion: 11 */
 
 // ----------------------- Set Variables -------------------------
 const topicSelection = document.getElementsByName("topic-select");
@@ -540,10 +540,9 @@ function displayNext() {
  */
 function displayWin() {
   document.getElementById("definition-display").innerHTML =
-    " \
-    <h3>Congratulations!</h3> \
-    <p>You guessed all letters correctly.</p> \
-    <p>Click 'next' to continue.</p> ";
+    "<h3>Congratulations!</h3>" +
+    "<p>You guessed all letters correctly.</p>" +
+    "<p>Click 'next' to continue.</p>";
 }
 
 /**

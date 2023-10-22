@@ -1,4 +1,4 @@
-/* jshint esversion: 8 */
+/* jshint esversion: 11 */
 
 // Set const variables
 const openMenu = document.querySelector("[menu-open-modal]");

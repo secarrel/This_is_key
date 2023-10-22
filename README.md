@@ -531,6 +531,8 @@ I also made sure to add hover effects to all items that were interactive so that
 
 I tested the game in a variety of browsers. See my notes in my [compatability table](documentation/readme_images/compatable.png)
 
+This compatability test was done on my desktop, but i found when using the app on my phone the speech synthesis didn't work.
+
 - #### Chrome 
 
     - See [video of chrome compatability test](documentation/readme_images/chrome_compatability.mp4)

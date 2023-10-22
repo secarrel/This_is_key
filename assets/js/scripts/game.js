@@ -1,7 +1,6 @@
 /* jshint esversion: 11 */
 
 // ----------------------- Set Variables -------------------------
-const topicSelection = document.getElementsByName("topic-select");
 const dictionaryURL = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 const possibleLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const biologyJson = "assets/js/biology_keywords/";
@@ -113,6 +112,7 @@ document
   ?.addEventListener("click", displayOfficialWJECDefinition);
 
 // Triggers display of rules modal at any time using the footer option.
+// ShowRulesModal function is located in script.js.
 document
   .querySelector("[footer-rules]")
   ?.addEventListener("click", showRulesModal);

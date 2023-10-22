@@ -451,6 +451,8 @@ label:hover {
 
 #word-end-options button i {
   float: left;
+  padding: 5px;
+  font-size: 30px;
 }
 
 /* --------------------- Word End Modal --------------------- */

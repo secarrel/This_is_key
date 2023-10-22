@@ -141,8 +141,8 @@ function reset() {
   keywordOptions = [];
   keywordIndexOptions = [];
   topicDefinitions = [];
+  topic = "";
   resetWordArrays();
-  clearTopicSelection();
 
   document.getElementById("remaining-guesses-count").innerHTML =
     remainingGuesses;
@@ -207,8 +207,7 @@ async function getData(jsonFile) {
  * Uses the dictionary API to fetch a dictionary definition for the keyword.
  */
 async function getDictionaryData(keyword) {
-  let dictionaryFile =
-    "https://api.dictionaryapi.dev/api/v2/entries/en/" + keyword;
+  let dictionaryFile = dictionaryURL + keyword;
   let dictionaryDefinition = [];
 
   try {
@@ -550,10 +549,9 @@ function displayWin() {
  */
 function displayLoss() {
   document.getElementById("definition-display").innerHTML =
-    " \
-    <h3>Unlucky</h3> \
-    <p>You didn't guess all letters correctly this time.</p> \
-    <p>Click 'next' to continue.</p> ";
+    "<h3>Unlucky</h3>" +
+    "<p>You didn't guess all letters correctly this time.</p>" +
+    "<p>Click 'next' to continue.</p>";
 }
 
 /**

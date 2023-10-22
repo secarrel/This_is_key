@@ -1,49 +1,89 @@
 /* jshint esversion: 11 */
 
-// Set const variables
-const openMenu = document.querySelector("[menu-open-modal]");
-const closeMenu = document.getElementById("close-menu");
-const menuModal = document.querySelector("[menu-modal]");
-const openRules = document.querySelector("[rules-open-modal]");
-const closeRules = document.querySelector("[rules-close-modal]");
-const rulesModal = document.querySelector("[rules-modal]");
+// --------- Set const variables for all interactive navigation elements ----------
+// Header
+const openMenu = document.getElementById("nav-menu");
+
+// Home display
+const displayHome = document.getElementsByClassName("display-home");
+const getStarted = document.getElementById("get-started");
+const openRules = document.getElementById("rules-button");
+
+// Game display
 const openWordEnd = document.getElementById("next");
-const wordEndModal = document.querySelector("[word-end-modal]");
-const closeWordEnd = document.querySelectorAll("[close-word-end-modal]");
-const changeTopic = document.querySelectorAll("[change-topic]");
+
+// Word end modal
+const wordEndModal = document.getElementById("word-modal");
+const nextWord = document.getElementById("next-word");
+const endGame = document.getElementById("end-game");
+const changeTopic = document.getElementById("change-topic");
+
+// Nav Menu modal
+const menuModal = document.getElementById("menu-modal");
+const newTopic = document.getElementById("new-topic");
+const newGame = document.getElementById("new-game");
+const differentWord = document.getElementById("new-word");
+const closeMenu = document.getElementById("close-menu");
+
+// Footer
+const footerRules = document.getElementById("footer-rules");
+const openAbout = document.getElementById("open-about-modal");
+
+// Game End modal
+const gameEndModal = document.getElementById("game-end-modal");
+const end = document.getElementById("yes-end");
+const noEnd = document.getElementById("no-continue");
+const closeEndGame = document.getElementById("close-end-game");
+
+// About modal
+const closeAbout = document.getElementById("close-about-modal");
+const aboutModal = document.getElementById("about-modal");
+
+// Rules modal
+const rulesModal = document.getElementById("rules-modal");
+const closeRules = document.getElementById("rules-close-modal");
+
+// Sections Display
 const homeDisplay = document.getElementById("home-display");
 const topicsDisplay = document.getElementById("topics-display");
 const gamePlayDisplay = document.getElementById("game-play-display");
 const navDisplay = document.getElementById("nav-display");
-const closeAbout = document.querySelector("[close-about-modal]");
-const openAbout = document.querySelector("[open-about-modal]");
-const aboutModal = document.querySelector("[about-modal]");
 
 // ---------- Burger Menu --------------
 // Event listeners to open and close the modal
 openMenu.addEventListener("click", openMenuModal);
+closeMenu.addEventListener("click", closeMenuModal);
+newGame.addEventListener("click", closeMenuModal);
+differentWord.addEventListener("click", closeMenuModal);
+newTopic.addEventListener("click", closeMenuModal);
+
+/**
+ * Open the menu modal
+ */
 function openMenuModal() {
   menuModal.showModal();
 }
 
-closeMenu.addEventListener("click", closeMenuModal);
+/**
+ * Close the menu modal
+ */
 function closeMenuModal() {
   menuModal.close();
 }
 
-document
-  .getElementById("change-topic")
-  .addEventListener("click", closeMenuModal);
-document.getElementById("new-game").addEventListener("click", closeMenuModal);
-document.getElementById("new-word").addEventListener("click", closeMenuModal);
-
 // ---------- How to play modal --------------
-// Event listeners to open and close the modal
 openRules.addEventListener("click", showRulesModal);
+footerRules.addEventListener("click", showRulesModal);
 
-closeRules.addEventListener("click", () => {
+closeRules.addEventListener("click", closeRulesModal);
+
+/**
+ * Close the rules modal.
+ */
+
+function closeRulesModal() {
   rulesModal.close();
-});
+}
 
 /**
  * Displays the rules modal.
@@ -53,29 +93,31 @@ function showRulesModal() {
 }
 
 // ---------- About modal --------------
-// Event listeners to open and close the modal
-openAbout.addEventListener("click", () => {
-  aboutModal.showModal();
-});
+// Event listeners to open and close the modal.
+openAbout.addEventListener("click", showAbout);
+closeAbout.addEventListener("click", closeAboutModal);
 
-closeAbout.addEventListener("click", () => {
+/**
+ * Open About modal.
+ */
+function showAbout() {
+  aboutModal.showModal();
+}
+
+/**
+ * Close About modal.
+ */
+function closeAboutModal() {
   aboutModal.close();
-});
+}
 
 // ---------- Word end modal --------------
 // Event listeners to open the modal
 openWordEnd.addEventListener("click", openWordEndModal);
 
-/**
- * Opens the word end modal.
- */
-function openWordEndModal() {
-  wordEndModal.showModal();
-}
-
-for (let i = 0; i < closeWordEnd.length; i++) {
-  closeWordEnd[i].addEventListener("click", closeWordEndModal);
-}
+changeTopic.addEventListener("click", closeWordEndModal);
+nextWord.addEventListener("click", closeWordEndModal);
+endGame.addEventListener("click", closeWordEndModal);
 
 /**
  * Closes the word end modal.
@@ -84,18 +126,20 @@ function closeWordEndModal() {
   wordEndModal.close();
 }
 
+/**
+ * Opens the word end modal.
+ */
+function openWordEndModal() {
+  wordEndModal.showModal();
+}
+
 // ---------- Game end modal --------------
-// Get modal and modal buttons
-const gameEndModal = document.querySelector("[game-end-modal]");
-document.getElementById("new-game").addEventListener("click", openGameEndModal);
-document.getElementById("end-game").addEventListener("click", openGameEndModal);
-document
-  .getElementById("close-end-game")
-  .addEventListener("click", closeGameEndModal);
-document.getElementById("yes-end").addEventListener("click", closeGameEndModal);
-document
-  .getElementById("no-continue")
-  .addEventListener("click", closeGameEndModal);
+// Event listeners to open the modal
+newGame.addEventListener("click", openGameEndModal);
+endGame.addEventListener("click", openGameEndModal);
+closeEndGame.addEventListener("click", closeGameEndModal);
+end.addEventListener("click", closeGameEndModal);
+noEnd.addEventListener("click", closeGameEndModal);
 
 /**
  * Opens the end game modal.
@@ -112,9 +156,9 @@ function closeGameEndModal() {
 }
 
 // ---------- Show Topics Function --------------
-for (let i = 0; i < changeTopic.length; i++) {
-  changeTopic[i].addEventListener("click", showTopics);
-}
+getStarted.addEventListener("click", showTopics);
+newTopic.addEventListener("click", showTopics);
+noEnd.addEventListener("click", showTopics);
 
 /**
  * Displays all content in the "topics-display" div.
@@ -128,8 +172,6 @@ function showTopics() {
 }
 
 // ---------- Return to Home Function --------------
-const displayHome = document.querySelectorAll("[display-home]");
-
 for (let i = 0; i < displayHome.length; i++) {
   displayHome[i].addEventListener("click", returnToHome);
 }
@@ -146,7 +188,7 @@ function returnToHome() {
 }
 
 // ---------- showGamePlay Function --------------
-document.getElementById("new-word").addEventListener("click", showGamePlay);
+differentWord.addEventListener("click", showGamePlay);
 
 /**
  * Displays all content in the "game-play-display" div.

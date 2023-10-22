@@ -20,21 +20,21 @@
     <header>
         <!-- Nav not displayed on landing page -->
         <nav class="hide" id="nav-display">
-            <div class="nav-element" display-home id="logo" type="button">
+            <div class="nav-element display-home" id="logo">
                 <!-- Logo options for responsive screen sizing -->
                 <img id="nav-logo" src="assets/images/nav_logo.png" alt="Logo icon wth catch-phrase">
                 <img id="green-key-logo" src="assets/images/green_key.png" alt="logo icon without catch-phrase">
             </div>
             <!-- Game Title -->
-            <h1 id="nav-title" class="nav-element" display-home type="button">This is Key!</h1>
+            <h1 id="nav-title" class="nav-element display-home">This is Key!</h1>
             <!-- Menu -->
-            <div id="nav-menu" class="nav-element" menu-open-modal><i class="fa-solid fa-bars"></i></div>
-            <dialog id="menu-modal" menu-modal>
+            <div id="nav-menu" class="nav-element"><i class="fa-solid fa-bars"></i></div>
+            <dialog id="menu-modal">
                 <div class="button-container">
                     <!-- Change topic -->
-                    <button type="button" id="change-topic" change-topic>Change Topic</button>
+                    <button type="button" id="new-topic">Change Topic</button>
                     <!-- New Game -->
-                    <button type="button" id="new-game" open-game-end-modal>New Game</button>
+                    <button type="button" id="new-game">New Game</button>
                     <!-- New Word -->
                     <button type="button" id="new-word">New Word</button>
                     <!-- Close -->
@@ -52,9 +52,9 @@
                 <img id="main-logo" src="assets/images/full_logo.png" alt="This is Key logo">
             </div>
             <div class="button-container" id="home-buttons">
-                <button rules-open-modal id="rules-button">How to Play</button>
+                <button id="rules-button">How to Play</button>
                 <!-- Navigate to topic selection-->
-                <button type="button" change-topic>Get Started</button>
+                <button type="button" id="get-started">Get Started</button>
             </div>
 
         </div>
@@ -131,7 +131,7 @@
                 </div>
             </div>
             <!-- 'Word end' Modal-->
-            <dialog id="word-modal" word-end-modal>
+            <dialog id="word-modal">
                 <!-- Word Information -->
                 <div id="end-word">WORD</div>
                 <div id="end-definition">definition</div>
@@ -146,31 +146,31 @@
                     <button class="hide" id="official-definition"><i class="fa-solid fa-book-open"></i>Show the official
                         WJEC definition</button>
                     <!-- Next Word -->
-                    <button id="next-word" close-word-end-modal><i class="fa-solid fa-forward-step"></i>Next
+                    <button id="next-word"><i class="fa-solid fa-forward-step"></i>Next
                         word</button>
                     <!-- Change Topic -->
-                    <button change-topic close-word-end-modal><i class="fa-solid fa-backward-step"></i>Change
+                    <button id="change-topic"><i class="fa-solid fa-backward-step"></i>Change
                         Topic</button>
                     <!-- End Game -->
-                    <button id="end-game" open-game-end-modal close-word-end-modal><i
-                            class="fa-solid fa-right-to-bracket"></i>End Game</button>
+                    <button id="end-game" class="close-word-end-modal"><i class="fa-solid fa-right-to-bracket"></i>End
+                        Game</button>
                 </div>
             </dialog>
         </div>
         <!-- 'Game end' Modal-->
-        <dialog game-end-modal>
+        <dialog id="game-end-modal">
             <h2>Would you like to end the game?</h2>
             <div id="game-end-message">Are you sure you want to end the game? <br> All data from this game will be
                 cleared.</div>
             <!-- Game end options -->
             <div class="button-container">
-                <button id="yes-end" display-home>Yes, please</button>
-                <button id="no-continue" change-topic>No, I'll just change topic</button>
+                <button id="yes-end" class="display-home">Yes, please</button>
+                <button id="no-continue" class="change-topic">No, I'll just change topic</button>
                 <p class="close" id="close-end-game"><i class="fa-solid fa-square-xmark"></i></p>
             </div>
         </dialog>
         <!-- 'About' Modal -->
-        <dialog about-modal id="about-modal">
+        <dialog class="about" id="about-modal">
             <h2>About <em>This is Key!</em></h2>
             <p>
                 <em>This is Key!</em> is designed to help GCSE pupils learn and remember keywords and their definitions
@@ -184,10 +184,10 @@
             <a id="github-link" href="https://github.com/secarrel/This_is_key/tree/main#local-leaderboard"
                 target="_blank" title="Open the GitHub repository for 'This is Key!'"><em>This is Key!</em> GitHub
                 repository</a>
-            <p class="close" close-about-modal><i class="fa-solid fa-square-xmark"></i></p>
+            <p class="close" id="close-about-modal"><i class="fa-solid fa-square-xmark"></i></p>
         </dialog>
         <!-- 'How to play' modal -->
-        <dialog rules-modal>
+        <dialog id="rules-modal">
             <h2><strong>Here's how to play...</strong></h2>
             <ul>
                 <li>Select a topic you would like to practice or learn.</li>
@@ -199,16 +199,16 @@
             </ul>
             <p><i class="fa-regular fa-lightbulb"></i> <em>Why not challenge a class-mate to see who can identify the
                     most keywords?</em></p>
-            <p rules-close-modal class="close" id="close-rules"><i class="fa-solid fa-square-xmark"></i></p>
+            <p class="close" id="rules-close-modal"><i class="fa-solid fa-square-xmark"></i></p>
         </dialog>
     </main>
     <footer>
         <!-- Footer -->
         <div id="footer">
             <!-- Open 'about' modal -->
-            <p open-about-modal class="footer-element">About <em>This is Key!</em></p>
+            <p id="open-about-modal" class="footer-element">About <em>This is Key!</em></p>
             <!-- Open 'how to play' modal -->
-            <p footer-rules class="footer-element"><i class="fa-regular fa-circle-question"></i> How to Play</p>
+            <p id="footer-rules" class="footer-element"><i class="fa-regular fa-circle-question"></i> How to Play</p>
             <!-- Link to WJEC learning resources for further development -->
             <a class="footer-element" id="wjec-link"
                 href="https://resource.download.wjec.co.uk/vtc/2022-23/Biology/English/index.html" target="_blank"

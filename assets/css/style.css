@@ -16,7 +16,7 @@ body {
 
 header {
   display: flex;
-  font-size: "Lilita One", "sans-serif";
+  font-family: "Lilita One", sans-serif;
 }
 
 main {
@@ -172,15 +172,17 @@ h2 {
   margin-top: 40px;
 }
 
-[rules-modal] ul {
+/* --------------------- Rules Modal --------------------- */
+
+#rules-modal ul {
   list-style: none;
 }
 
-[rules-modal] ul li {
+#rules-modal ul li {
   padding: 3px;
 }
 
-[rules-modal] p {
+#rules-modal p {
   padding: 10px;
 }
 
@@ -452,7 +454,7 @@ label:hover {
 }
 
 /* --------------------- Word End Modal --------------------- */
-[game-end-modal] button {
+#game-end-modal button {
   width: 300px;
 }
 
@@ -623,7 +625,7 @@ button:hover {
     width: 90%;
   }
 
-  [game-end-modal] button {
+  #game-end-modal button {
     width: 80%;
   }
 

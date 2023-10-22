@@ -51,7 +51,7 @@ The landing page is designed to be clean, eye catching, warm, inviting, and clea
 
 The logo takes up most of the display to make it clear and easy for pupils to understand what the application is and what they can do with it. The green and warm colours are welcoming. There is a distinctive and memorable icon, so they remember the app.  
 
-![Main logo](../This_is_key/assets/images/full_logo.png) 
+![Main logo](documentation/readme_images/main_logo.png) 
 
 #### How to Play 
 
@@ -91,9 +91,9 @@ There are a couple of different navbar designs so that it can be responsive and 
 
 The logo is split into the icon, icon with phrase, and game title. This was necessary to ensure that the navbar is responsive but also retains key functionality. Different elements of the logo appear on the navbar depending on the screen-size, but in every case all logos, when clicked, will take the user to the landing screen. 
 
-- [Green key logo](../This_is_key/assets/images/green_key.png) 
+- [Green key logo](documentation/readme_images/green_key.png) 
 
-- [Icon and phrase](../This_is_key/assets/images/nav_logo.png) 
+- [Icon and phrase](documentation/readme_images/small_logo.png) 
 
 #### Menu 
 
